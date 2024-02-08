@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us">
+    <head>
+        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>Price Exceptions view</h1>
+        <p>The <span class="Emphasis">Price Exceptions</span> view is used to manage price exceptions by placeholder for all of the currencies used in the clusters to which that placeholder is assorted. </p>
+        <p class="BasicNote">The system policy <span class="Emphasis">Line Visualization Allow Price Exceptions</span> sets whether this view is read-only or editable. If set to <span class="Emphasis">False</span>, the view displays but is read-only. To affect a change in this policy on an already open plan, the plan must be reopened through the <span class="Emphasis">Manage Assortment Plans</span> dialog.</p>
+        <p>
+            <img src="../../Resources/Images/Assortment Planning/Price Exceptions View.png" class="LargeImages" />
+        </p>
+        <h2>Conditional formatting</h2>
+        <p>Orange shaded cells indicates a change in Local AUT from the prior period for the currency indicated by the column section header.</p>
+        <h2>Reset default factors</h2>
+        <p>Restores default translation factors for all non-actualized periods for the product level of the selected placeholder (as defined in the <span class="Emphasis">Price Translation Management</span>, and <span class="Emphasis">Price Translation Hierarchy Assignment</span> Views).</p>
+        <p class="BasicNote">Restoring default factors causes the Local AUT and Home AUT Equivalent fields to recalculate accordingly. </p>
+        <h2>Information displayed in this view</h2>
+        <p>This View reads information from the <span class="Emphasis">Currency Exchange Rates</span>, <span class="Emphasis"> Price Translation Management</span>, and <span class="Emphasis">Price Translation Hierarchy Assignment</span> Views located in <span class="Emphasis">System Utilities &gt; Views &gt; Currency</span>. The values can be overridden to set local ticket prices in whatever way is most meaningful.</p>
+        <h2>Field descriptions</h2>
+        <table style="width: 100%;margin-left: auto;margin-right: auto;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Field</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Period</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">The period being changed. This aligns with the period type for the current assortment plan.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Home AUT</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                     The selected placeholder AUT in default currency (defined when creating the plan) for the active assortment plan. 
+                        <p class="BasicNote">This field shows a weighted average AUT for all clusters for the period in question. If differences exist by cluster and/or from period to period, values shown may not align with those shown in the main planning view or the <span class="Emphasis">Sales Plan</span> view.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Home AUT (ex VAT)</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">(Hidden by default) The selected placeholder AUT excluding VAT in the default currency for the active assortment plan. 
+                        <p><span class="Emphasis">Calculation</span>: Home AUT / (1 + VAT %)</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Local AUT</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+               The ticket price in local currency (as indicated in the column section header) for the selected placeholder for the period. 
+                        <p><span class="Emphasis">Calculation</span>: Local AUT ex VAT + (Local AUT ex VAT * VAT %)</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Local AUT (ex VAT)</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                         The ticket price excluding VAT in local currency for the selected placeholder for the period. 
+                        <p><span class="Emphasis">Calculation</span>: Home AUT ex VAT Equivalent * Exchange Rate</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Home AUT (ex VAT) Equivalent</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                         The ticket price as a local equivalent price excluding VAT in the home currency after a translation factor has been applied for the selected placeholder for the period. 
+                        <p><span class="Emphasis">Calculation</span>: Home AUT ex VAT * Translation Factor</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Translation Factor</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1">
+                         The translation factor to apply to determine the final ticket price in home and local currencies  for the selected placeholder for the period<p><span class="Emphasis">Calculation</span>: Home AUT ex VAT Equivalent / Home AUT ex VAT</p></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Buttons</h2>
+        <p><span class="Emphasis">Save</span>: Saves all changes and initiates recalculation of blended AUR values for the selected placeholder.</p>
+        <p><span class="Emphasis">Cancel</span>: Cancels all changes and reverts them to previously saved values.</p>
+    </body>
+</html>

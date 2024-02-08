@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Time Frames</h1>
+        <p>Code changes have been made to implement improvements in the configuration of fields used within the Promotion Price Details UI.  This ticket addresses issues that that could result in incorrect Display Formats being set in the promotions.Promotion_Column_Configuration table.  While this condition is unlikely to occur in production environments, it is recommended that the display formats be verified between the  promotions.Promotion_Column_Configuration  table and the legacy tbl_Promotion_Common_Strategy_FieldConfiguration_Field table.</p>
+        <p>Any incorrect display formats can be fixed using the Promotion Field configuration tool in the Promotions module by resetting the display format for the affected parent field.</p>
+        <div class="CodeSample">The SQL below can be used to find any formatting issues that need to be addressed</div>
+        <div class="CodeSample">-- SQL Prompt formatting off</div>
+        <div class="CodeSample">BEGIN TRY DROP TABLE #tbl_Format_Output_OLD; END TRY BEGIN CATCH END CATCH;</div>
+        <div class="CodeSample">BEGIN TRY DROP TABLE #tbl_Format_Output_NEW; END TRY BEGIN CATCH END CATCH;</div>
+        <div class="CodeSample">BEGIN TRY DROP TABLE #tbl_Format_Output_HighLow_OLD; END TRY BEGIN CATCH END CATCH;</div>
+        <div class="CodeSample">BEGIN TRY DROP TABLE #tbl_Format_Output_HighLow_NEW; END TRY BEGIN CATCH END CATCH;</div>
+        <div class="CodeSample">-- SQL Prompt formatting on</div>
+        <p>/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>** Usethe overall Default Currency ID just to get like-for-like Format Strings.</p>
+        <p>** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */</p>
+        <div class="CodeSample">
+            <p>DECLARE @vCurrencySymbol nvarchar(10)</p>
+            <p>, @vCurrencyFormat nvarchar(50);</p>
+            <p>SELECT @vCurrencySymbol = CurrencySymbol</p>
+            <p>, @vCurrencyFormat = ISNULL( FormatString, N'#,###.#0' )</p>
+            <p>FROM dbo.tbl_Currency</p>
+            <p>WHERE CurrencyID = TRY_CONVERT( int, ( SELECT sp.SystemPolicyValue</p>
+            <p>FROM dbo.tbl_SystemPolicy sp</p>
+            <p>WHERE sp.SystemPolicyName = 'DefaultValues.DefaultCurrencyID' ));</p>
+        </div>
+        <p>/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>** Assemble Data from Deprecated table</p>
+        <p>** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */</p>
+        <p>CREATE TABLE #tbl_Format_Output_OLD</p>
+        <p>( ColumnName         nvarchar(128) NOT NULL</p>
+        <p>, FormatString       nvarchar(100) NULL</p>
+        <p>, ColumnFriendlyName nvarchar(128) NULL );</p>
+        <p>INSERT INTO #tbl_Format_Output_OLD WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, FormatString</p>
+        <p>, ColumnFriendlyName )</p>
+        <p>SELECT CASE</p>
+        <p>WHEN FieldName = 'RetailLow'</p>
+        <p>THEN 'LowestRetailPrice'</p>
+        <p>WHEN FieldName = 'RetailHigh'</p>
+        <p>THEN 'HighestRetailPrice'</p>
+        <p>WHEN FieldName = 'PromoLow'</p>
+        <p>THEN 'LowestPromotionPrice'</p>
+        <p>WHEN FieldName = 'PromoHigh'</p>
+        <p>THEN 'HighestPromotionPrice'</p>
+        <p>ELSE FieldName</p>
+        <p>END</p>
+        <p>, CASE</p>
+        <p>WHEN FormatString = 'c'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + @vCurrencyFormat</p>
+        <p>WHEN FormatString = 'c1'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.0'</p>
+        <p>WHEN FormatString = 'c2'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.#0'</p>
+        <p>WHEN FormatString = 'c3'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.#00'</p>
+        <p>WHEN FormatString = 'c0'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1)</p>
+        <p>WHEN FormatString = 'c'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + @vCurrencyFormat</p>
+        <p>WHEN FormatString = 'c1'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.0'</p>
+        <p>WHEN FormatString = 'c2'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.#0'</p>
+        <p>WHEN FormatString = 'c3'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.#00'</p>
+        <p>WHEN FormatString = 'c0'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1)</p>
+        <p>ELSE FormatString</p>
+        <p>END</p>
+        <p>, FieldFriendlyName</p>
+        <p>FROM dbo.tbl_Promotion_Common_Strategy_FieldConfiguration_Field</p>
+        <p>WHERE RowStatusID = 1;</p>
+        <p>CREATE TABLE #tbl_Format_Output_HighLow_OLD</p>
+        <p>( ColumnName         nvarchar(128) NOT NULL</p>
+        <p>, SourceColumn       nvarchar(128) NOT NULL</p>
+        <p>, FormatString       nvarchar(100) NULL</p>
+        <p>, ColumnFriendlyName nvarchar(128) NULL );</p>
+        <p>INSERT INTO #tbl_Format_Output_HighLow_OLD WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, SourceColumn )</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Highest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput' )</p>
+        <p>AND c.name LIKE 'Highest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Lowest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput' )</p>
+        <p>AND c.name LIKE 'Lowest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Highest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput_Custom' )</p>
+        <p>AND c.name LIKE 'Highest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Lowest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput_Custom' )</p>
+        <p>AND c.name LIKE 'Lowest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1;</p>
+        <p>UPDATE t</p>
+        <p>SET t.FormatString = s.FormatString</p>
+        <p>FROM #tbl_Format_Output_OLD                    s</p>
+        <p>INNER JOIN #tbl_Format_Output_HighLow_OLD t</p>
+        <p>ON s.ColumnName = t.SourceColumn COLLATE DATABASE_DEFAULT;</p>
+        <p>INSERT INTO #tbl_Format_Output_OLD WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, FormatString</p>
+        <p>, ColumnFriendlyName )</p>
+        <p>SELECT s.ColumnName</p>
+        <p>, s.FormatString</p>
+        <p>, ISNULL( NULLIF( TRIM( s.ColumnFriendlyName ), N'' ), s.ColumnName )</p>
+        <p>FROM #tbl_Format_Output_HighLow_OLD s</p>
+        <p>WHERE s.FormatString IS NOT NULL</p>
+        <p>AND NOT EXISTS ( SELECT 1</p>
+        <p>FROM #tbl_Format_Output_OLD t</p>
+        <p>WHERE s.ColumnName = t.ColumnName COLLATE DATABASE_DEFAULT );</p>
+        <p>/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>** Same Data from Config Table</p>
+        <p>** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */</p>
+        <p>CREATE TABLE #tbl_Format_Output_NEW</p>
+        <p>( ColumnName         nvarchar(128) NOT NULL</p>
+        <p>, FormatString       nvarchar(100) NULL</p>
+        <p>, ColumnFriendlyName nvarchar(128) NULL );</p>
+        <p>INSERT INTO #tbl_Format_Output_NEW WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, FormatString</p>
+        <p>, ColumnFriendlyName )</p>
+        <p>SELECT 'ItemCode'</p>
+        <p>, ''</p>
+        <p>, 'Variant Code'</p>
+        <p>UNION ALL</p>
+        <p>SELECT 'ProductDescription'</p>
+        <p>, ''</p>
+        <p>, 'Variant Description';</p>
+        <p>INSERT INTO #tbl_Format_Output_NEW WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, FormatString</p>
+        <p>, ColumnFriendlyName )</p>
+        <p>SELECT ColumnName = CASE</p>
+        <p>WHEN pcc.TableColumnName = 'RetailLow'</p>
+        <p>THEN 'LowestRetailPrice'</p>
+        <p>WHEN pcc.TableColumnName = 'RetailHigh'</p>
+        <p>THEN 'HighestRetailPrice'</p>
+        <p>WHEN pcc.TableColumnName = 'PromoLow'</p>
+        <p>THEN 'LowestPromotionPrice'</p>
+        <p>WHEN pcc.TableColumnName = 'PromoHigh'</p>
+        <p>THEN 'HighestPromotionPrice'</p>
+        <p>ELSE pcc.TableColumnName</p>
+        <p>END</p>
+        <p>, CASE</p>
+        <p>WHEN pcc.DisplayFormat = 'c'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + @vCurrencyFormat</p>
+        <p>WHEN pcc.DisplayFormat = 'c1'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.0'</p>
+        <p>WHEN pcc.DisplayFormat = 'c2'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.#0'</p>
+        <p>WHEN pcc.DisplayFormat = 'c3'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1) + '.#00'</p>
+        <p>WHEN pcc.DisplayFormat = 'c0'</p>
+        <p>AND @vCurrencyFormat NOT LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( '.', @vCurrencyFormat ) - 1)</p>
+        <p>WHEN pcc.DisplayFormat = 'c'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + @vCurrencyFormat</p>
+        <p>WHEN pcc.DisplayFormat = 'c1'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.0'</p>
+        <p>WHEN pcc.DisplayFormat = 'c2'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.#0'</p>
+        <p>WHEN pcc.DisplayFormat = 'c3'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1) + '.#00'</p>
+        <p>WHEN pcc.DisplayFormat = 'c0'</p>
+        <p>AND @vCurrencyFormat LIKE '%,00'</p>
+        <p>THEN REPLACE( @vCurrencySymbol, '?', '' ) + LEFT(@vCurrencyFormat, CHARINDEX( ',', @vCurrencyFormat ) - 1)</p>
+        <p>ELSE pcc.DisplayFormat</p>
+        <p>END</p>
+        <p>, ISNULL( NULLIF( TRIM( pcc.ColumnFieldFriendlyName ), N'' ), pcc.TableColumnName )</p>
+        <p>FROM promotions.Promotion_Column_Configuration pcc</p>
+        <p>WHERE pcc.RowStatusID = 1;</p>
+        <p>CREATE TABLE #tbl_Format_Output_HighLow_NEW</p>
+        <p>( ColumnName         nvarchar(128) NOT NULL</p>
+        <p>, SourceColumn       nvarchar(128) NOT NULL</p>
+        <p>, FormatString       nvarchar(100) NULL</p>
+        <p>, ColumnFriendlyName nvarchar(128) NULL );</p>
+        <p>INSERT INTO #tbl_Format_Output_HighLow_NEW WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, SourceColumn )</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Highest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput' )</p>
+        <p>AND c.name LIKE 'Highest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Lowest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput' )</p>
+        <p>AND c.name LIKE 'Lowest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Highest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput_Custom' )</p>
+        <p>AND c.name LIKE 'Highest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1</p>
+        <p>UNION ALL</p>
+        <p>SELECT c.name</p>
+        <p>, SourceColumn = REPLACE( c.name, 'Lowest', '' )</p>
+        <p>FROM sys.columns          c</p>
+        <p>INNER JOIN sys.types t</p>
+        <p>ON c.user_type_id = t.user_type_id</p>
+        <p>WHERE c.object_id   = OBJECT_ID( 'tbl_Promotion_PriceOutput_Custom' )</p>
+        <p>AND c.name LIKE 'Lowest%'</p>
+        <p>AND t.name        = 'float'</p>
+        <p>AND c.is_nullable = 1;</p>
+        <p>UPDATE t</p>
+        <p>SET t.FormatString = s.FormatString</p>
+        <p>FROM #tbl_Format_Output_NEW                    s</p>
+        <p>INNER JOIN #tbl_Format_Output_HighLow_NEW t</p>
+        <p>ON s.ColumnName = t.SourceColumn COLLATE DATABASE_DEFAULT;</p>
+        <p>INSERT INTO #tbl_Format_Output_NEW WITH ( TABLOCK )</p>
+        <p>( ColumnName</p>
+        <p>, FormatString</p>
+        <p>, ColumnFriendlyName )</p>
+        <p>SELECT s.ColumnName</p>
+        <p>, s.FormatString</p>
+        <p>, ISNULL( NULLIF( TRIM( s.ColumnFriendlyName ), N'' ), s.ColumnName )</p>
+        <p>FROM #tbl_Format_Output_HighLow_NEW s</p>
+        <p>WHERE s.FormatString IS NOT NULL</p>
+        <p>AND NOT EXISTS ( SELECT 1</p>
+        <p>FROM #tbl_Format_Output_NEW t</p>
+        <p>WHERE s.ColumnName = t.ColumnName COLLATE DATABASE_DEFAULT );</p>
+        <p>SELECT *</p>
+        <p>FROM #tbl_Format_Output_OLD o</p>
+        <p>ORDER BY o.ColumnName;</p>
+        <p>SELECT *</p>
+        <p>FROM #tbl_Format_Output_NEW n</p>
+        <p>ORDER BY n.ColumnName;</p>
+        <p>SELECT o.ColumnName</p>
+        <p>, OldFormatString       = o.FormatString</p>
+        <p>, NewFormatString       = n.FormatString</p>
+        <p>, OldColumnFriendlyName = o.ColumnFriendlyName</p>
+        <p>, NewColumnFriendlyName = n.ColumnFriendlyName</p>
+        <p>FROM #tbl_Format_Output_OLD           o</p>
+        <p>FULL JOIN #tbl_Format_Output_NEW n</p>
+        <p>ON o.ColumnName = n.ColumnName</p>
+        <p>WHERE ( o.FormatString &lt;&gt; n.FormatString</p>
+        <p>OR o.ColumnFriendlyName &lt;&gt; n.ColumnFriendlyName )</p>
+        <p>ORDER BY ColumnName;</p>
+        <p>-- SQL Prompt formatting off</p>
+        <p>BEGIN TRY DROP TABLE #tbl_Format_Output_OLD; END TRY BEGIN CATCH END CATCH;</p>
+        <p>BEGIN TRY DROP TABLE #tbl_Format_Output_NEW; END TRY BEGIN CATCH END CATCH;</p>
+        <p>BEGIN TRY DROP TABLE #tbl_Format_Output_HighLow_OLD; END TRY BEGIN CATCH END CATCH;</p>
+        <p>BEGIN TRY DROP TABLE #tbl_Format_Output_HighLow_NEW; END TRY BEGIN CATCH END CATCH;</p>
+    </body>
+</html>

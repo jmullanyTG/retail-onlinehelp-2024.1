@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Breaking Changes</h1>
+        <h2>Inventory <MadCap:conditionalText MadCap:conditions="General.DoNotPublish">DMDEV-89794</MadCap:conditionalText></h2>
+        <p>The exceedingly old and replace pair of tables, <span class="Emphasis">tbl_ArchiveInventory</span> and <span class="Emphasis">tbl_ArchiveInventoryStatus</span>, having been deprecated since JE 3.5.2.2, are explicitly excluded from any Purge activities.  In addition, the database Foreign Key linking the former to the core <span class="Emphasis">tbl_Inventory</span> table has been removed (DROPped) and will not be reinstated.  Any Custom Code still referencing this tables ought to be eliminated entirely.</p>
+        <p>Any home-brew, or JE Support-developed Inventory Purge procedures must be removed immediately and never reinstated.  The new Inventory Purge supports purge of data from both TG JE core and any custom tables using InventoryID.  Using any other Purge mechanism is unsupported and is undertaken at the user’s own risk.</p>
+    </body>
+</html>

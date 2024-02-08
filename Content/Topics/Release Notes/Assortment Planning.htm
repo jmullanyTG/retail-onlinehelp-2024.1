@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Assortment Planning</h1>
+        <h2>Purging old or inactive curves used both in assortment planning and allocations <MadCap:conditionalText MadCap:conditions="General.DoNotPublish">DMDEV-87973</MadCap:conditionalText></h2>
+        <p>Functionality has been added to the existing job <span class="Emphasis">(Weekly) Maintenance: All Modules</span> to garbage collect inactive and deleted curves.</p>
+        <p>The garbage collection process does the following:</p>
+        <ul>
+            <li>
+                <p>Delete references in curves table</p>
+            </li>
+            <li>
+                <p>Delete references from profile table</p>
+            </li>
+            <li>
+                <p>Removes curve link tags</p>
+            </li>
+            <li>
+                <p>Removes curve from allocation strategy and marks strategy as missing configuration</p>
+            </li>
+            <li>
+                <p>Removes curve from assortment hierarchy</p>
+            </li>
+            <li>
+                <p>Removes curve from assortment placeholder</p>
+            </li>
+            <li>
+                <p>Removes curve from rate of sale</p>
+            </li>
+            <li>
+                <p>Removes  curve from inventory and level forecast configuration</p>
+            </li>
+        </ul>
+    </body>
+</html>
