@@ -8,6 +8,7 @@
         <p>
             <img src="../../Resources/Images/Order Manager/Navigation.png" class="LargeImages" />
         </p>
+        <p>Within the <span class="Emphasis">Navigation</span> pane, right-click to display a context menu.</p>
         <h2>Removing filters from the Document list</h2>
         <p>To remove a filter that has been applied to the document list, click the <img src="../Images/Order Manager/Remove Filter Icon.png" class="IconInline" /> button  at the top of the <span class="Emphasis">Navigation</span> pane. This button is only enabled when a filter is applied.</p>
         <h2> Filtering order documents</h2>

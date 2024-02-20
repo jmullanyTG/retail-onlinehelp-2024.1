@@ -57,6 +57,24 @@
                     <td class="TableStyle-standard-BodyD-Column2-Body1">The ID of the Calendar to use when creating scenarios in standalone mode (this property will be superceded by the Assortment Plan property if used in the context of AP).</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Config: Code/Description Display</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                        This policy describes how to display properties that have a code and description option, like hierarchy levels or attributes.
+
+ 
+                        <p>The options are: </p><ul><li><p>
+
+Code
+
+</p></li><li><p>Description
+
+</p></li><li><p>Code (Description)
+
+</p></li><li><p>Description (Code)
+
+</p></li></ul><p>The default is <span class="Emphasis">Code</span>.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Config: Currency</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">The ID of the Currency to use when creating scenarios in standalone mode (this property will be superceded by the Assortment Plan property if used in the context of AP).</td>
                 </tr>

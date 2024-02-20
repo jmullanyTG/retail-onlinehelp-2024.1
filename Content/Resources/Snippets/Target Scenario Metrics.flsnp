@@ -175,15 +175,17 @@
                         <p>When creating targets in AP, the entity in use is Placeholder (not Variant). There is no explicit assignment of hierarchy groups to Placeholders. Thus, if a Group type is chosen such as Brand, then the application looks up the Group value of the assigned variant. If there is no assigned variant, then the Lookup value is <span class="Emphasis">None</span>.</p>
                     </li>
                 </ul>
+                <p class="BasicNote">The option <span class="Emphasis">(None)</span> is intended to be used to clear previously selected options.</p>
+                <p>If no attribute is selected, then Segment By Hierarchy works the same as it did previously. It creates one segment for each of the lowest hierarchy levels of the Product Hierarchy selection. If an attribute is chosen, then segments are created on a cross section of hierarchy levels and the attribute selected. For example, if Brand is chosen, then the segments are the combinations of product hierarchy levels and brands.</p>
+                <h3>Segment names and descriptions</h3>
+                <p>If segments are generated with an attribute selected in the <span class="Emphasis">Segment Split Type</span> field, then a column automatically displays with the selected attribute name as the column header, with the individual values shown in the column contents.</p>
+                <p>When segments are generated via <span class="Emphasis">Segment By Hierarchy</span> and <span class="Emphasis">Segment Split Type</span>, the automatically generated segment names and descriptions are <span class="Emphasis">&lt;product hierarchy code&gt; / &lt;split type code&gt;</span> and <span class="Emphasis">&lt;product hierarchy description&gt; / &lt;split type description&gt;</span>.</p>
+                <p>
+                    <img src="../Images/Assortment Planning/Split Segment Attribute Column.PNG" class="LargeImages" />
+                </p>
+                <h3>	Displaying meaningful Segment Split Type information </h3>
+                <p class="BasicNote">System policy, <span class="Emphasis">Config: Code/Description Display</span>, can be configured to display meaningful Segment Split Type information (either hierarchy level or attribute).</p>
             </li>
-            <p class="BasicNote">The option <span class="Emphasis">(None)</span> is intended to be used to clear previously selected options.</p>
-            <p>If no attribute is selected, then Segment By Hierarchy works the same as it did previously. It creates one segment for each of the lowest hierarchy levels of the Product Hierarchy selection. If an attribute is chosen, then segments are created on a cross section of hierarchy levels and the attribute selected. For example, if Brand is chosen, then the segments are the combinations of product hierarchy levels and brands.</p>
-            <h3>Segment names and descriptions</h3>
-            <p>If segments are generated with an attribute selected in the <span class="Emphasis">Segment Split Type</span> field, then a column automatically displays with the selected attribute name as the column header, with the individual values shown in the column contents.</p>
-            <p>When segments are generated via <span class="Emphasis">Segment By Hierarchy</span> and <span class="Emphasis">Segment Split Type</span>, the automatically generated segment names and descriptions are <span class="Emphasis">&lt;product hierarchy code&gt; / &lt;split type code&gt;</span> and <span class="Emphasis">&lt;product hierarchy description&gt; / &lt;split type description&gt;</span>.</p>
-            <p>
-                <img src="../Images/Assortment Planning/Split Segment Attribute Column.PNG" class="LargeImages" />
-            </p>
             <li>
                 <p><span class="Emphasis">Use Collection For Intra-Style Curve?</span>: If unchecked, then the system uses the variant's style for the intra-style curve. If checked, the system uses the variant's placeholder's collection. </p>
                 <p>The default whether the check box is selected or unselected is defined using system policy <span class="Emphasis">Default: Use Collection For Intra-Style Curve</span> (Module: Target Choice Count). Users can choose to override the default as necessary. </p>
