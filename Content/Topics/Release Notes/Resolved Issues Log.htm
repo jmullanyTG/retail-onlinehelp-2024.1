@@ -46,6 +46,281 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Database</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Missing clean up for tbl_Common_StoredProcedurequeue_Log</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">PK Error in Edit Target Scenario creating new Segment Definitions in new target scenario</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>Users receiving error in Edit Target Scenario creating new Segment Definitions in new target scenario:
+
+</p>
+                        <p><span class="Emphasis">Steps to Verify</span>
+                        </p>
+                        <ol>
+                            <li>
+                                <p>Create new Target Scenario.</p>
+                            </li>
+                            <li>
+                                <p> 
+
+Create 2 Segment Definitions. 
+
+</p>
+                            </li>
+                            <li>
+                                <p>Before saving, click on one line, shift and click on other line. 
+
+</p>
+                            </li>
+                            <li>
+                                <p>Segments save. No error returned.</p>
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">
+                       Target Choice Counts
+                        <p>Target Creation</p></td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Edit Target Scenario - Split Column Displays Hierarchy or Attribute Codes Instead of Meaningful Descriptions</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                       Added configuration to support meaningful options for the display of Hierarchy and Attribute codes and descriptions
+                        <p><span class="Emphasis">Notes</span></p><p>New system policy <span class="Emphasis">Config: Code/Description Display</span> determines how things generated from a code/description pair will default. Specifically, it is used to generate segment names when Auto-Generate Segments is used; and it is used to display the Segment Split Type information (either hierarchy level or attribute).  For more information, refer to the <cite>System Policies</cite> section.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Editing 'TY Act New AUR' Results in Error</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">Addressed a code issue that would result in an error when editing the field <span class="Emphasis">TY Act New AUR</span> in TCC-&gt;Target Worksheet.  </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Remove duplicate cluster names within a common cluster set ID</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>Invalid and duplicated cluster sets with the same Cluster Set ID were showing up Target Choice Count → Segment Definitions, which could possibly result in an error when saving changes.
+
+</p>
+                        <p><span class="Emphasis">Notes</span> </p>
+                        <p>The fix for this issue only removes the duplicates of the same Cluster Set with the same Cluster Set ID. However, if there are duplicate names with different Cluster Set ID, it will be listed accordingly in the UI, and will require renaming to distinguish one Cluster Set from another.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">A copied scenario producing different result than duplicate scenario created from scratch</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p><span class="Emphasis">Reported Behavior
+</span>
+                        </p>
+                        <p>When copying a scenario (using all system rationalized values, without any user overrides), the copy of the scenario has different recommendations than the original scenario. With all parameters the same, and without any user edits, the copy should have the same recommendations as the original.
+
+</p>
+                        <p><span class="Emphasis">Steps to Verify &amp; Updated Behavior</span><![CDATA[
+]]></p>
+                        <p>Copy a scenario (using all system rationalized values, without any user overrides) and compare the original scenario recommendations to the copied scenario recommendations. The copy should match the original.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Update Refresh Rate view displaying incorrect ongoing vs new choices</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>When using positional merge and cluster constraints, the carryover and new choice counts are incorrect. In some scenarios, the carryover count within a subsequent update period greater than the choices available in the prior update period.
+
+</p>
+                        <p><span class="Emphasis">Steps to Verify</span><![CDATA[
+]]></p>
+                        <ol>
+                            <li>
+                                <p>
+Create a target creation scenario
+
+</p>
+                            </li>
+                            <li>
+                                <p>Create a target segment using default options
+
+</p>
+                            </li>
+                            <li>
+                                <p>Use positional merge and cluster constraints
+</p>
+                            </li>
+                            <li>
+                                <p>
+Create multiple update periods
+</p>
+                            </li>
+                            <li>
+                                <p>
+Calculate and rationalize
+</p>
+                            </li>
+                            <li>
+                                <p><span class="Emphasis">Target Choices By Update</span> tab</p>
+                            </li>
+                            <li>
+                                <p>
+
+Select all segments and locations
+</p>
+                            </li>
+                            <li>
+                                <p>
+Click the auto-merge function
+
+</p>
+                            </li>
+                            <li>
+                                <p>Review the carryover vs the new choices for each update to confirm it is working
+</p>
+                            </li>
+                        </ol>
+                        <p><![CDATA[
+]]><span class="Emphasis">Updated Behavior</span><![CDATA[
+]]></p>
+                        <p>Choice counts (carryover and new) are correct after addressing this bug.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Decreasing Target Scenario Value causing planned sales to drop significantly below target value</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>A user creates a target creation scenario including the target segments and update periods. The user then calculates and rationalizes the scenario. At this point the user decides to decrease the target scenario value. This prompts the system to display a message that the scenario needs to be rationalized. The user does this and after doing so finds that the TY planned values do not match the updated scenario target and instead are well below the new value.
+</p>
+                        <p><span class="Emphasis">
+Steps to Reproduce</span><![CDATA[
+
+]]></p>
+                        <ol>
+                            <li>
+                                <p>Create a target creation scenario
+</p>
+                            </li>
+                            <li>
+                                <p>
+Create target segments using default options
+
+</p>
+                            </li>
+                            <li>
+                                <p>Create at least 1 update period</p>
+                            </li>
+                            <li>
+                                <p>
+
+Calculate and Rationalize the Scenario
+
+</p>
+                            </li>
+                            <li>
+                                <p>Decrease the Scenario Target by some value (say 25%)
+
+</p>
+                            </li>
+                            <li>
+                                <p>Click Save
+
+</p>
+                            </li>
+                            <li>
+                                <p>System will prompt you to re-actualize
+
+</p>
+                            </li>
+                            <li>
+                                <p>Re-actualize
+
+</p>
+                            </li>
+                            <li>
+                                <p>Review the planned sales values</p>
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Target New Choices tab does not reflect changes made in the Target Choices By Update tab</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>After making changes to the phase dates of items in the <span class="Emphasis">Target Choices By Update</span> tab the expectation is that the <span class="Emphasis">Target New Choices</span> tab will reflect updated values based phase date changes.
+</p>
+                        <p>
+However, the<span class="Emphasis">Target New Choices</span> tab does not show the updated total from the updates screen after making changes to item phase dates.  It reflects the value from the first update only.
+</p>
+                        <p><span class="Emphasis">
+Steps to Reproduce</span><![CDATA[
+]]></p>
+                        <ol>
+                            <li>
+                                <p>
+Create a target creation scenario
+</p>
+                            </li>
+                            <li>
+                                <p>
+Add updates
+
+</p>
+                            </li>
+                            <li>
+                                <p>Calculate and rationalize
+</p>
+                            </li>
+                            <li>
+                                <p>Go to the <span class="Emphasis">Target Choices By Update</span> tab
+
+</p>
+                            </li>
+                            <li>
+                                <p>Merge choices or use the auto-merge function to create multiple merges.
+</p>
+                            </li>
+                            <li>
+                                <p>
+Go back to the <span class="Emphasis">Target New Choices</span> tab and add in the unique collection metric
+</p>
+                            </li>
+                            <li>
+                                <p>
+Review the total sales or sales units and notice that it is only showing data from the first update</p>
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyB-Column1-Body1">&#160;</td>
                     <td class="TableStyle-standard-BodyB-Column2-Body1">&#160;</td>
                     <td class="TableStyle-standard-BodyB-Column1-Body1">&#160;</td>
