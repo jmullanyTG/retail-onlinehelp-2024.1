@@ -6,6 +6,10 @@
         <h1>
            Performance</h1>
         <p>Significant performance gains have been realized throughout the application with the reduction of response times and the elimination of performance degradation. Improvements include the following:</p>
-        <p>&#160;</p>
+        <ul>
+            <li>
+                <p><span class="Emphasis">MFP Hybrid Cost</span> - ROW level DATA_COMPRESSION is enforced across all indexes on tbl_FinancialPlan_Common_InventoryLevelID_Cache, which entails three separate Index REBUILD operations, which will extend the upgrade script duration where many hundreds of thousands of rows are present in the table.  If it is unused, there will be no impact.</p>
+            </li>
+        </ul>
     </body>
 </html>

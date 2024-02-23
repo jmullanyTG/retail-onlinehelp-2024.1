@@ -60,11 +60,33 @@
                     <td class="TableStyle-standard-BodyD-Column1-Body1">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">LY Week 52 EOP not showing if last week of time horizon</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>
+Users reported missing the EOP for week 52 2024 in the preseason plan.
+</p>
+                        <p> <span class="Emphasis">Steps to verify</span> </p>
+                        <p>This issue can be reproduced in standard if the following occur:
+</p>
+                        <ul>
+                            <li>
+                                <p>
+The last period of the plan is a wk52 (with no wk53 following, but a wk01 following in the calendar)</p>
+                            </li>
+                            <li>
+                                <p>
+
+There is a wk53 in the LY span for TY
+</p>
+                            </li>
+                        </ul>
+                        <p> <span class="Emphasis">Notes</span> </p>
+                        <p>
+There are two conditions this issue will not address. First, the data appears to come from imports, and the periods imported do not respect the plan start date / end date ranges; this will cause unexpected behavior throughout MFP. Second, the EOP/BOP values are not continuous; it does seem to go to 0 at random times in the progression of future periods.</p>
+                    </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
@@ -135,15 +157,12 @@ Create 2 Segment Definitions.
                     <td class="TableStyle-standard-BodyE-Column2-Body1">A copied scenario producing different result than duplicate scenario created from scratch</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                        <p><span class="Emphasis">Reported Behavior
-</span>
-                        </p>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
                         <p>When copying a scenario (using all system rationalized values, without any user overrides), the copy of the scenario has different recommendations than the original scenario. With all parameters the same, and without any user edits, the copy should have the same recommendations as the original.
 
 </p>
-                        <p><span class="Emphasis">Steps to Verify &amp; Updated Behavior</span><![CDATA[
-]]></p>
+                        <p><span class="Emphasis">Steps to Verify &amp; Updated Behavior</span>
+                        </p>
                         <p>Copy a scenario (using all system rationalized values, without any user overrides) and compare the original scenario recommendations to the copied scenario recommendations. The copy should match the original.</p>
                     </td>
                 </tr>
@@ -156,8 +175,8 @@ Create 2 Segment Definitions.
                         <p>When using positional merge and cluster constraints, the carryover and new choice counts are incorrect. In some scenarios, the carryover count within a subsequent update period greater than the choices available in the prior update period.
 
 </p>
-                        <p><span class="Emphasis">Steps to Verify</span><![CDATA[
-]]></p>
+                        <p><span class="Emphasis">Steps to Verify</span>
+                        </p>
                         <ol>
                             <li>
                                 <p>
