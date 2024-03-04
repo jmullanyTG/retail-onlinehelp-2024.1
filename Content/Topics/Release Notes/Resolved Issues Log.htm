@@ -46,11 +46,21 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Unable to Edit Reg &amp; Mdkn Sales Units Cluster Sets Side View via Collection</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
+]]></p>
+                        <p>Users attempting to edit <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> across <span class="Emphasis">All Clusters</span> within the Cluster Sets side view within Collection View (rather than Placeholder view) receive an error message upon clicking the <span class="Emphasis">Save</span> button.  The change does not save and an error is returned. However, users are able to change the <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> within the Collection main planning view, rather than within the Collection Cluster Sets side view. No such error is observed when making changes within the Placeholder Cluster Set view.
+
+</p>
+                        <p><span class="Emphasis">Updated Behavior</span>
+                        </p>
+                        <p>
+We have been unable to replicate this issue/error within our standard environments. Even so, code has been amended in an attempt to resolve this in the client environment. The fix will need to be verified by the client in their environment, as it is not reproducible within the standard database.</p>
+                    </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Database</td>
@@ -58,6 +68,36 @@
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
                     <td class="TableStyle-standard-BodyD-Column1-Body1">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Channel hierarchy check not accounting for mixed site types</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
+
+]]></p>
+                        <p>The <cite>Some Channel hierarchy levels contain a mixture of Sites and Customer Accounts</cite> error is incorrectly being thrown when attempting to create a branch of the Master Plan.
+
+</p>
+                        <p>The customer’s channel structure consists of two top-level channels - Brick &amp; Mortar and Ecomm. The Ecomm channel contains a single Store site. The Brick &amp; Mortar channel contains both Stores and DC site types.</p>
+                        <p>
+
+When updating the channel hierarchy based on the global SiteGroup1 configuration which represents the total company, along with the core Channel hierarchy, the code validation incorrectly detects a "mixture" and throws the error.
+
+</p>
+                        <p><span class="Emphasis">Steps to Verify</span><![CDATA[
+
+]]></p>
+                        <p>Add a DC site type to an eligible MFP channel and create a branch
+</p>
+                        <p><![CDATA[
+]]><span class="Emphasis">Resolution</span><![CDATA[
+
+]]></p>
+                        <p>The behavior has been corrected so that the Plan now branches correctly</p>
+                    </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
@@ -87,6 +127,20 @@ There is a wk53 in the LY span for TY
                         <p>
 There are two conditions this issue will not address. First, the data appears to come from imports, and the periods imported do not respect the plan start date / end date ranges; this will cause unexpected behavior throughout MFP. Second, the EOP/BOP values are not continuous; it does seem to go to 0 at random times in the progression of future periods.</p>
                     </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Order Manager</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Navigation Tree Context Menu - Missing 'Narrative' Option for AP Commitments</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">Added <span class="Emphasis">Narrative</span> to the context menu for AP Commitments in the Order Manager navigation tree to make it consistent with the Supplier Order context menu.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Replenish Engine</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Engine Outer Loop Infinite Loop</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
@@ -286,6 +340,50 @@ Calculate and Rationalize the Scenario
                                 <p>Review the planned sales values</p>
                             </li>
                         </ol>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Changing data cleansing parameters in Segment Floorset updates and recalculating doubles comparison sales</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
+]]></p>
+                        <p>
+When setting up a target creation scenario the default values for the data cleansing parameters get applied to the updates. If a user changes these parameters and recalculates the scenario it will double the “Comparison Sales”. If you continue changing the parameters it will continue to increase the comparison sales by the original (correct) comparison sales value.</p>
+                        <p><span class="Emphasis">
+
+Steps to Verify</span><![CDATA[
+
+]]></p>
+                        <ol>
+                            <li>
+                                <p>Create a target creation scenario</p>
+                            </li>
+                            <li>
+                                <p>
+Create multiple update periods using the default data cleansing values
+</p>
+                            </li>
+                            <li>
+                                <p>Calculate the scenario and take note of the comparison sales
+</p>
+                            </li>
+                            <li>
+                                <p>Go back to the Segment Floorset Updates view and update a few of the cleansing parameters for all the updates (Active variant threshold and Active time on offer)
+</p>
+                            </li>
+                            <li>
+                                <p>System will prompt you to recalculate so go ahead and calculate the scenario
+</p>
+                            </li>
+                            <li>
+                                <p>Take note of the comparison sales
+</p>
+                            </li>
+                        </ol>
+                        <p>The comparison sales no longer change based on updating data cleansing parameters</p>
                     </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
