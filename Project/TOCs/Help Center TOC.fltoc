@@ -296,6 +296,9 @@
               <TocEntry
                 Title="[%=System.LinkedTitle%]"
                 Link="/Content/Topics/Currency and VAT Management/Price Translation Rules and how they interact with VAT.htm" />
+              <TocEntry
+                Title="[%=System.LinkedTitle%]"
+                Link="/Content/Topics/Assortment Planning/VAT Actualization.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             </TocEntry>
             <TocEntry
               Title="[%=System.LinkedTitle%]"
@@ -1093,16 +1096,10 @@
             Link="/Content/Topics/Inventory Forecasts/Inventory Forecasting.htm">
             <TocEntry
               Title="[%=System.LinkedTitle%]"
-              Link="/Content/Topics/Inventory Forecasts/Inventory Forecast Exceptions Metrics.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
-            <TocEntry
-              Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Forecasts/Forecast screen toolbar.htm"></TocEntry>
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Forecasts/Forecast Method and Method Fit.htm"></TocEntry>
-            <TocEntry
-              Title="[%=System.LinkedTitle%]"
-              Link="/Content/Topics/Inventory Forecasts/MAPE and ATE error metric overview.htm" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Forecasts/Details.htm"></TocEntry>
@@ -1118,6 +1115,9 @@
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Forecasts/Using Tournament Winning Forecast Values.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Inventory Forecasts/MAPE and ATE error metric overview.htm" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Forecasts/Forecasts module dependencies.htm">
@@ -2576,6 +2576,9 @@
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Manager/Inventory Classification.htm" />
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Inventory Manager/Inventory Forecast Exceptions Metrics.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Inventory Manager/Inventory Planning.htm" />

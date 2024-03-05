@@ -21,12 +21,6 @@
         </ul>
         <p>The following are some key concepts to be aware of when working within the main planning view:</p>
         <ul>
-            <li>
-                <p><span class="Emphasis">Maximum Data Rows</span> – the system policy <span class="Emphasis">Line Visualization Maximum number SQL Data Rows</span> determines the maximum number of SQL data rows that can be queried in Line Visualization.</p>
-            </li>
-        </ul>
-        <p class="BasicNote">An error displays if the data selection parameters exceed this maximum.</p>
-        <ul>
             <li><span class="Emphasis">Placeholders and Variants</span> – whether the plan is seeded via the Smart Start process or lines are manually added to the plan, placeholder items are the starting point. Placeholders act as slots into which actual styles (Variants) can be placed. All aspects of a plan can be managed regardless of whether variants are attached to placeholders. </li>
             <li><span class="Emphasis">Assigning Variants</span> – AP can accept an external data feed from a Product Lifecycle Management (PLM) or similar system to define variants. When this feed is configured, assigning variants is as simple as dragging and dropping them from the Style Bank. Additionally, if the integrated PLM can send product attribute information attached to the variant data, those attributes are passed on to placeholders to which those variants are assigned.</li>
             <li>
@@ -79,13 +73,10 @@
                     </li>
                 </ul>
                 <ul>
-                    <li>The Split function  which splits placeholders into two or more placeholders with shorter lifespans is disabled.</li>
+                    <li>The <span class="Emphasis">Split</span> function  which splits placeholders into two or more placeholders with shorter lifespans is disabled.</li>
                 </ul>
             </li>
-            <p>Additionally, for metrics that remain editable, constraints are put in place to prevent users from making changes that cause sales to drop below actualized totals. If a user attempts to make a change that would violate this, they receive an error and changed metrics revert to their previous values</p>
-            <li><span class="Emphasis">VAT Actualization</span> – as periods begin to actualize, so VAT amounts are actualized for those periods. If an organization deals with VAT, it is important that the data import includes Sales ex VAT, as the system uses the difference between Sales and Sales ex VAT to calculate historic VAT % for actualized periods. 
-			<p>If any records imported for a given variant/cluster/period lack Sales ex VAT, the system nulls the VAT % for the entire variant/cluster/period, as an indicator that there is missing data in the import. This may cause anomalies in AUR ex VAT in the main planning view and with metrics in the <span class="Emphasis">Price Exceptions</span> view. </p></li>
+            <p>Additionally, for metrics that remain editable, constraints are put in place to prevent users from making changes that cause sales to drop below actualized totals. If a user attempts to make a change that would violate this, they receive an error and changed metrics revert to their previous values.</p>
         </ul>
-        <p class="BasicNote">A way to check for this is to look at the VAT percentages in Sales Plan view for periods that have actualized VAT % of zero though VAT percentages were in effect for the product.</p>
     </body>
 </html>

@@ -50,9 +50,7 @@
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Unable to Edit Reg &amp; Mdkn Sales Units Cluster Sets Side View via Collection</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
-]]></p>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
                         <p>Users attempting to edit <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> across <span class="Emphasis">All Clusters</span> within the Cluster Sets side view within Collection View (rather than Placeholder view) receive an error message upon clicking the <span class="Emphasis">Save</span> button.  The change does not save and an error is returned. However, users are able to change the <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> within the Collection main planning view, rather than within the Collection Cluster Sets side view. No such error is observed when making changes within the Placeholder Cluster Set view.
 
 </p>
@@ -74,10 +72,7 @@ We have been unable to replicate this issue/error within our standard environmen
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Channel hierarchy check not accounting for mixed site types</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
-
-]]></p>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
                         <p>The <cite>Some Channel hierarchy levels contain a mixture of Sites and Customer Accounts</cite> error is incorrectly being thrown when attempting to create a branch of the Master Plan.
 
 </p>
@@ -87,15 +82,10 @@ We have been unable to replicate this issue/error within our standard environmen
 When updating the channel hierarchy based on the global SiteGroup1 configuration which represents the total company, along with the core Channel hierarchy, the code validation incorrectly detects a "mixture" and throws the error.
 
 </p>
-                        <p><span class="Emphasis">Steps to Verify</span><![CDATA[
-
-]]></p>
+                        <p><span class="Emphasis">Steps to Verify</span> </p>
                         <p>Add a DC site type to an eligible MFP channel and create a branch
 </p>
-                        <p><![CDATA[
-]]><span class="Emphasis">Resolution</span><![CDATA[
-
-]]></p>
+                        <p> <span class="Emphasis">Resolution</span> </p>
                         <p>The behavior has been corrected so that the Plan now branches correctly</p>
                     </td>
                 </tr>
@@ -141,6 +131,16 @@ There are two conditions this issue will not address. First, the data appears to
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
                     <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Shell</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Update MSI with new signing process</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Enabler</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>2022.4.9.0</p>
+                        <p>2023.4.1.0</p>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">During MSI testing, right click a MSI file itself and make sure that it has the Toolsgroup certificate. </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
@@ -347,9 +347,7 @@ Calculate and Rationalize the Scenario
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Changing data cleansing parameters in Segment Floorset updates and recalculating doubles comparison sales</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                        <p><span class="Emphasis">Reported Behavior</span><![CDATA[
-]]></p>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
                         <p>
 When setting up a target creation scenario the default values for the data cleansing parameters get applied to the updates. If a user changes these parameters and recalculates the scenario it will double the “Comparison Sales”. If you continue changing the parameters it will continue to increase the comparison sales by the original (correct) comparison sales value.</p>
                         <p><span class="Emphasis">

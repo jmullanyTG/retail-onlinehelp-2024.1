@@ -67,6 +67,9 @@
       <TocEntry
         Title="[%=System.LinkedTitle%]"
         Link="/Content/Topics/Currency and VAT Management/Price Translation Rules and how they interact with VAT.htm" />
+      <TocEntry
+        Title="[%=System.LinkedTitle%]"
+        Link="/Content/Topics/Assortment Planning/VAT Actualization.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
     </TocEntry>
     <TocEntry
       Title="[%=System.LinkedTitle%]"

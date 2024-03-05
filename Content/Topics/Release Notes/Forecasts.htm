@@ -5,15 +5,17 @@
     </head>
     <body>
         <h1>Forecasts</h1>
-        <h2>Accurately predicting costs</h2>
-        <p>Retail and cost forecasting are essential tools for businesses aiming to enhance financial management and strategic planning. By accurately predicting costs, organizations can effectively budget and allocate resources, optimizing operational efficiency and minimizing unnecessary expenditures. This not only ensures financial stability but also enables more informed decision-making regarding investments, expansions, and resource allocation. Additionally, retail forecasting empowers businesses to anticipate future revenue streams, allowing them to set realistic financial goals, identify potential growth opportunities, and develop strategies to maximize profitability. Retail and cost forecasting enable retailers to make informed decisions regarding product assortment, pricing strategies, and inventory management, ultimately driving sustainable growth and financial success in the highly competitive retail landscape.</p>
+        <h2>Viewing currency metrics</h2>
+        <p>Two new series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, have been added to the <span class="Emphasis">Additional</span> group giving users the ability to </p>
+        <p>
+            <img src="../../Resources/Images/Demand Forecasting/Currency Metrics.PNG" class="LargeImages" />
+        </p>
+        <p class="BasicNote">The data is from the currently selected inventory in the Forecast view</p>
         <h3>Series Name: Forecast Cost</h3>
         <p>Color: Blue</p>
         <p>Graph Type: Line</p>
-        <p>Calculation - (EffectiveForecast * Default Cost) * CurrencyFactor
-
-</p>
-        <p class="BasicNote">Data is from the currently selected Inventory in the Forecast view</p>
+        <p>Calculation - (Effective Forecast * Default Cost) * Currency Factor
+(currency conversion factor to system default currency)</p>
         <p>Example: 
 
 Inventory ID 1 - Effective Forecast (note this takes into account profiles, level breakdown, manual forecast etc)</p>
@@ -86,6 +88,7 @@ Inventory ID 1 - Effective Forecast (note this takes into account profiles, leve
                 </tr>
             </tbody>
         </table>
+        <p class="BasicNote"> The system default currency is defined using <span class="Emphasis">Currency ID</span> (Engine: Replenish). If no currency conversion is defined then currency conversion is <span class="Emphasis">1</span>.</p>
         <p>Level ID = 1 and contains Inventory ID 1, 2, 3</p>
         <table style="mc-table-style: url('../../Resources/TableStyles/standard.css');margin-left: 0;margin-right: auto;width: 100%;" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" style="width: 16.6%;" />
@@ -266,9 +269,9 @@ Inventory ID 1 - Effective Forecast (note this takes into account profiles, leve
         <p>Color: Green
 </p>
         <p>Graph Type: Line</p>
-        <p>Calculation: (EffectiveForecast * Default Selling Price) * CurrencyFactor
+        <p>Calculation: (Effective Forecast * Default Selling Price) * Currency Factor
 
 </p>
-        <p class="BasicNote">Data is from the currently selected Inventory in the Forecast view</p>
+        <p class="BasicNote">Data is from the currently selected inventory in the Forecast view</p>
     </body>
 </html>
