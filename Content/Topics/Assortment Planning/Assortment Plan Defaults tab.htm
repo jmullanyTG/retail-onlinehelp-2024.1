@@ -77,8 +77,8 @@
         <MadCap:snippetBlock src="../../Resources/Snippets/Markdown Offset Lock.flsnp" />
         <p><span class="Emphasis">Periods of Supply</span>: The periods of supply (period type as defined by the current assortment plan) for placeholders as a minimum stock constraint for receipt engine outputs within the Receipt Plan supporting view of Line Visualization.</p>
         <p>    Actual by period constraint is defined as the sales planned for this many periods forward from a given period.</p>
-        <p class="BasicNote">This setting interacts with the system policy <span class="Emphasis">Assortment Engine DC-to-Store Lead Time</span> (Maintain &gt; Policies &gt; Engine: Commitments).</p>
-        <p class="Example"><span class="Emphasis">Assortment Engine DC-to-Store Lead Time</span> is set to 7 days. <span class="Emphasis">Periods of Supply</span> is set to 2 with a user planning a receipt to arrive in Wk 1. </p>
+        <p class="BasicNote">This setting interacts with the system policy <span class="Emphasis">Assortment Engine DC-to-Cluster Lead Time</span> (Maintain &gt; Policies &gt; Engine: Commitments).</p>
+        <p class="Example"><span class="Emphasis">Assortment Engine DC-to-Cluster Lead Time</span> is set to 7 days. <span class="Emphasis">Periods of Supply</span> is set to 2 with a user planning a receipt to arrive in Wk 1. </p>
         <p>For this constraint to be considered fulfilled for Wk 1, the period must end with at least 60 units of inventory on hand to cover weeks 2 and 3. The lead time of 7 days stipulates that stock being received in given week cannot be used to cover the sales planned in that week. Thus, Periods of Supply begins calculating need at Wk 2 rather than Wk 1.</p>
         <table style="mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <thead>

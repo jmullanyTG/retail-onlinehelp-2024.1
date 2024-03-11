@@ -5,8 +5,8 @@
     </head>
     <body>
         <h1>Forecasts</h1>
-        <h2>Assessing the profitability of future sales </h2>
-        <p>Two new series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, have been added to the <span class="Emphasis">Additional</span> group giving users the ability to see how much units priced in a different currency will cost in their home currency without having to do their own currency conversions. This provides insight into the profitability of future sales in addition to how many units might be sold. Any conversion from a currency to the home currency is automatic and is defined by existing system policy <span class="Emphasis">Currency ID</span> (Engine: Replenish). </p>
+        <h2>Forecasting cost and retail ticket price </h2>
+        <p>Planners can now use two new series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, to forecast the cost and retail ticket price of selected inventory. The result is insight into the profitability of future sales originally priced in different currencies. Pricing displays in the planner's system or home currency. Currency conversion  is automatic and is defined by existing system policy <span class="Emphasis">Currency ID</span> (Engine: Replenish). </p>
         <p class="BasicNote">If system policy <span class="Emphasis">Currency ID</span> is set to <span class="Emphasis">1</span>, then currency conversion does not take place.</p>
         <p>
             <img src="../../Resources/Images/Demand Forecasting/Currency Metrics.PNG" class="LargeImages" />
@@ -14,8 +14,7 @@
         <p>The two series appears as color coded lines in the graph with the data being from the currently selected inventory in the Forecast view.</p>
         <h3>Series Name: Forecast Cost</h3>
         <p>Color: Blue</p>
-        <p>Calculation - (Effective Forecast * Default Cost) * Currency Factor
-(currency conversion factor to system default currency)</p>
+        <p>Calculation: Forecasted units * cost of the unit in the system currency</p>
         <p>Example: 
 
 Inventory ID 1 - Effective Forecast (note this takes into account profiles, level breakdown, manual forecast etc)</p>
@@ -267,8 +266,8 @@ Inventory ID 1 - Effective Forecast (note this takes into account profiles, leve
 </h3>
         <p>Color: Green
 </p>
-        <p>Calculation: (Effective Forecast * Default Selling Price) * Currency Factor
+        <p>Calculation: Forecasted units * retail of the unit in the system currency<![CDATA[
 
-</p>
+]]></p>
     </body>
 </html>
