@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <CatapultTarget
   Version="2"
   Comment="New Target"
@@ -23,7 +23,7 @@
     <Variable
       Name="Variables/BookTitle">ToolsGroup JustEnough Functionality Comparison Chart </Variable>
     <Variable
-      Name="Variables/BookVersion">2022.1 - 2023.4</Variable>
+      Name="Variables/BookVersion">2022.1 - 2024.1</Variable>
     <Variable
       Name="Variables/BookSubTitle">New and Improved Functionality by Version</Variable>
   </Variables>

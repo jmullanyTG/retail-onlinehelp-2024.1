@@ -15,6 +15,18 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Active Variant Threshold Factor</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Calculation and Rationalization Processes.  Percentage of a variant's deseasonalized average sales that must be met for that period to be considered "Active".  Formatted as a decimal (e.g. 0.3 = 30%). Recommended setting: 0.3.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Active Variant Time On Offer Minimum</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Rationalization Process.  Percentage of the scenario time frame that an item must have been on offer  to be considered "Active".  Formatted as a decimal (e.g. 0.31 = 31%). Recommended setting: 0.31.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Average Inclusion Threshold</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Calculation and Rationalization Processes.  Percentage of a variant's maximum sales that must be met for a period to be considered in the deseasonalization process.  Periods of sales for the variant below the threshold will be removed before deseasonalization.  Formatted as a decimal (e.g. 0.03 = 3%). Recommended setting: 0.03.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Calculate: Cluster Set Snapshots for Comparison Data</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Calculation and Rationalization Processes.  Indicates what time period of cluster set snapshots to use for Comparison metrics.  A value of True (1) will use the snapshot active during the comparison time frame.  A value of False (0) will use the cluster set snapshot active during the last period of the selected Window of Time for the scenario.</td>
                 </tr>
@@ -118,12 +130,30 @@ Code
 </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Marginal Return Curve Extrapolation</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Rationalization Process.  Integer representing the minimum number of data points required in a given period for the system to use the original calculated intra-style marginal return curve in determining the number of recommended choices to assign to each recommended collection. If this minimum is not met, the system will calculate a weighted curve based on the original intra-style marginal return curve and a curve calculated at a higher level of the product hierarchy to provide a more accurate recommendation. Recommended setting: 12.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Median Period Total Threshold</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Calculation and Rationalization Processes.  Percentage of a period's median sales that must be met for a period total to be considered in the deseasonalization process.  Periods with total sales below the threshold will be overwritten with the percentage of the median.  Formatted as a decimal (e.g. 0.5 = 50%). Recommended setting: 0.5.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Rationalize: Marginal Return Curve Extrapolation</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Rationalization Process.  Integer representing the minimum number of data points required in a given period for the system to use the original calculated intra-style marginal return curve in determining the number of recommended choices to assign to each recommended collection. If this minimum is not met, the system will calculate a weighted curve based on the original intra-style marginal return curve and a curve calculated at a higher level of the product hierarchy to provide a more accurate recommendation.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">Rationalize: Pareto Threshold</td>
-                    <td class="TableStyle-standard-BodyA-Column2-Body1">Target Creation - Rationalization Process.  When Comparison Active variants are sorted by productivity in descending order, the variant that causes the cumulative sum to meet this percent of total is the Pareto Choice Count.  For example, if the Pareto Threshold is 95%, and when rationalizing, the 37th variant has a cumulative productivity that is 95.4% of total productivity, the system will determine 37 as the Pareto Choice Count. Formatted as a decimal (e.g. 0.95 = 95%).</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Rationalize: Pareto Threshold</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Target Creation - Rationalization Process.  When Comparison Active variants are sorted by productivity in descending order, the variant that causes the cumulative sum to meet this percent of total is the Pareto Choice Count.  For example, if the Pareto Threshold is 95%, and when rationalizing, the 37th variant has a cumulative productivity that is 95.4% of total productivity, the system will determine 37 as the Pareto Choice Count. Formatted as a decimal (e.g. 0.95 = 95%).</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Filter Item Master Group</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                       Target Creation - Calculation and Rationalization Processes.  Indicates which Item Master Group should be used to additionally filter placeholders in use by cluster.  A value of 0 indicates this feature is not in use.  The value should be 1 - 20 for an ItemMasterGroup, or 21 for Variant, 22 for Style, and 23 for Color. 
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">Use  Comparison Cluster Set Snapshots for Comparison Data</td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1">Target Creation - Calculation and Rationalization Processes. Indicates what time period of cluster set snapshots to use for Comparison metrics. A value of True (1) will use the snapshot active during the comparison time frame. A value of False (0) will use the cluster set snapshot active during the last period of the selected Window of Time for the scenario.</td>
                 </tr>
             </tbody>
         </table>
