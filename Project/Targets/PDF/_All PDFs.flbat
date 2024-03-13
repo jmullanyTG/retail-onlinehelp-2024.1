@@ -6,14 +6,26 @@
   <Targets>
     <Target
       Icon="System.Drawing.Bitmap"
-      Name="2023.4"
+      Name="2024.1"
       Type="HTML5"
       Build="false"
       Publish="false"
-      LastBuilt="2024-01-26T15:12:52.7206835-05:00" />
+      LastBuilt="2024-03-13T07:43:30.5713291-04:00" />
+    <Target
+      Icon="System.Drawing.Bitmap"
+      Name="Demand Mgmt non-Help requests/Demand Management Standard Database Server Setup (Windows)"
+      Type="PDF"
+      Build="false"
+      Publish="false" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="Demand Mgmt non-Help requests/Testing Target"
+      Type="PDF"
+      Build="false"
+      Publish="false" />
+    <Target
+      Icon="System.Drawing.Bitmap"
+      Name="Demand Mgmt non-Help requests/Upgrade Playbook (Template)"
       Type="PDF"
       Build="false"
       Publish="false" />
@@ -29,14 +41,13 @@
       Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-01-24T12:39:55.0197457-05:00" />
+      LastBuilt="2024-03-12T13:11:58.9483308-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Adaptive Allocations"
       Type="PDF"
       Build="false"
-      Publish="false"
-      LastBuilt="2023-10-24T10:29:07.2784475-04:00" />
+      Publish="false" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Administrator Panel"
@@ -64,9 +75,9 @@
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Assortment Planning"
-      Type="Word"
+      Type="PDF"
       Build="false"
-      Publish="true" />
+      Publish="false" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Attribute Management"
@@ -89,8 +100,9 @@
       Icon="System.Drawing.Bitmap"
       Name="PDF/Classification"
       Type="PDF"
-      Build="true"
-      Publish="true" />
+      Build="false"
+      Publish="false"
+      LastBuilt="2024-03-11T15:18:21.6983032-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Cluster Manager"
@@ -202,10 +214,10 @@
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Merchandise Financial Planning"
-      Type="Word"
+      Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-03-11T15:13:41.7437177-04:00" />
+      LastBuilt="2024-03-11T15:13:41.7210849-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Module Groups &amp; Sub Categories"
@@ -246,8 +258,8 @@
       Icon="System.Drawing.Bitmap"
       Name="PDF/Price Matrix"
       Type="PDF"
-      Build="false"
-      Publish="false" />
+      Build="true"
+      Publish="true" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Profiles"
