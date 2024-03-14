@@ -62,6 +62,15 @@
                     <td class="TableStyle-standard-BodyD-Column2-Body1">The number of days back maintain in a live assortment plan.  Detail data older than this date will be summarized and then deleted.  Entering the value "0" will keep all history. Recommended setting: 730.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment Engine DC-to-Cluster Lead Time</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Default Lead Time Days from the DC to the Cluster that will be used to calculate Next Order Date information.  This will be rounded to the nearest period.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment Engine Supplier-to-DC Lead Time</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Default Lead Time Days from the Supplier to the DC that is used to determine eligible receipt dates.  This will be rounded to the nearest period.
+Default value is 7.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment sales types to actualize</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">The sales types, as defined in tbl_SalesType, to use when computed actualized sales numbers. Recommended setting: 1, 2, 3.</td>
                 </tr>
@@ -140,7 +149,7 @@
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Enable VAT Conversion In AUT Calculation </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                          Determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value. 
-                        <p>The default is <span class="Emphasis">True</span>.</p><p>This system policy is referenced in the following processes:</p><ul><li>When a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT) </li><li>When a placeholder is created from a like style </li><li>When a placeholder is created from Smart Start </li><li>When the Home Site property is changed on an assortment plan </li><li>When daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li><li>If a VAT rate is changed live in the UI, only apply changes if VAT is enabled </li></ul></td>
+                        <p>The default is <span class="Emphasis">True</span>.</p><p>This system policy is referenced in the following processes:</p><ul><li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT) </li><li>when a placeholder is created from a like style </li><li>when a placeholder is created from Smart Start </li><li>when the Home Site property is changed on an assortment plan </li><li>when daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li><li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li></ul></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Enforce Supplier matching before Variant Assignment</td>

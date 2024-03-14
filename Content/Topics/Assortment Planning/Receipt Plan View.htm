@@ -55,8 +55,10 @@
         </ul>
         <h2>System policies</h2>
         <p>A number of system policies affect the output of the Receipt Planning Engine. These system policies are managed in <span class="Emphasis">Maintenance &gt; Policies</span>. However, this should not be done without the assistance of a technical consultant. Possible exceptions are:</p>
-        <p><span class="Emphasis">Assortment Engine DC-to-Store Lead Time</span>: This setting determines the number of days forward from receipt date that received stock is assumed to be available to support sales. The default is 7 to assume receipts are available to sell one week after receipt. This can be adjusted based on a realistic assessment of the capabilities of a supply chain. </p>
+        <p><span class="Emphasis">Assortment Engine DC-to-Cluster Lead Time</span>: This setting determines the Default Lead Time Days from the DC to the Cluster that will be used to calculate Next Order Date information.  This will be rounded to the nearest period.</p>
         <p>When the engine is calculating receipts, this setting essentially determines the range of periods it must consider to meet the defined constraints for a given period. See examples for Periods of Supply and Min Stk to Sales below for details.</p>
+        <p><span class="Emphasis">Assortment Engine Supplier-to-DC Lead Time</span>: Sets the Default Lead Time Days from the Supplier to the DC that is used to determine eligible receipt dates.  This will be rounded to the nearest period.
+Default value is 7.</p>
         <p><span class="Emphasis">Allow Receipts After Markdown</span>: When set to <span class="Emphasis">False</span> (default), the Receipt Plan only considers the regular portion of the Sales plan and ignores the markdown phase of the plan. Set the system policy to <span class="Emphasis">True</span> if additional stock should be ordered beyond the planned markdown date.</p>
         <p class="BasicNote">If system policy<span class="Emphasis"> Editibility of Receipt AUC</span> is set to 2 (AUC is only managed through imports), then AUC is read-only for Placeholders with a status of Assigned, Committed, Replen, and Allocate. For placeholders with a status of Open and Created, AUC&#160;is editable. </p>
         <h2>Restricting roles from changing plans in the Receipt Plan view</h2>

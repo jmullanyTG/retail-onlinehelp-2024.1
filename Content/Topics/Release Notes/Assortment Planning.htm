@@ -4,6 +4,36 @@
     </head>
     <body>
         <h1>Assortment Planning</h1>
+        <h2>Price Translation</h2>
+        <p>&#160;</p>
+        <p>Two fields have been added to the main planning view: <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span>.</p>
+        <p>
+            <img src="Price Matrix MPV UI.png" class="LargeImages" />
+        </p>
+        <h3>Choosing which Price Conversion Method to use</h3>
+        <p>Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using new system policy <span class="Emphasis">Price Conversion Method</span>. This system policy is referenced when:</p>
+        <ul>
+            <li>
+                <p>a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT)</p>
+            </li>
+            <li>
+                <p>a placeholder is created from Smart Start</p>
+            </li>
+            <li>
+                <p>daily maintenance runs, it only considers changed price translation factors if the feature is enabled</p>
+            </li>
+        </ul>
+        <p>&#160;</p>
+        <h3>Using VAT rate conversion</h3>
+        <p>New system policy <span class="Emphasis">Enable VAT Conversion In AUT Calculation</span> determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value. This system policy is referenced:</p>
+        <ul>
+            <li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT) </li>
+            <li>when a placeholder is created from a like style </li>
+            <li>when a placeholder is created from Smart Start </li>
+            <li>when the Home Site property is changed on an assortment plan </li>
+            <li>when daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li>
+            <li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li>
+        </ul>
         <h2>Purging old or inactive curves used both in assortment planning and allocations <MadCap:conditionalText MadCap:conditions="General.DoNotPublish">DMDEV-87973</MadCap:conditionalText></h2>
         <p>Functionality has been added to the existing job <span class="Emphasis">(Weekly) Maintenance: All Modules</span> to garbage collect inactive and deleted curves.</p>
         <p>The garbage collection process does the following:</p>

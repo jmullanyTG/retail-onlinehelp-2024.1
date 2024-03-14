@@ -61,6 +61,58 @@ We have been unable to replicate this issue/error within our standard environmen
                     </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">More consistency in Leadtime (Supplier-DC; DC-Cluster) calculations/applications</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>The work performed for this issue addresses an inconsistency in the way lead time is calculated depending on its use.
+
+</p>
+                        <p>The Assortment Receipt Plan Initial Select and Assortment Flow Dates Generation process both have a similar 'nearest' date logic but…
+
+</p>
+                        <ul>
+                            <li>
+                                <p>the RPV would only consider the default lead-time system policy.
+
+</p>
+                            </li>
+                            <li>
+                                <p>The flow dates process only uses AP Defaults first then system policy.
+
+</p>
+                            </li>
+                        </ul>
+                        <p>Both of those differ from the engine which uses the placeholder's variant’s default supplier's default lead time then attribute-based defaults then system policy.
+</p>
+                        <p>
+This discrepancy can cause, among other things, the editable range in the RPV to differ from the system generated flow dates. For some customers, they could be seeing the RPV editable periods as 28 days(system policy) in the future and the flow dates beginning 16 days (supplier lead-time) in the future. So receipt units are being generated in periods that a user cannot maintain.
+</p>
+                        <p><![CDATA[
+]]><span class="Emphasis">Solution and Updated Behavior</span><![CDATA[
+]]></p>
+                        <p>
+New system policy:
+
+</p>
+                        <p>Name: <span class="Emphasis">Assortment Engine Supplier-to-DC Lead Time</span><![CDATA[
+]]></p>
+                        <p>Renamed system policy:</p>
+                        <p>
+
+Old name: <span class="Emphasis">Assortment Engine DC-to-Store Lead Time</span><![CDATA[
+
+]]></p>
+                        <p>New name: <span class="Emphasis">Assortment Engine DC-to-Cluster Lead Time</span><![CDATA[
+]]></p>
+                        <p>For descriptions, see the <cite>System Policies</cite> section.</p>
+                        <p>
+
+The earliest planned flow date will now be greater than or equal to the earliest editable period in the RPV.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Database</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Missing clean up for tbl_Common_StoredProcedurequeue_Log</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
