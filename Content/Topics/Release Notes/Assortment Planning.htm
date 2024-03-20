@@ -40,8 +40,24 @@
             <li>when daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li>
             <li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li>
         </ul>
-        <h2>Purging old or inactive curves used both in assortment planning and allocations <MadCap:conditionalText MadCap:conditions="General.DoNotPublish">DMDEV-87973</MadCap:conditionalText></h2>
-        <p>Functionality has been added to the existing job <span class="Emphasis">(Weekly) Maintenance: All Modules</span> to garbage collect inactive and deleted curves.</p>
+        <h3>Price matrixes with insufficient data for all site currencies</h3>
+        <p>If a Price Matrix is set for a placeholder, then the application attempts to use the Price Matrix data to convert AUT values. If any of the following components are missing, a new Health Error, <span class="Emphasis">Missing Data in Price Matrix</span>, displays in the <span class="Emphasis">Health Error</span> field:</p>
+        <ul>
+            <li>
+                <p>an entry in the matrix for the home site's country / currency</p>
+            </li>
+            <li>
+                <p>an entry in the matrix for the selling sites' country / currencies</p>
+            </li>
+            <li>
+                <p>a row in the matrix for the starting Home AUT value</p>
+            </li>
+            <li>
+                <p>currency conversion data for converting non-Home currency values back to the home currency</p>
+            </li>
+        </ul>
+        <h2>Purging old or inactive curves in assortment planning and allocations <MadCap:conditionalText MadCap:conditions="General.DoNotPublish">DMDEV-87973</MadCap:conditionalText></h2>
+        <p>Functionality has been added to the existing job <span class="Emphasis">(Weekly) Maintenance: All Modules</span> to garbage collect inactive and deleted curves used both in assortment planning and allocations.</p>
         <p>The garbage collection process does the following:</p>
         <ul>
             <li>
