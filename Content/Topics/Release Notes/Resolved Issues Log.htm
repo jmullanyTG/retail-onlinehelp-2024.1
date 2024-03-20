@@ -120,6 +120,39 @@ The earliest planned flow date will now be greater than or equal to the earliest
                     <td class="TableStyle-standard-BodyD-Column1-Body1">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Import/Export SQL</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">API - Import of Supplier Order Line Variant generating Warnings If UploadLineUUID Not Populated</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Background</span>
+                        <p>Supplier Orders including Supplier Order Line Variants, can come from a number of external sources for a customer and may not have originated from a JustEnough generated commitment or distribution order.</p>
+                        <p>Therefore the UploadLineUUID can be null (i.e. the supplier order does not link to an order originally generated within JustEnough).</p>
+                        <p>The data spec for supplier order line variant correctly identifies the UploadLineUUID as preferred but not required.</p>
+                        <p>Unfortunately the Supplier Order line Variant import validation generates a warning for the records if the UploadLineUUID is not populated (NULL) causing a lot of unwanted ‘noise’ in the import messages.</p>
+                        <p>In contrast, the Supplier Order Line import does not generate warnings if the UploadLineUUID is not populated which is the expected behavior for a field that may not be populated for a good reason.</p>
+                        <p><span class="Emphasis">Reported Behavior</span>
+                        </p>
+                        <p>Importing a supplier order line variant record with the UploadLineUUID not populated, would generate a warning to say the UploadLineUUID is missing.</p>
+                        <p><span class="Emphasis">Modified Behavior</span>
+                        </p>
+                        <p>Importing a supplier order line variant record without the UploadLineUUID being populated no longer generates the warning</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Import/Export SQL</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">API Imports - Error In ImportExport Configuration Validation Procedure if Multiple Source Tables Defined</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>
+It was reported that Import configurations that sourced multiple table were  incorrectly throwing an error on validation.
+
+</p>
+                        <p><span class="Emphasis">Resolution</span> </p>
+                        <p>Code has been modified so that Import directives should no longer fail validating the source tables if there is more than one source table configured.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Channel hierarchy check not accounting for mixed site types</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
@@ -202,6 +235,20 @@ There are two conditions this issue will not address. First, the data appears to
                     <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
                         <p>In the event there are no sales records in the window evaluated, the existing ‘Original Contribution Quantity’ is retained and is misleading.</p>
                         <p class="BasicNote">The resolution of this issue resulted in new functionality. Please refer to the <cite>Size Model</cite> section for more details.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Comparison Active ROS U on cleansed data is blank – populate with calculated value</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior
+</span>
+                        <p>The field Comparison Active ROS U in the cleansed data view, which is used as a reference is not populating.
+
+</p>
+                        <p><span class="Emphasis">Modified Behavior</span> </p>
+                        <p>The Comparison Active ROS U is no longer blank and is calculating as expected.</p>
                     </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
