@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Architecture Overview</h1>
+        <h2>Data</h2>
+        <p>The utility comprises a small set of tables, specific to Inventory Purge and referenced by no external artifacts.</p>
+        <p>There is a <span class="EmphasisItalic">prescription</span> that comprises many individual steps.  Each Purge Step is executed in the same sequence for every Batch, and every Causal within that Batch.  It is immaterial whether data rows for a given Causal exist for a Step to act upon.  Such is the construct of the Causal Solution that, at the customer’s discretion, few, or many, features may be used, resulting in few, or many, tables being populated.  The full prescription assumes that the full breadth of features, per Causal, have been used.  Thus, it searches out data wherever it is possible to find it, and purges it at the correct time so as to abide by data-integrity rules.</p>
+        <p>There are five types of Step that may be assembled into a prescription:</p>
+        <ol>
+            <li>
+                <p><span class="Emphasis">Direct Hard Delete</span>: the most common operation; immediately removes rows from a single table.</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">ID-list Builder</span>: for hard- or soft-deletion of related rows from a table that does not use the CausalID as a key. Many Steps may populate the same ID-list from different source tables (typically link-tables).</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">ID-List-Driven Hard Delete</span>: using a single previously built ID List.</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">ID-List-Driven Soft Delete</span>: requires the prefix of the ID-list table, that the target table exists, the ID of which is a single int column. The causal.PurgeStep row details the target table name and column that the ID-list ID matches to.</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">Procedural Action</span>: invoke a stored procedure that may use zero, one, or many input lists of IDs from a prior ID-list-builder step.  For Custom procedures, there is no stipulation as to any table count, or row count limitations.  Batching logic is, however, strongly recommended for high-volume table DML actions.  Procedural delete code may issue soft- or hard-delete DML actions, or may perform un-link actions (e.g., removal of a Foreign Key, whether that be a column-referenced database artifact-enforced CONSTRAINT, or simply a denormalized reference-column).</p>
+            </li>
+        </ol>
+        <p>Soft deletes set a flag, or <code>RowStatusID</code>, in the target table row. A target Column Name is required, along with the soft-delete flag value to set. The target column name may not be exactly "<code>CausalID</code>".</p>
+        <p>The initial core prescription comprises nine steps, the last of which is to remove the Causal parent row itself.  The Custom Step Definition section, later, will provide, where appropriate, greater detail about each type than is needed in this overview.</p>
+        <h2>Overarching Custom Restrictions</h2>
+        <p>No declarative referential integrity from a custom table to a core table is permitted with the solution.  Causal Purge requires full adherence to this mandate.</p>
+        <h3>Important Notes</h3>
+        <ol>
+            <li>
+                <p>Deletion of the <code>dbo.tbl_CausalHeader</code> row for a Causal is carried out before any Custom Step(s), and must be successful for any such custom step to execute.</p>
+            </li>
+            <li>
+                <p>If the utility should detect the absence of a targeted <ins>Custom</ins> table from the database’s tables catalog, it will log a Fatal Error and immediately force the cessation of all activity.</p>
+            </li>
+            <li>
+                <p>Any Causal-oriented Table Triggers <span class="Emphasis" style="text-decoration: underline;">MUST</span> reference <code>CONTEXT_INFO</code> to ensure the logic does not fire -- the utility sets the <code>CONTEXT_INFO</code> explicitly to <code>x666</code> to render trigger logic inoperative.</p>
+            </li>
+        </ol>
+    </body>
+</html>

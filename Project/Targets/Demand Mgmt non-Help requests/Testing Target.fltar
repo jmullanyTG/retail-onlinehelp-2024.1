@@ -23,11 +23,11 @@
     OutputFormat="docx" />
   <Variables>
     <Variable
-      Name="Variables/BookTitle">Causal Purge</Variable>
+      Name="Variables/BookTitle">Inventory Purge</Variable>
     <Variable
       Name="Demand Mgmt non-help/BookTitle">Upgrade Playbook (Template)</Variable>
     <Variable
-      Name="Book Title &amp; Sub Title/BookTitle">Causal Purge </Variable>
+      Name="Book Title &amp; Sub Title/BookTitle">Inventory Purge </Variable>
     <Variable
       Name="Book Title &amp; Sub Title/BookSubTitle">User Guide</Variable>
     <Variable
