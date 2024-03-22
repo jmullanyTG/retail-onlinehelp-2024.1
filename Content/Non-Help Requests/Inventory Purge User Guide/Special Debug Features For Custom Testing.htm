@@ -13,17 +13,23 @@
                 <p>It is <span class="EmphasisItalic">IMPOSSIBLE</span> to successfully run the utility under a SQL Session bounded by a <code>BEGIN TRANSACTION</code> and <code>ROLLBACK</code>.  This is because the Scheduler Service is run on the App Tier, and a SQL Transaction precludes correct functioning of the SQL-code interfacing with that Service.  The Scheduler initiates separate SPIDs in SQL for each of the four possible parallel queues.  This architecture means that any debug information or result-sets originated from the queued procedure code cannot be returned to the SQL Session initiating the Purge Utility.  To accommodate this, see Debug 254, below.</p>
             </li>
             <li>
-                <p>Batched <code>UPDATE</code> and <code>DELETE</code> loops are changed to 10 rows per loop whenever a non-zero <code>@Debug</code> value is used.</p>
+                <p>Batched <code>UPDATE</code> and <code>DELETE</code> loops may be changed using the <span class="Emphasis">optional</span> <code>@BatchSizeForDebug</code> parameter, which is a <code> tinyint</code> to preclude batch-size abuse!</p>
             </li>
             <li>
-                <p>When Debug 255 is used, causal.PurgeLog Message content reporting the rows acted upon, will show a multiple of the 10-size batch when batching has been invoked.  This is not a bug – the utility does not waste resources attempting to quantify an exact row count for <span class="Emphasis">REPORT-ONLY</span> executions.</p>
+                <p>When Debug 255 is used, <code>inventory.PurgeLog</code> Message content reporting the rows acted upon, will show a multiple of the debug batch size when batching has been overridden.  This is not a bug -- the utility does not waste resources attempting to quantify an exact row count for <span class="EmphasisItalic">REPORT-ONLY</span> executions.</p>
             </li>
         </ol>
+        <h2>Assumptions
+</h2>
+        <p>The person tasked with developing Custom code and testing it in the context of the Purge utility is assumed to be very knowledgeable with SSMS and T-SQL querying.  The narrative below will not accommodate those lacking such expertise.</p>
         <h2>Usages and Sample Scripts</h2>
         <h3>Debug 1</h3>
+        <p>The utility will run as if no debug setting were in use, meaning that destructive actions will occur.  Debug-oriented information in the form of Messages, Application Log entries, and intermediate result-sets will be exhibited.
+
+If executing the Controller, only Controller and Scheduler Interface debug information in the form of Messages and intermediate result-sets will be seen in SSMS.</p>
         <p>The utility will run as if no debug setting were in use, meaning that destructive actions will occur.  Debug-oriented information in the form of Messages, Application Log entries, and intermediate result-sets will be exhibited.</p>
-        <p>If executing the Controller, only Controller and Scheduler Interface debug information in the form of Messages and intermediate result-sets will be seen in SSMS.</p>
-        <p>If executing the Single Causal Handler, effectively simulating a single Scheduler-initiated SPID, we strongly recommend using the test script below, having first successfully run the Controller using Debug 254 (see below), and ensuring that the script is bounded by a <code>BEGIN TRAN</code> and <code>ROLLBACK</code>.  Messages and intermediate result-sets from the Causal procedure, and those it calls, will be returned to SSMS.</p>
+        <h4>Debug A Single Batch</h4>
+        <p>If executing the Single Batch Handler, effectively simulating a single Scheduler-initiated SPID, we strongly recommend using the test script below, having first successfully run the Controller using Debug 254 (see below), and ensuring that the script is bounded by a <code>BEGIN TRAN</code> and <code>ROLLBACK</code>.  Messages and intermediate result-sets from the Inventory procedure, and those it calls, will be returned to SSMS.</p>
         <p>The latter is strongly recommended as the way to test Custom Procedural Code, and Custom Step actions.</p>
         <p>The person running the test will need to acquire a InventoryID from those under the Active Batch – use the <span class="EmphasisItalic">Monitoring</span> script above.  <span class="Emphasis">The script uses 255 because this script can be used for all</span> <code>@Debug</code> <span class="Emphasis">values when testing for a single Inventory.</span><![CDATA[  ]]><span class="Emphasis">Make sure to set this script’s</span> <code>@BatchSize_ThisRun</code> to the size reported in the Application Log, containing the string <code>Batches This Run</code>:</p>
         <MadCap:codeSnippet>
@@ -85,82 +91,17 @@ ROLLBACK;</MadCap:codeSnippetBody>
         <h3>Debug 2</h3>
         <p>Acts in the same way as Debug 1, but emits an informational message per loop of an <code>UPDATE</code> or <code>DELETE</code> DML operation.  <span class="Emphasis">Do not use this setting unless VERY LOW DATA VOLUMES are present, as SSMS can be overwhelmed!</span></p>
         <h3>Debug 254</h3>
-        <p>This setting ensures execution of the utility’s pre-Scheduler code, but no items are sent to the Scheduler to process.</p>
-        <p>This mode sets up a Batch and all the Causal and Step tables for a new run.  Upon completion, the content of those tables remains intact so that the Single Causal Handler, as shown in the Debug 1 script above, replete with <code>BEGIN TRAN</code> and <code>ROLLBACK</code>, can be executed repetitively to test both Custom Steps and Custom Procedural Delete handlers.</p>
-        <p>The utility was developed using Debug 254 because it is non-destructive, and facilitates the emission of detailed debug information.  It is <ins>THE</ins> recommended Custom development approach, followed by Debug 255, then Debug 1.</p>
+        <p>This setting ensures execution of the utility’s pre-Scheduler code, but no items are sent to the Scheduler to process.
+
+</p>
+        <p>This mode sets up a Batch and all the Inventory and Step tables for a new run.  Upon completion, the content of those tables remains intact so that the Single Inventory Handler, as shown in the Debug 1 script above, replete with <code>BEGIN TRAN</code> and <code>ROLLBACK</code>, can be executed repetitively to test both Custom Steps and Custom Procedural Delete handlers.
+
+</p>
+        <p>The utility was developed using Debug 254 because it is non-destructive and facilitates the emission of detailed debug information.  It is <ins>THE</ins> recommended Custom development approach, followed by Debug 255, then Debug 1.</p>
         <h3>Debug 255</h3>
-        <p>Execute the full utility, but in place of destructive DML being executed, and bypassing the called procedure within each Procedural Code Wrapper, the actions that will be taken are reported to the Application Log, and are recorded in the causal.PurgeLog.  The start and end date-time <span class="EmphasisItalic">progress</span> columns are updated, but note the final few lines of the script, below.</p>
-        <p>We recommend that in a testing environment, for each run of the utility using Debug 255, the utility’s run-time tables be cleared out and the causal.PurgeBatch table re-seeded.  Again, this was the approach taken during development of the utility, and is recommended.</p>
-        <p>The script to run Debug 255 repeatedly is shown below:</p>
-        <MadCap:codeSnippet>
-            <MadCap:codeSnippetCopyButton />
-            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">DECLARE @UserID                  int          = 1
-      , @CausalLimit        smallint     = 5
-      , @RunDurationLimitMinutes smallint     = NULL
-      , @RunCessationDateTime    datetime2(0) = NULL
-      , @Debug                   tinyint      = 255
-      , @Now                     datetime     = GETDATE()
-      , @BatchID                 int;
+        <p>Execute the full utility, but in place of destructive DML being executed, and bypassing the called procedure within each Procedural Code Wrapper, the actions that will be taken are reported to the Application Log and are recorded in the <code>inventory.PurgeLog</code>.  The start and end date-time <span class="EmphasisItalic">progress</span> columns are updated but note the final few lines of the sample Debug 1 script, above.
 
-EXEC causal.Purge_Controller @UserID = @UserID
-                                , @CausalLimit = @CausalLimit
-                                , @RunDurationLimitMinutes = @RunDurationLimitMinutes
-                                , @RunCessationDateTime = @RunCessationDateTime
-                                , @Debug = @Debug;
-
-SELECT @BatchID = pb.BatchID
-  FROM causal.PurgeBatch pb
- WHERE pb.RowStatusID = 1;
-/* -----------------------------------------------------------------------------
-** Overall Batch Progress
-** -------------------------------------------------------------------------- */
-SELECT *
-  FROM causal.PurgeBatch pb
- WHERE pb.BatchID = @BatchID;
-/* -----------------------------------------------------------------------------
-** Overall Causal Progress
-** -------------------------------------------------------------------------- */
-SELECT *
-  FROM causal.PurgeBatch_Causal pbc
- WHERE pbc.BatchID = @BatchID
- ORDER BY pbc.CausalID;
-/* -----------------------------------------------------------------------------
-** Detailed Causal Step Progress
-** -------------------------------------------------------------------------- */
-SELECT *
-  FROM causal.PurgeBatch_Causal_Step pbcs
- WHERE pbcs.BatchID = @BatchID
- ORDER BY pbcs.CausalID
-        , pbcs.ExecutionSequenceNumber;
-/* -----------------------------------------------------------------------------
-** Overall Batch Progress - Time-sequenced
-** -------------------------------------------------------------------------- */
-SELECT *
-  FROM causal.PurgeLog pl
- WHERE pl.BatchID = @BatchID
- ORDER BY pl.BatchID
-        , pl.CreatedWhen
-        , pl.SPID;
-/* -----------------------------------------------------------------------------
-** JE Application Log entries since the batch started
-** -------------------------------------------------------------------------- */
-SELECT tal.LogDate
-     , tal.LogText
-  FROM dbo.tbl_ApplicationLog tal
- WHERE tal.LogDate &gt;= @Now
-   AND tal.LogText LIKE N'%causal.Purge%'
- ORDER BY tal.ApplicationLogID;
-/* -----------------------------------------------------------------------------
-** IF the base tables need to be RESET, run the code within this comment block.
-        DELETE FROM causal.PurgeBatch_Causal_Step;
-        DELETE FROM causal.PurgeBatch_Causal;
-        DELETE FROM causal.PurgeLog;
-        DELETE FROM causal.PurgeBatch;
-        IF NOT EXISTS ( SELECT 1
-                          FROM causal.PurgeBatch pb )
-            DBCC CHECKIDENT('causal.PurgeBatch', RESEED, 0);
-** -------------------------------------------------------------------------- */
-    END;</MadCap:codeSnippetBody>
-        </MadCap:codeSnippet>
+</p>
+        <p>We recommend that in a testing environment, for each run of the utility using Debug 255, the utility’s run-time tables be cleared out and the inventory.PurgeBatch table re-seeded.  Again, this was the approach taken during development of the utility, and is recommended.</p>
     </body>
 </html>

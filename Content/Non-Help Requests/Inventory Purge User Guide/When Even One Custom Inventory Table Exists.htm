@@ -4,21 +4,21 @@
     </head>
     <body>
         <h1>When Even One Custom Inventory Table Exists</h1>
-        <p>It is imperative that any explicit or implicit table dependencies, i.e., foreign-key relationships, are followed <span class="EmphasisItalic">bottom up</span>.  The furthest child-table must be purged-from first, followed by its parent, and so on <span class="EmphasisItalic">up</span> the table hierarchy.  To reiterate the Overarching Custom Restriction stated earlier:</p>
+        <p>It is imperative that any explicit or implicit table dependencies, i.e., foreign-key relationships intra-custom tables only, are followed <span class="EmphasisItalic">bottom up</span>.  The furthest child-table must be purged-from first, followed by its parent, and so on <span class="EmphasisItalic">up</span> the table hierarchy.  To reiterate the Overarching Custom Restriction stated earlier:</p>
         <p><i>If the utility should detect the absence of a targeted Custom table from the database's tables catalog, it will log a Fatal Error and immediately force the cessation of all activity.</i>
         </p>
         <h2>Foundation Code</h2>
-        <p>There are examples of every step-type commented-out in the <code>Inventory_C.INIT_PurgeTable_Prescription_STUB</code> procedure.  Each <code>INSERT INTO</code> the <code>custom  Inventory_C_PurgeStep</code> table targets only those columns relevant to the type.</p>
+        <p>There are examples of every step-type commented-out in the <code>Inventory_C.INIT_PurgeTable_Prescription_STUB</code> procedure.  Each <code>INSERT INTO</code> the custom  <code>Inventory_C.PurgeStep</code> table targets only those columns relevant to the type.</p>
         <p><span style="color: #ff0000;">Under no circumstances may these specifications be changed unless we change the core-code specification and communicate the change via a revised version of this document.</span>
         </p>
         <p>The STUB file is included for reference in Appendix 1, below.  It includes the <code>SET</code> options referenced in this sub-section.</p>
         <p>When creating the (only) custom INIT script:</p>
         <ul>
             <li>
-                <p>Copy the STUB, then edit “_STUB” to “”.</p>
+                <p>Copy the STUB, then delete “_STUB”.</p>
             </li>
             <li>
-                <p>Commented-out code that clears any current rows from the <code>Inventory_C_PurgeStep</code> table must be un-commented-out.  The SQL Comment block above the code states what the lines that follow it will do.  It is imperative that the code is ACTIVE.</p>
+                <p>Commented-out code that clears any current rows from the <code>Inventory_C.PurgeStep</code> table must have the double-hyphen removed.  The SQL Comment block above the code states what the lines that follow it will do.  It is imperative that the code is ACTIVE.</p>
                 <MadCap:codeSnippet>
                     <MadCap:codeSnippetCopyButton />
                     <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">/* =============================================================================
@@ -103,7 +103,7 @@ SELECT SequenceNumber = t.Tnum
         </MadCap:codeSnippet>
         <p>Apply the procedure and execute it.  The 2 Steps will be added to the next Batch’s set of steps to run.</p>
         <h2>Remaining Step Types</h2>
-        <p>As already said, examples of all five step types are provided in the STUB.  Also noted are the explicit columns targeted.  The types have already been described.  The core <code>Inventory.PurgeStep</code> content, viewed in sequence, show how core tables are purged, and the column-content is intended to be informative/educational as well as being the prescription itself.</p>
+        <p>As already said, examples of all five step types are provided in the STUB.  Also noted are the explicit columns targeted.  The types have already been described.  The core <code>inventory.PurgeStep</code> content, viewed in sequence, shows how core tables are purged, and the column-content is intended to be informative/educational as well as being the prescription itself.</p>
         <p>As such, there is no need to elaborate upon the list-builder, or hard-delete from ID List, types.</p>
         <p>The Procedural Delete type is expanded upon in the next section.</p>
     </body>

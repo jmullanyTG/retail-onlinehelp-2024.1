@@ -10,7 +10,7 @@
         <p>Non-technical readers may skip this section.
 
 </p>
-        <p><span class="Emphasis">Absolutely NO enabled Foreign Key may exist, ever, between a Custom Table and ANY Core table, especially dbo.tbl_Inventory.</span>  Failure to comply with this rule will cause the Purge Utility to FAIL.  There are <span class="EmphasisItalic">no exceptions or accommodations</span> unless a quasi-custom table has been created by ToolsGroup, e.g., ordermanager_C.Order_Line_Inventory.  In the latter case, explicit ON DELETE CASCADE declarative referential integrity is in place such that this table is not specified in the <span class="Emphasis">conceptual presciption</span> (see below), only the parent table is present.</p>
+        <p><span class="Emphasis">Absolutely NO enabled Foreign Key may exist, ever, between a Custom Table and ANY Core table, especially dbo.tbl_Inventory.</span>  Failure to comply with this rule will cause the Purge Utility to FAIL.  There are <span class="EmphasisItalic">no exceptions or accommodations</span> unless a quasi-custom table has been created by ToolsGroup, e.g., ordermanager_C.Order_Line_Inventory.  In the latter case, explicit ON DELETE CASCADE declarative referential integrity is in place such that this table is not specified in the <span class="EmphasisItalic">conceptual presciption</span> (see below), <i>only the parent table is present</i>.</p>
         <h2>Permanency of Purged Data</h2>
         <p>
 It is vital to understand that purging data is a one-way, permanent deletion, operation.  InvP has no functionality to recover any purged data.  Should any data restoration be required, use a Database Restore and effect data restoration manually.
@@ -21,11 +21,10 @@ It is vital to understand that purging data is a one-way, permanent deletion, op
 The retention of Inventory data, albeit in an <span class="EmphasisItalic">inactive</span> state within the database, is at the discretion of the Customer.   
 </p>
         <p>
-Eligibility is straightforward: any Inventory in an <span class="Emphasis"></span> <code>RowStatusID</code> state is eligible.
+Eligibility is straightforward: any Inventory <span class="Emphasis">inactive</span> with reference to the ActiveFlag state is eligible.
 
 </p>
-        <p>Once Causal data have been purged from the tables, the log of activities carried out to effect the purge is kept in the database.  The Customer must state the retention period for purge activity data that may be needed in order to comply with any legal or analytical requirements.  Removal, carried out by <span class="EmphasisItalic">garbage collection</span> processes, is governed by a system policy setting, the value of which is stated by the Customer.  The default retention period is thirty days.
-
+        <p>Once Inventory data have been purged from the tables, the log of activities carried out to effect the purge is kept in the database.  The Customer must state the retention period for purge activity data that may be needed in order to comply with any legal or analytical requirements.  Removal, carried out by <span class="EmphasisItalic">garbage collection</span> processes, is governed by a system policy setting, the value of which is stated by the Customer.  The default retention period is thirty days.
 </p>
         <h2>Operational Considerations</h2>
         <p>Using the Scheduler Service, up to four concurrent explicitly-named, single-thread, queues may actively remove data for up to 4,500 Inventories per queue.  </p>
@@ -59,17 +58,13 @@ When started, a duration in minutes can be stated.  As soon as any facet of the 
 </p>
         <p>Whenever the utility is prematurely terminated, it logs the termination and closes down.  In doing so, it ensures that the database is in a consistent state, with any work performed being retained intact.  The internal artifacts used by the purge utility are preserved so that it can be restarted at will.
 </p>
-        <p>If desired, the utility can be quantity-constrained at run time to purge fewer than the System Policy setting for the number of Inventory to purge per run.  This is governed by the optional <code>@BatchLimit</code> parameter.
-
-</p>
+        <p>If desired, the utility can be quantity-constrained at run time to purge fewer than the System Policy setting for the number of Inventory to purge per run.  This is governed by the optional <code>@BatchLimit</code> parameter. already mentioned, above</p>
         <p>All activity for an execution is logged under a <span class="Emphasis">Run</span>.  Only one active batch is permitted at any time, enforced by rules within the database.
 
 </p>
         <p>In the unlikely event that an unrecoverable error, such as when purge utility artifacts for a batch are lost, a batch can be <span class="EmphasisItalic">abandoned</span>.  All activity to that point is preserved.  Recovery from such a failure will require manual intervention, and may involve the inclusion of Support personnel.
 </p>
-        <p>
-Any Causal-oriented Table Triggers MUST reference <code>CONTEXT_INFO</code> to ensure the logic does not fire -- the utility sets the <code>CONTEXT_INFO</code> explicitly to render trigger logic inoperative.
-</p>
+        <p>Any related table’s Table Triggers MUST reference <code>CONTEXT_INFO</code> to ensure the logic does not fire -- the utility sets the <code>CONTEXT_INFO</code> explicitly to render trigger logic inoperative.</p>
         <h2>
 
 Known Limitations</h2>

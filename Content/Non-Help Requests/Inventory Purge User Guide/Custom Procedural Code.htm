@@ -5,7 +5,7 @@
     <body>
         <h1>Custom Procedural Code</h1>
         <p>Inventory Purge supports the execution of custom code for one or more custom steps of type ID 5.</p>
-        <p>A wrapper-stub procedure is provided within the Inventory_C DB schema.  We strongly recommend using a wrapper-calls-custom-code coding paradigm to encapsulate custom code under near-identical-looking wrapper procedures.  This is how the core Purge process is architected when executing pre-existing core code procedures.  We do not restrict customization to using this approach -- there may be valid cases where the custom code need only be added to a clone of the wrapper-stub.</p>
+        <p>A wrapper-stub procedure is provided within the <code>Inventory_C</code> DB schema.  We strongly recommend using a wrapper-calls-custom-code coding paradigm to encapsulate custom code under near-identical-looking wrapper procedures.  This is how the core Purge process is architected when executing pre-existing core code procedures.  We do not restrict customization to using this approach -- there may be valid cases where the custom code need only be added to a clone of the wrapper-stub.</p>
         <h2>Suggested Custom Procedure Development Approach</h2>
         <p>The approach is very similar to that described above for the Custom INIT procedure – copy, rename (removing _STUB), ensure the SET statement is present, then customize.</p>
         <p>The sample handles step-completion logging to the <code>Inventory.PurgeLog</code> table.</p>
