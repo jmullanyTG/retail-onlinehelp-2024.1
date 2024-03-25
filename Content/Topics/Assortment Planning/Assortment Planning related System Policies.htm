@@ -36,6 +36,10 @@
                         <p>The two options are: </p><p><span class="Emphasis">Period Match</span> - this will search for the phase in week within the seasonality curve (on any year, LY, LLY, a future year, etc, depending on the configurations of the time periods of the curve and sales plan). Then it will match up subsequent periods one by one, looping the curve around as many times as necessary as to cover the whole sales plan. </p><p><span class="Emphasis">Scale To Fit</span> will align the first period of the curve with the first period of the plan. If the sizes of the curve and plan are different, the curve will either be compressed or elongated to match the size of the sales plan.</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Algorithm To Match Static Curve to Placeholder</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">This policy determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned.  The two options are: False - this will keep the same existing static curve that is already copied and assigned to the like style, True - Re-copy the original dynamic curve as a new static curve.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Allow custom grouping of Placeholder Commitment Lines</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">If True this allows the user to specify a grouping before Commitments are generated. </td>
                 </tr>
