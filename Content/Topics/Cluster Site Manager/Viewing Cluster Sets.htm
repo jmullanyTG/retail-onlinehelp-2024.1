@@ -11,7 +11,7 @@
         <ol>
             <li>
                 <p>From the Management tab, click <span class="Emphasis">Site Clustering</span>. </p>
-                <p>The <span class="Emphasis">Cluster Set</span> window displays.</p>
+                <p class="BasicNote">The first time Site Clustering is opened, the <span class="Emphasis">Cluster Set Management</span> window displays. Otherwise, the <span class="Emphasis">Cluster Set</span> window displays.</p>
             </li>
             <li>
                 <p>To view a cluster set document for a given cluster set, double-click the cluster site in the grid. </p>
@@ -23,7 +23,7 @@
                 <img src="../../Resources/Images/Cluster Site Manager/Cluster Set view.png" class="LargeImages" />
             </p>
         </ol>
-        <h3>Cluster Set Management  screen, toolbar, buttons, and header fields</h3>
+        <h2>Header toolbar functionality</h2>
         <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" />
             <col class="TableStyle-standard-Column-Column2" />
@@ -68,7 +68,7 @@
                 </tr>
             </tbody>
         </table>
-        <h3>Header fields</h3>
+        <h2>Header fields</h2>
         <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" />
             <col class="TableStyle-standard-Column-Column2" />
@@ -92,28 +92,19 @@
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Cluster Type</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
-                        The cluster set type. For more information on cluster set types, see <MadCap:xref href="Configuring cluster collection  sets.htm">Cluster Set Configuration</MadCap:xref>.
+                        The cluster set type. For more information on cluster set types, see <MadCap:xref href="Viewing Collection Set Configuration.htm">Cluster Set Configuration</MadCap:xref>.
                     </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">Last Computed</td>
-                    <td class="TableStyle-standard-BodyA-Column2-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Last Computed</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
                          The date the cluster set was last calculated. 
                     </td>
                 </tr>
-            </tbody>
-        </table>
-        <h3>Tab header right-click menu options</h3>
-        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
-            <col class="TableStyle-standard-Column-Column1" />
-            <col class="TableStyle-standard-Column-Column2" />
-            <thead>
-                <tr class="TableStyle-standard-Head-Header1">
-                    <th class="TableStyle-standard-HeadE-Column1-Header1">Option</th>
-                    <th class="TableStyle-standard-HeadD-Column2-Header1">Description</th>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyD-Column1-Body1" colspan="2"><span class="Emphasis">Header right-click menu options</span>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Close</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Closes the cluster set document opened.
@@ -130,6 +121,7 @@
                 </tr>
             </tbody>
         </table>
+        <h2>Dragging the document header</h2>
         <p>The document header can be dragged  to reposition it on the screen. After floating, click the document header and drag the document to the desired location. Right-click the document header and click <span style="font-weight: bold;font-size: 12pt;">Dock as Tabbed Document</span> to return the document to its tabbed position. Hover over the directional buttons to see possible docked locations for the floated window.</p>
         <p>
             <img src="../../Resources/Images/Cluster Site Manager/Cluster Set Floating Tab.png" class="LargeImages" />
@@ -142,9 +134,8 @@
         <p>
             <img src="../../Resources/Images/Cluster Site Manager/New Horizontal Tab Group.png" class="LargeImages" />
         </p>
-        <h3>Detail tab</h3>
-        <p>The <span class="Emphasis">Detail</span> tab displays the site codes and descriptions of all stores in the cluster set and their cluster assignments. </p>
-        <h3>Tab header fields</h3>
+        <h2>Detail tab</h2>
+        <p>The <span class="Emphasis">Detail</span> tab displays the site codes and descriptions of all stores in the cluster set and their cluster assignments. Fields include:</p>
         <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" />
             <col class="TableStyle-standard-Column-Column2" />
@@ -166,7 +157,7 @@
                     <td class="TableStyle-standard-BodyD-Column2-Body1">The site description.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Cluster Type</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Cluster</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                         The system calculated cluster assignment for the site. 
                     </td>
@@ -182,47 +173,16 @@
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Editable checkbox. Indicates if the system uses User Cluster in place of Cluster as the Effective Cluster. Default is checked. </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">Effective Cluster</td>
-                    <td class="TableStyle-standard-BodyA-Column2-Body1">The effective cluster assignment for the store.</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Effective Cluster</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">The effective cluster assignment for the store.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">Financial Plan</td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1">The MFP&#160;financial plan selected as the Financial Plan Attribute. </td>
                 </tr>
             </tbody>
         </table>
-        <h3>Grid options</h3>
-        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
-            <col class="TableStyle-standard-Column-Column1" />
-            <col class="TableStyle-standard-Column-Column2" />
-            <thead>
-                <tr class="TableStyle-standard-Head-Header1">
-                    <th class="TableStyle-standard-HeadE-Column1-Header1">Field</th>
-                    <th class="TableStyle-standard-HeadD-Column2-Header1">Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Select All</td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">
-                         Selects and highlights all site records in the Site Cluster Detail grid. 
-                    </td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Deselect All</td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">
-                         Deselects and un-highlights all site records in the Site Cluster Detail grid. 
-                    </td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Select from Clipboard</td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">Selects and highlights all matching site records in the Site Cluster Detail grid.</td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">Deselect from Clipboard</td>
-                    <td class="TableStyle-standard-BodyA-Column2-Body1">
-                         Deselects and un-highlights all matching site records in the Site Cluster Detail grid. 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h3>Chart tab</h3>
+        <h2>Chart tab</h2>
         <p>The <span class="Emphasis">Chart</span> tab displays all stores in the cluster set as data points against X and Y axes for all Attributes defined in Cluster Set Configuration. </p>
         <p style="font-size: 12pt;">
             <img src="../../Resources/Images/Cluster Site Manager/Cluster Set screen Chart tab.png" class="LargeImages" />

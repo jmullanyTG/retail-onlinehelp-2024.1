@@ -1,44 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
     <head>
-        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
-        <h1>Configuring cluster collection  sets</h1>
-        <p style="font-size: 12pt;">Use the <span class="Emphasis">Cluster Set Configuration</span> screen to set up the parameters used in the creation of cluster templates and sets, including the cluster type, the sites to be included, the number and descriptions of the actual clusters, the range of data to be used, the specific criteria to be considered in the clustering algorithm, and any partitioning to be used in the generation of multiple cluster sets.</p>
-        <h2>Adding  cluster collection  sets</h2>
+        <h1>Adding Cluster Sets</h1>
         <ol>
-            <li style="font-size: 12pt;">
-                <p>From the Management tab, click <span class="Emphasis">Site Clustering</span>. </p>
-                <p>The <span class="Emphasis">Cluster Set Management</span>  window displays.</p>
+            <li>
+                <p>From the Management tab,  click <span class="Emphasis">Site Clustering</span>. </p>
             </li>
-            <li style="font-size: 12pt;">
-                <p>Click the <span class="Emphasis">View Collection Set Configuration</span> button. </p>
-                <p>The <span class="Emphasis">Cluster Site View Collection Sets Maintenance</span> window displays.</p>
+            <li>
+                <p>Click <span class="Emphasis">Manage</span> to display the <span class="Emphasis">Cluster Set Management</span> window.</p>
             </li>
-            <li style="font-size: 12pt;">Click <span class="Emphasis">Add</span> to add a new row.</li>
-            <li style="font-size: 12pt;">Select the <span class="Emphasis">Cluster Entity Type</span> and <span class="Emphasis">Collection Set</span> from the respective dropdown menus.</li>
-            <li style="font-size: 12pt;">Click <span class="Emphasis">Ok</span>.</li>
+            <li>
+                <p>Click <span class="Emphasis">New</span>.</p>
+            </li>
+            <li>
+                <p>Complete the fields as required and click <span class="Emphasis">Ok</span>.</p>
+            </li>
+            <li>
+                <p>Click <span class="Emphasis">Ok</span> on the <span class="Emphasis">Cluster Set Management</span> window.</p>
+            </li>
+            <li>
+                <p>Click <span class="Emphasis">Calculate</span> on the <span class="Emphasis">Cluster Set</span> toolbar to calculates the cluster assignments for all stores included in the cluster set.</p>
+            </li>
         </ol>
-        <h2>Deleting cluster collection  sets</h2>
-        <ol>
-            <li style="font-size: 12pt;">
-                <p>From the Management tab, click <span class="Emphasis">Site Clustering</span>. </p>
-            </li>
-            <li style="font-size: 12pt;">
-                <p>Click the <span class="Emphasis">View Collection Set Configuration</span> button. </p>
-                <p>The <span class="Emphasis">Cluster Site View Collection Sets Maintenance</span> window displays.</p>
-            </li>
-            <li style="font-size: 12pt;">
-                <p>Select a cluster set and click <span class="Emphasis">Remove</span>. </p>
-                <p>The cluster collection  set is deleted.</p>
-            </li>
-            <li style="font-size: 12pt;">Click <span class="Emphasis">Ok</span>.</li>
-        </ol>
-        <h2>Undoing the last action</h2>
-        <p>If a cluster collection set was added or deleted   by mistake, click the <span class="Emphasis">Undo</span> button in the <span class="Emphasis">Cluster Site View Collection Sets Maintenance</span> window to undo the last action.</p>
-        <h2>Updating cluster set properties</h2>
-        <p>The following properties can be updated.</p>
+        <h2>Cluster set field descriptions</h2>
         <table style="mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" />
             <col class="TableStyle-standard-Column-Column2" />
@@ -68,7 +55,7 @@
                         <p>If <span class="Emphasis">Shared</span> was selected, click the <span class="Emphasis">Change</span> button to select the users and roles to share with.</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Module</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Modules</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                          The modules that this cluster set/template is available to. 
                         <p>Notes:</p><ul><li>The cluster set/template is automatically filtered out of modules that are not selected in this property. This prevents having to sort through the clutter of cluster sets that are not intended for use.</li><li>Allocation and Assortment include support for their respective scenarios in the Rate of Sale module.</li></ul></td>
@@ -131,7 +118,7 @@
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Distance Function</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                          The distance function to use when calculating cluster sets.  
-                        <ul><li>Euclidean Distance calculates distance in a straight line (as the crow files).</li><li>Manhattan Distance calculates distance between two points as a sum of horizontal and vertical lines on a grid (no diagonals).</li></ul></td>
+                        <ul><li><span class="Emphasis">Euclidean Distance</span> calculates distance in a straight line (as the crow files).</li><li><span class="Emphasis">Manhattan Distance</span> calculates distance between two points as a sum of horizontal and vertical lines on a grid (no diagonals).</li></ul></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyB-Column1-Body1">Allow Cluster Count to be Resized</td>

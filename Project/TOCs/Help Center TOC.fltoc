@@ -2775,10 +2775,13 @@
             Link="/Content/Topics/Cluster Site Manager/Viewing Cluster Sets.htm" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
-            Link="/Content/Topics/Cluster Site Manager/Configuring sub-clusters.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+            Link="/Content/Topics/Cluster Site Manager/Adding Cluster Sets.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
-            Link="/Content/Topics/Cluster Site Manager/Importing Data From Spreadsheets into Site Clustering.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+            Link="/Content/Topics/Cluster Site Manager/Updating Cluster Set Groups.htm" />
+          <TocEntry
+            Title="[%=System.LinkedTitle%]"
+            Link="/Content/Topics/Cluster Site Manager/Configuring sub-clusters.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Cluster Site Manager/Adding an Attribute.htm" />
@@ -2794,11 +2797,10 @@
           </TocEntry>
           <TocEntry
             Title="[%=System.LinkedTitle%]"
-            Link="/Content/Topics/Cluster Site Manager/Configuring cluster collection  sets.htm">
-            <TocEntry
-              Title="[%=System.LinkedTitle%]"
-              Link="/Content/Topics/Cluster Site Manager/Updating Cluster Set Groups.htm" />
-          </TocEntry>
+            Link="/Content/Topics/Cluster Site Manager/Viewing Collection Set Configuration.htm"></TocEntry>
+          <TocEntry
+            Title="[%=System.LinkedTitle%]"
+            Link="/Content/Topics/Cluster Site Manager/Importing Data From Spreadsheets into Site Clustering.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Cluster Site Manager/Clustering Algorithms.htm" />
