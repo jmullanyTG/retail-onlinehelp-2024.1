@@ -47,6 +47,21 @@
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Seasonality Curve Assignment via Hindsight new item creation incorrect</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                        <p>When creating a new item via the hindsight view the expectation is that the new item modeled after the historic item will inherit the ROS values as well as cluster sets and attributes depending on the selection by the user. The seasonality curve however should be based on the default seasonality curve via the AP plan defaults. The issue we are finding is that the new item is getting a seasonality curve assignment based on a clone of the the cloned seasonality curve of the historic item. The issue with this is that the new items are not capturing the latest calculation of the seasonality curve.
+
+</p>
+                        <p><span class="Emphasis">Solution and Modified Behavior</span> </p>
+                        <p>A new system policy, 
+
+<span class="Emphasis">Algorithm To Match Static Curve to Placeholder</span>,  determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned. For more information, refer to the <i>System Policies</i> section.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Unable to Edit Reg &amp; Mdkn Sales Units Cluster Sets Side View via Collection</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>

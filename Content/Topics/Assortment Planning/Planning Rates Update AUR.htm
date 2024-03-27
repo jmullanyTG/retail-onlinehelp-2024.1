@@ -5,37 +5,29 @@
     </head>
     <body>
         <h1>Planning discount/promotion rates that update the AUR</h1>
-        <p>Users can plan an AUT Discount percentage (Rate). This discount rate can be planned on its own, or in conjunction with specific planned promotions within AP. This allows users to manage item-level AURs without using the Promotions view in AP. </p>
+        <p>Users can plan an AUT Discount percentage (rate). This discount rate can be planned on its own, or in conjunction with specific planned promotions within AP. This allows users to manage item-level AURs without using the Promotions view in AP. </p>
         <p>The plannable metric, <span class="Emphasis">AUT Discount %</span> allows a user to plan a discount percentage which is not otherwise defined through specific promotions.  The reduction in AUT is then automatically applied against the AUT and used to update the planned AUR. This eliminates the need to plan the AUR.</p>
         <p class="BasicNote">AUT (average unit ticket) is the ticket price, and AUR (average unit retail) is the retail price paid by the customer. </p>
         <p>For example, if the AUT is $100, and various promos, etc., cause that variant to go out the door at an average AUR of $80, a user might plan a discount or promotion rate of 20%, and that would update the planned AUR.</p>
         <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" style="width: 10%;" />
-            <col class="TableStyle-standard-Column-Column2" style="width: 10%;" />
-            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
             <thead>
                 <tr class="TableStyle-standard-Head-Header1">
                     <th class="TableStyle-standard-HeadE-Column1-Header1">Name</th>
-                    <th class="TableStyle-standard-HeadE-Column2-Header1">Added to</th>
-                    <th class="TableStyle-standard-HeadD-Column1-Header1">Description</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">AUT Discount %</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">
-                        Sales Plan
-view                        <p>Top Down Core Plan view (TDCP)</p></td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
                         Impacts how AUR is derived from AUT. The percent discount is taken first, and then the rest of the calculations proceed from there, namely applying VAT rates, price exceptions, and promotions.  This metric averages across time and is editable in future periods. 
                         <p class="Important">It is important to note that <span class="Emphasis">AUT Discount %</span> is applied and then any planned promotions are also applied. <span class="Emphasis">AUT Discount %</span> is NOT inclusive of explicitly planned promotions.</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyB-Column1-Body1">AUT/AUR Var %</td>
-                    <td class="TableStyle-standard-BodyB-Column2-Body1">
-                        Sales Plan
-view                    </td>
-                    <td class="TableStyle-standard-BodyA-Column1-Body1">
+                    <td class="TableStyle-standard-BodyA-Column2-Body1">
                         An actualized metric showing the actualized difference between AUT and AUR. 
                         <p>This metric is agnostic of the discount source - be it the planned AUT Discount % or specific promotions themselves. Users may plan future periods by using specific promotions to plan the discount, or use the AUT Discount %, or both - but be aware that the AUT +/- % AUR metric is reflective of all of these discount sources, combined.</p></td>
                 </tr>

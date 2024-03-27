@@ -1,41 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
     <head>
+        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
         <h1>Merchandise Financial Planning</h1>
-        <h2>Verifying which plans are Default and which are Original Plan</h2>
-        <p>A new <span class="Emphasis">Plan Sub Type Name</span> column has been added as an available column to the <span class="Emphasis">Financial Plan Maintenance</span> screen to supplement <span class="Emphasis">Plan Name</span>, <span class="Emphasis">Plan Description</span>, <span class="Emphasis">Plan Type Name</span>, and <span class="Emphasis">Plan Status Name</span>. The new column allows users to quickly and easily see which plans are Default and which are Original Plans.</p>
-        <p>
-            <img src="../../Resources/Images/MFP/Plan Sub Type Name column.png" class="LargeImages" />
-        </p>
-        <p><span class="Emphasis">Plan Sub Type Name</span> can be added using the <span class="Emphasis">Choose Column</span> option on the right-click menu.</p>
-        <h2>Configuring the source of forecast level data</h2>
-        <p>The source of forecast data to use (whether Inventory forecasts or aggregated level forecasts) is defined using new system policy <span class="Emphasis">Forecast Source</span> (Module: Financial Planning). Level data should be chosen to expedite performance, but only if forecast jobs are set up to maintain hierarchy level data. The default is <span class="Emphasis">Inventory</span>.</p>
-        <h2>Rebalancing metrics based on configured measure sets</h2>
-        <p>Previous Rebalancing functionality allowed for Sales to be rebalanced between plans. There were <span class="Emphasis">Receipt Retail</span>, <span class="Emphasis">Receipt Units</span>, and <span class="Emphasis">Receipt Cost</span> checkboxes for Receipts to be rebalanced, but that functionality was never enabled. With this enhancement within v2023.4, users can now rebalance metrics based on configured measure sets. </p>
-        <p class="BasicNote">Measure sets are configured in the <span class="Emphasis">Manage</span> &gt; <span class="Emphasis">Configuration</span> &gt; <span class="Emphasis">Merge Measure Sets</span> screen.</p>
-        <p>Rebalancing should only occur between plans of the same plan type. The <span class="Emphasis">Rebalance Plan</span> screen has been updated to include a <span class="Emphasis">Measure Set</span> dropdown field. However, it is important to remember that the dropdown only displays measure sets relevant to the selected plan type. The <span class="Emphasis">Receipt Retail</span>, <span class="Emphasis">Receipt Units</span>, and <span class="Emphasis">Receipt Cost</span> checkboxes are also now available for clicking.</p>
-        <p>
-            <img src="../../Resources/Images/MFP/Rebalance Dialog Measure Set Field.png" class="LargeImages" />
-        </p>
-        <p>Only the metrics selected for rebalance are affected within the destination plan. Any metrics unselected retain the values of the destination plan. As such, it is important to select all related metrics within a metric set for rebalance. </p>
-        <p>For example, when rebalancing Receipts, a user should check all of the Target Receipt metric checkboxes for the full set of data to rebalance. Selecting only <span class="Emphasis">Receipt Retail</span> and <span class="Emphasis">Receipt Units</span> without <span class="Emphasis">Receipt Cost</span> applies the <span class="Emphasis">Receipt Cost</span> of the destination plan to the newly copied <span class="Emphasis">Receipt Retail</span> and <span class="Emphasis">Receipt Units</span> values from the source plan, resulting in a newly calculated Receipt margin. Similarly, by not selecting <span class="Emphasis">Receipt Units</span>, the <span class="Emphasis">Receipt AUR</span> and <span class="Emphasis">Receipt AUC</span> values will not be direct copies as the <span class="Emphasis">Receipt Units</span> values in the destination plan become the divisor.</p>
-        <p class="BasicNote">Rebalance functionality has not changed with the addition of this feature.</p>
-        <h3>Notes:</h3>
-        <ul>
-            <li>
-                <p>If a measure set is picked along with any of the <span class="Emphasis">Sales</span> / <span class="Emphasis">Sales Units</span> / <span class="Emphasis">COGS</span> / <span class="Emphasis">Receipt Retail</span> / <span class="Emphasis">Receipt Units</span> / <span class="Emphasis">Receipt Cost</span> checkboxes, it is the measure set that is copied and not the Sales and Receipt specific metrics even if the Sales and Receipt checkboxes are selected.</p>
-            </li>
-            <li>
-                <p>When the Sales within the Source and Destination plan are not equal, the ratio of Source Plan Sales and Destination Plan Sales will be applied against other values being copied.</p>
-            </li>
-            <li>
-                <p>Rebalance plans are only created with the time periods specified in the <span class="Emphasis">Rebalance Plan</span> screen.</p>
-            </li>
-            <li>
-                <p>Within the <span class="Emphasis">Hybrid Retail Dual Markdown</span> plan type, there are metrics with rolling calculations using the designated (checked) Season Begin period. If the source and destination plans do not have the same Season Begin period, there will be some drift in these rolling metrics, two of note include, <span class="Emphasis">BOP Retail</span> and <span class="Emphasis">COGS</span>.</p>
-            </li>
-        </ul>
+        <h2>Modified AUT discount % calculation</h2>
+        <p>For TG JE v2024.1, the <span class="Emphasis">AUT discount %</span> calculation has been modified. </p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 49%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 49%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Previous calculation</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">New calculation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1" style="vertical-align: middle;padding-left: 6px;padding-right: 6px;padding-top: 6px;padding-bottom: 6px;text-align: center;">AUR/AUT</td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1" style="vertical-align: middle;padding-left: 6px;padding-right: 6px;padding-top: 6px;padding-bottom: 6px;text-align: center;">(1-(AUR/AUT))*100</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
