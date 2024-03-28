@@ -37,6 +37,9 @@
     Link="/Content/Topics/Cluster Site Manager/Adding Cluster Sets.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
   <TocEntry
     Title="[%=System.LinkedTitle%]"
+    Link="/Content/Topics/Cluster Site Manager/Creation Clusters with Site-Level MFP Plans.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
     Link="/Content/Topics/Cluster Site Manager/Updating Cluster Set Groups.htm" />
   <TocEntry
     Title="[%=System.LinkedTitle%]"

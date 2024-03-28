@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Home AUT and Blended AUT</h1>
+        <p>AP distinguishes between two different types of AUT (or Average Unit Ticket, for example, the ticket price intended to be printed on merchandise tags).  The first of these is <span class="Emphasis">Home AUT</span>.  This is meant to represent the AUT value for the country and currency of the defined Home Site (set in the <span class="Emphasis">Manage Assortment Plans</span> screen for AP).  This is the starting point for planning AUT, as this value is user-editable.  Home AUT is only editable - and only has a value - in future periods.</p>
+        <p>From this, <span class="Emphasis">Blended AUT</span> is derived.  Blended AUT is considered to be a true representation of the expected earnings for a given item.  Blended AUT incorporates several components, each of which is enabled by system policy:</p>
+        <ul>
+            <li>
+                <p>VAT Rate changes between the Home Site and sites within each cluster</p>
+            </li>
+            <li>
+                <p>Price Exception Factors</p>
+            </li>
+            <li>
+                <p>Price Matrix conversions</p>
+            </li>
+        </ul>
+        <p class="BasicNote">Only Price Exceptions OR Price Matrix conversion can be enabled at once (but both can be disabled altogether if desired).  VAT Rate changes cannot be enabled if Price Matrix conversions are enabled.</p>
+        <p>Blended AUT is derived in future periods from Home AUT.  In past periods, Home AUT is empty, and Blended AUT is derived from provided sales history.</p>
+        <h2>Price Matrix functionality
+</h2>
+        <p>If a user enables Price Matrix conversions via system policy <span class="Emphasis">Price Conversion Method</span>, and sets a Price Matrix on a given placeholder, then the configured Price Matrix is used to convert the provided Home AUT value to Blended AUT.
+
+</p>
+    </body>
+</html>

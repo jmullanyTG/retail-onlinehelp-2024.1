@@ -73,6 +73,9 @@
     </TocEntry>
     <TocEntry
       Title="[%=System.LinkedTitle%]"
+      Link="/Content/Topics/Assortment Planning/Home AUT and Blended AUT.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
       Link="/Content/Topics/Assortment Planning/Asynchronous Data Processing Tasks.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
     <TocEntry
       Title="[%=System.LinkedTitle%]"
@@ -279,7 +282,7 @@
         Link="/Content/Topics/Assortment Planning/Attributes View.htm" />
       <TocEntry
         Title="[%=System.LinkedTitle%]"
-        Link="/Content/Topics/Assortment Planning/Price Exceptions View.htm" />
+        Link="/Content/Topics/Assortment Planning/Multi-Currency Price View.htm" />
       <TocEntry
         Title="[%=System.LinkedTitle%]"
         Link="/Content/Topics/Assortment Planning/Packing Instruction View.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />

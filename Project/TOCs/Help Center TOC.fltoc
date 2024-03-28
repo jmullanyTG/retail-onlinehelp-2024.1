@@ -174,6 +174,9 @@
               Link="/Content/Topics/Merchandise Financial Planning/Creating Branch Plans.htm" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Merchandise Financial Planning/Creation of Site-Level MFP Plans.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Merchandise Financial Planning/Creating Snapshots.htm" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
@@ -309,6 +312,9 @@
                 Title="[%=System.LinkedTitle%]"
                 Link="/Content/Topics/Assortment Planning/VAT Actualization.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             </TocEntry>
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Assortment Planning/Home AUT and Blended AUT.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Assortment Planning/Asynchronous Data Processing Tasks.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
@@ -513,7 +519,7 @@
                 Link="/Content/Topics/Assortment Planning/Attributes View.htm" />
               <TocEntry
                 Title="[%=System.LinkedTitle%]"
-                Link="/Content/Topics/Assortment Planning/Price Exceptions View.htm" />
+                Link="/Content/Topics/Assortment Planning/Multi-Currency Price View.htm" />
               <TocEntry
                 Title="[%=System.LinkedTitle%]"
                 Link="/Content/Topics/Assortment Planning/Packing Instruction View.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
@@ -2779,6 +2785,9 @@
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Cluster Site Manager/Adding Cluster Sets.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+          <TocEntry
+            Title="[%=System.LinkedTitle%]"
+            Link="/Content/Topics/Cluster Site Manager/Creation Clusters with Site-Level MFP Plans.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Cluster Site Manager/Updating Cluster Set Groups.htm" />
