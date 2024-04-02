@@ -170,5 +170,6 @@
     <Word Comment="">DMDEV-87190</Word>
     <Word Comment="">DMDEV-89794</Word>
     <Word Comment="">DMDEV-87973</Word>
-    <Word>DMDEV-83963</Word>
+    <Word Comment="">DMDEV-83963</Word>
+    <Word>AUTs</Word>
 </IgnoredWordsDictionary>

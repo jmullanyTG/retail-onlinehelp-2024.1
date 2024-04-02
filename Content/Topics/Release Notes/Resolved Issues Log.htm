@@ -29,19 +29,17 @@
             </tbody>
         </table>
         <p>The following resolved issues are included in release v2024.1.</p>
-        <table style="margin-left: 0;margin-right: auto;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
-            <col class="TableStyle-standard-Column-Column1" style="width: 126px;" />
-            <col class="TableStyle-standard-Column-Column2" style="width: 462px;" />
-            <col class="TableStyle-standard-Column-Column1" style="width: 136px;" />
-            <col style="width: 103px;" class="TableStyle-standard-Column-Column2" />
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
             <thead>
                 <tr class="TableStyle-standard-Head-Header1">
                     <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
                     <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
                     <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
-                    <th class="TableStyle-standard-HeadE-Column2-Header1">Merged to Other Releases</th>
-                    <th class="TableStyle-standard-HeadD-Column1-Header1">Additional Release Notes</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,23 +47,44 @@
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Seasonality Curve Assignment via Hindsight new item creation incorrect</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.2.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>When creating a new item via the hindsight view the expectation is that the new item modeled after the historic item will inherit the ROS values as well as cluster sets and attributes depending on the selection by the user. The seasonality curve however should be based on the default seasonality curve via the AP plan defaults. The issue we are finding is that the new item is getting a seasonality curve assignment based on a clone of the the cloned seasonality curve of the historic item. The issue with this is that the new items are not capturing the latest calculation of the seasonality curve.
 
-</p>
+						</p>
                         <p><span class="Emphasis">Solution and Modified Behavior</span> </p>
                         <p>A new system policy, 
 
-<span class="Emphasis">Algorithm To Match Static Curve to Placeholder</span>,  determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned. For more information, refer to the <i>System Policies</i> section.</p>
+					<span class="Emphasis">Algorithm To Match Static Curve to Placeholder</span>,  determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned. For more information, refer to the <i>System Policies</i> section.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Unable to Edit Reg &amp; Mdkn Sales Units Cluster Sets Side View via Collection</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>Users attempting to edit <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> across <span class="Emphasis">All Clusters</span> within the Cluster Sets side view within Collection View (rather than Placeholder view) receive an error message upon clicking the <span class="Emphasis">Save</span> button.  The change does not save and an error is returned. However, users are able to change the <span class="Emphasis">Reg Sls (U)</span> and <span class="Emphasis">Mknd Sls (U)</span> within the Collection main planning view, rather than within the Collection Cluster Sets side view. No such error is observed when making changes within the Placeholder Cluster Set view.
 
 </p>
@@ -75,12 +94,31 @@
 We have been unable to replicate this issue/error within our standard environments. Even so, code has been amended in an attempt to resolve this in the client environment. The fix will need to be verified by the client in their environment, as it is not reproducible within the standard database.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">More consistency in Leadtime (Supplier-DC; DC-Cluster) calculations/applications</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.2.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>The work performed for this issue addresses an inconsistency in the way lead time is calculated depending on its use.
 
 </p>
@@ -127,19 +165,59 @@ Old name: <span class="Emphasis">Assortment Engine DC-to-Store Lead Time</span><
 The earliest planned flow date will now be greater than or equal to the earliest editable period in the RPV.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Database</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Missing clean up for tbl_Common_StoredProcedurequeue_Log</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Import/Export SQL</td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">Garbage Collection process for<code> tbl_Common_StoredProcedurequeue_Log</code> has been added to the Weekly Core Maintenance for all TG JE modules.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">
+                        Import/Export SQL 
+                    </td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">API - Import of Supplier Order Line Variant generating Warnings If UploadLineUUID Not Populated</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Background</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Background</span>
                         <p>Supplier Orders including Supplier Order Line Variants, can come from a number of external sources for a customer and may not have originated from a JustEnough generated commitment or distribution order.</p>
                         <p>Therefore the UploadLineUUID can be null (i.e. the supplier order does not link to an order originally generated within JustEnough).</p>
                         <p>The data spec for supplier order line variant correctly identifies the UploadLineUUID as preferred but not required.</p>
@@ -153,26 +231,65 @@ The earliest planned flow date will now be greater than or equal to the earliest
                         <p>Importing a supplier order line variant record without the UploadLineUUID being populated no longer generates the warning</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Import/Export SQL</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">API Imports - Error In ImportExport Configuration Validation Procedure if Multiple Source Tables Defined</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.2.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>
 It was reported that Import configurations that sourced multiple table were  incorrectly throwing an error on validation.
 
 </p>
-                        <p><span class="Emphasis">Resolution</span> </p>
+                        <p><span class="Emphasis">Resolution</span>
+                        </p>
                         <p>Code has been modified so that Import directives should no longer fail validating the source tables if there is more than one source table configured.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Channel hierarchy check not accounting for mixed site types</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>The <cite>Some Channel hierarchy levels contain a mixture of Sites and Customer Accounts</cite> error is incorrectly being thrown when attempting to create a branch of the Master Plan.
 
 </p>
@@ -182,23 +299,45 @@ It was reported that Import configurations that sourced multiple table were  inc
 When updating the channel hierarchy based on the global SiteGroup1 configuration which represents the total company, along with the core Channel hierarchy, the code validation incorrectly detects a "mixture" and throws the error.
 
 </p>
-                        <p><span class="Emphasis">Steps to Verify</span> </p>
+                        <p><span class="Emphasis">Steps to Verify</span>
+                        </p>
                         <p>Add a DC site type to an eligible MFP channel and create a branch
 </p>
-                        <p> <span class="Emphasis">Resolution</span> </p>
+                        <p><span class="Emphasis">Resolution</span>
+                        </p>
                         <p>The behavior has been corrected so that the Plan now branches correctly</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">MFP All Plan Types</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">LY Week 52 EOP not showing if last week of time horizon</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>
 Users reported missing the EOP for week 52 2024 in the preseason plan.
 </p>
-                        <p> <span class="Emphasis">Steps to verify</span> </p>
+                        <p><span class="Emphasis">Steps to verify</span>
+                        </p>
                         <p>This issue can be reproduced in standard if the following occur:
 </p>
                         <ul>
@@ -213,65 +352,180 @@ There is a wk53 in the LY span for TY
 </p>
                             </li>
                         </ul>
-                        <p> <span class="Emphasis">Notes</span> </p>
+                        <p><span class="Emphasis">Notes</span>
+                        </p>
                         <p>
 There are two conditions this issue will not address. First, the data appears to come from imports, and the periods imported do not respect the plan start date / end date ranges; this will cause unexpected behavior throughout MFP. Second, the EOP/BOP values are not continuous; it does seem to go to 0 at random times in the progression of future periods.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Order Manager</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Navigation Tree Context Menu - Missing 'Narrative' Option for AP Commitments</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">Added <span class="Emphasis">Narrative</span> to the context menu for AP Commitments in the Order Manager navigation tree to make it consistent with the Supplier Order context menu.</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">&#160;</td>
                 </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">Added <span class="Emphasis">Narrative</span> to the context menu for AP Commitments in the Order Manager navigation tree to make it consistent with the Supplier Order context menu.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Replenish Engine</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Engine Outer Loop Infinite Loop</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">&#160;</td>
                 </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Shell</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Update MSI with new signing process</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Enabler</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">
-                        <p>2022.4.9.0</p>
-                        <p>2023.4.1.0</p>
-                    </td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">During MSI testing, right click a MSI file itself and make sure that it has the Toolsgroup certificate. </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                         2022.4.9.0 
+                        <p>2023.4.1.0</p></td>
                 </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">During MSI testing, right click a MSI file itself and make sure that it has the Toolsgroup certificate. </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Size Model</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">No Qualifying Sales</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>In the event there are no sales records in the window evaluated, the existing ‘Original Contribution Quantity’ is retained and is misleading.</p>
                         <p class="BasicNote">The resolution of this issue resulted in new functionality. Please refer to the <cite>Size Model</cite> section for more details.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Comparison Active ROS U on cleansed data is blank – populate with calculated value</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.2.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.2.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior
 </span>
                         <p>The field Comparison Active ROS U in the cleansed data view, which is used as a reference is not populating.
 
 </p>
-                        <p><span class="Emphasis">Modified Behavior</span> </p>
+                        <p><span class="Emphasis">Modified Behavior</span>
+                        </p>
                         <p>The Comparison Active ROS U is no longer blank and is calculating as expected.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">PK Error in Edit Target Scenario creating new Segment Definitions in new target scenario</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Support</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>Users receiving error in Edit Target Scenario creating new Segment Definitions in new target scenario:
 
 </p>
@@ -299,43 +553,119 @@ Create 2 Segment Definitions.
                         </ol>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">
                        Target Choice Counts
                         <p>Target Creation</p></td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Edit Target Scenario - Split Column Displays Hierarchy or Attribute Codes Instead of Meaningful Descriptions</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                       Added configuration to support meaningful options for the display of Hierarchy and Attribute codes and descriptions
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">Added configuration to support meaningful options for the display of Hierarchy and Attribute codes and descriptions
                         <p><span class="Emphasis">Notes</span></p><p>New system policy <span class="Emphasis">Config: Code/Description Display</span> determines how things generated from a code/description pair will default. Specifically, it is used to generate segment names when Auto-Generate Segments is used; and it is used to display the Segment Split Type information (either hierarchy level or attribute).  For more information, refer to the <cite>System Policies</cite> section.</p></td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Editing 'TY Act New AUR' Results in Error</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">Addressed a code issue that would result in an error when editing the field <span class="Emphasis">TY Act New AUR</span> in TCC-&gt;Target Worksheet.  </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
                 </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">Addressed a code issue that would result in an error when editing the field <span class="Emphasis">TY Act New AUR</span> in TCC-&gt;Target Worksheet. </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Remove duplicate cluster names within a common cluster set ID</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>Invalid and duplicated cluster sets with the same Cluster Set ID were showing up Target Choice Count → Segment Definitions, which could possibly result in an error when saving changes.
 
 </p>
-                        <p><span class="Emphasis">Notes</span> </p>
+                        <p><span class="Emphasis">Notes</span>
+                        </p>
                         <p>The fix for this issue only removes the duplicates of the same Cluster Set with the same Cluster Set ID. However, if there are duplicate names with different Cluster Set ID, it will be listed accordingly in the UI, and will require renaming to distinguish one Cluster Set from another.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">A copied scenario producing different result than duplicate scenario created from scratch</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>When copying a scenario (using all system rationalized values, without any user overrides), the copy of the scenario has different recommendations than the original scenario. With all parameters the same, and without any user edits, the copy should have the same recommendations as the original.
 
 </p>
@@ -344,12 +674,31 @@ Create 2 Segment Definitions.
                         <p>Copy a scenario (using all system rationalized values, without any user overrides) and compare the original scenario recommendations to the copied scenario recommendations. The copy should match the original.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Update Refresh Rate view displaying incorrect ongoing vs new choices</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>When using positional merge and cluster constraints, the carryover and new choice counts are incorrect. In some scenarios, the carryover count within a subsequent update period greater than the choices available in the prior update period.
 
 </p>
@@ -407,12 +756,31 @@ Click the auto-merge function
                         <p>Choice counts (carryover and new) are correct after addressing this bug.</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Decreasing Target Scenario Value causing planned sales to drop significantly below target value</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>A user creates a target creation scenario including the target segments and update periods. The user then calculates and rationalizes the scenario. At this point the user decides to decrease the target scenario value. This prompts the system to display a message that the scenario needs to be rationalized. The user does this and after doing so finds that the TY planned values do not match the updated scenario target and instead are well below the new value.
 </p>
                         <p><span class="Emphasis">
@@ -466,12 +834,31 @@ Calculate and Rationalize the Scenario
                         </ol>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Changing data cleansing parameters in Segment Floorset updates and recalculating doubles comparison sales</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>
 When setting up a target creation scenario the default values for the data cleansing parameters get applied to the updates. If a user changes these parameters and recalculates the scenario it will double the “Comparison Sales”. If you continue changing the parameters it will continue to increase the comparison sales by the original (correct) comparison sales value.</p>
                         <p><span class="Emphasis">
@@ -508,12 +895,31 @@ Create multiple update periods using the default data cleansing values
                         <p>The comparison sales no longer change based on updating data cleansing parameters</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <table style="width: 100%; mc-table-style: url('../../Resources/TableStyles/standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <col class="TableStyle-standard-Column-Column1" />
+            <col class="TableStyle-standard-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Components</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Summary</th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Issue Type</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Merged to Other Releases</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Target Choice Counts</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Target New Choices tab does not reflect changes made in the Target Choices By Update tab</td>
                     <td class="TableStyle-standard-BodyE-Column1-Body1">External Bug</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">2023.4.1.0</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1"><span class="Emphasis">Reported Behavior</span>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.1.0</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>After making changes to the phase dates of items in the <span class="Emphasis">Target Choices By Update</span> tab the expectation is that the <span class="Emphasis">Target New Choices</span> tab will reflect updated values based phase date changes.
 </p>
                         <p>
@@ -558,13 +964,6 @@ Review the total sales or sales units and notice that it is only showing data fr
                             </li>
                         </ol>
                     </td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyB-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyB-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyA-Column1-Body1">&#160;</td>
                 </tr>
             </tbody>
         </table>
