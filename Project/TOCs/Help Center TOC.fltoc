@@ -314,7 +314,7 @@
             </TocEntry>
             <TocEntry
               Title="[%=System.LinkedTitle%]"
-              Link="/Content/Topics/Assortment Planning/Home AUT and Blended AUT.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+              Link="/Content/Topics/Assortment Planning/Defining Default Pricing Relationships Across Currencies.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Assortment Planning/Asynchronous Data Processing Tasks.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
