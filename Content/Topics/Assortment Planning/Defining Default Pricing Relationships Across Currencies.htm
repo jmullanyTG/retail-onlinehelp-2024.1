@@ -15,7 +15,7 @@
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Price Point Matrix Example.png" class="LargeImages">
             </img>
         </p>
-        <p>In the example, this indicates that USD $67.99 is equivalent to PLN zł270.  The matrix is meant to encapsulate both currency conversions and elegant rounding, or the standard price endings based on currency and locale, like ending prices in 99 cents in USD.</p>
+        <p>In the example, the Price Matrix configuration indicates that USD $67.99 is equivalent to PLN zł270.  The matrix is meant to encapsulate both currency conversions and elegant rounding, or the standard price endings based on currency and locale, like ending prices in 99 cents in USD.</p>
         <p>The Price Matrix should be specified as a hierarchy default so that newly created placeholders can automatically inherit this property.  Then, when new placeholders are created with a given <span class="Emphasis">Home AUT</span>, a <span class="Emphasis">Blended AUT</span> value can automatically be created.</p>
         <p>
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Matrix Specified as Default.png" class="LargeImages">
@@ -24,7 +24,20 @@
         <p class="BasicNote">It is not necessary to set a Price Matrix Rounding rule.  If a Price Matrix is specified, but no Rounding rule is specified, then <span class="Emphasis">Nearest</span> is used.
 </p>
         <p>
-The specific usage of the Price Matrix can also be viewed in the <span class="Emphasis">Multi-Currency Price View</span>.  Users can see how, for each period, the Home AUT value converts into each specific currency's value. The <span class="Emphasis">Multi-Currency Price View</span> side view can be used to perform overrides to the established pricing rules.</p>
+Viewing Price Matrix conversions</p>
+        <p>Users can review Price Matrix conversions via the following two new fields added to the main planning view: <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span>.</p>
+        <p>
+            <img src="../Release Notes/Price Matrix MPV UI.png" class="LargeImages">
+            </img>
+        </p>
+        <h3>Setting default price translation values</h3>
+        <p>Users can set default parameters for the <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span> fields via two new corresponding fields added to the <span class="Emphasis">Assortment Plan Defaults</span> tab on the <span class="Emphasis">Manage Assortment Defaults</span> view. Setting default parameters saves having to manually set values each time. The defaults can still be changed later by users if needed.</p>
+        <p>
+            <img src="../Release Notes/Price Translation fields.png" class="LargeImages">
+            </img>
+        </p>
+        <p class="BasicNote">The new fields display on the far right (currently moved for screenshot purposes), and they follow the same coloring and editability rules as the other defaults. Both fields show a dropdown for default selection.</p>
+        <p>The specific usage of the Price Matrix can also be viewed in the <span class="Emphasis">Multi-Currency Price View</span>.  Users can see how, for each period, the Home AUT value converts into each specific currency's value. The <span class="Emphasis">Multi-Currency Price View</span> side view can be used to perform overrides to the established pricing rules.</p>
         <p>
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Price View.png" class="LargeImages">
             </img>
@@ -41,19 +54,6 @@ The specific usage of the Price Matrix can also be viewed in the <span class="Em
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Sales Plan View Edit.png" class="LargeImages">
             </img>
         </p>
-        <h3>Viewing Price Matrix conversions</h3>
-        <p>Users can review Price Matrix conversions via the following two new fields added to the main planning view: <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span>.</p>
-        <p>
-            <img src="../Release Notes/Price Matrix MPV UI.png" class="LargeImages">
-            </img>
-        </p>
-        <h3>Setting default price translation values</h3>
-        <p>Users can set default parameters for the <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span> fields via two new corresponding fields added to the <span class="Emphasis">Assortment Plan Defaults</span> tab on the <span class="Emphasis">Manage Assortment Defaults</span> view. Setting default parameters saves having to manually set values each time. The defaults can still be changed later by users if needed.</p>
-        <p>
-            <img src="../Release Notes/Price Translation fields.png" class="LargeImages">
-            </img>
-        </p>
-        <p class="BasicNote">The new fields display on the far right (currently moved for screenshot purposes), and they follow the same coloring and editability rules as the other defaults. Both fields show a dropdown for default selection.</p>
         <h3>Choosing which price conversion method to use</h3>
         <p>Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using new system policy <span class="Emphasis">Price Conversion Method</span>. This system policy is referenced when:</p>
         <ul>

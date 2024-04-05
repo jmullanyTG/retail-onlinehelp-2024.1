@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
     <head>
-        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
-        <h1>Forecasts</h1>
-        <h2>Forecasting cost and retail ticket price </h2>
-        <p>Planners can now use two new series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, to forecast the cost and retail ticket price of selected inventory. The result is insight into the profitability of future sales originally priced in different currencies. Pricing displays in the planner's system or home currency. Currency conversion  is automatic and is defined by existing system policy <span class="Emphasis">Currency ID</span> (Engine: Replenish). </p>
+        <h1>Forecasting cost and retail ticket price </h1>
+        <p>Planners can use two series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, to forecast the cost and retail ticket price of selected inventory. The result is insight into the profitability of future sales originally priced in different currencies. Pricing displays in the planner's system or home currency. Currency conversion  is automatic and is defined by system policy <span class="Emphasis">Currency ID</span> (Engine: Replenish). </p>
         <p class="BasicNote">If system policy <span class="Emphasis">Currency ID</span> is set to <span class="Emphasis">1</span>, then currency conversion does not take place.</p>
         <p>
             <img src="../../Resources/Images/Demand Forecasting/Currency Metrics.PNG" class="LargeImages" />
         </p>
         <p>The two series appear as color coded lines in the graph with the data being from the currently selected inventory in the Forecast view.</p>
         <p>Currency values are greater than unit values; where 1 unit can correspond to a high currency value (e.g. 1 unit = $100) If both unit and currency forecast data series are selected, the unit values on the graph appear stacked across the bottom of the graph. This is because the y-axis is extended to display the currency values. A best practice is to select either units or currency forecast series when viewing values in the graph. This will apply the appropriate scale to the y-axis for proper viewing. </p>
-        <h3>Series Name: Forecast Cost</h3>
+        <h2>Series Name: Forecast Cost</h2>
         <p>Color: Blue</p>
         <p>Calculation: Forecasted units * cost of the unit in the system currency</p>
         <p>Example: 
 
-Inventory ID 1 - Effective Forecast (note this takes into account profiles, level breakdown, manual forecast etc.)</p>
+		Inventory ID 1 - Effective Forecast (note this takes into account profiles, level breakdown, manual forecast etc.)</p>
         <table style="mc-table-style: url('../../Resources/TableStyles/standard.css');margin-left: 0;margin-right: auto;width: 100%;" class="TableStyle-standard" cellspacing="0">
             <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
             <col class="TableStyle-standard-Column-Column2" style="width: 20%;" />
@@ -262,13 +260,13 @@ Inventory ID 1 - Effective Forecast (note this takes into account profiles, leve
                 </tr>
             </tbody>
         </table>
-        <h3>Series Name: Forecast Retail 
+        <h2>Series Name: Forecast Retail 
 
-</h3>
+		</h2>
         <p>Color: Green
-</p>
+		</p>
         <p>Calculation: Forecasted units * retail of the unit in the system currency<![CDATA[
 
-]]></p>
+		]]></p>
     </body>
 </html>
