@@ -60,11 +60,6 @@ Default value is 7.</td>
                     <td class="TableStyle-standard-BodyD-Column1-Body1">Determines which fields to show in the attributes columns. 0 - Description, 1 - Code, 2 - Code and Description</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Config: Code/Description Display</td>
                     <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Target Choice&#160;Count</td>
                     <td class="TableStyle-standard-BodyD-Column1-Body1">
@@ -89,21 +84,10 @@ Code
                         <p>The default is <span class="Emphasis">True</span>.</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">Price Conversion Method</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Assortment</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">
-                         Determines which Price Conversion Method to use when deriving currency-specific AUT values from the given home AUT value. 0 - Will use both the original Price Exception and Price Matrix methods, 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method. 
-                        <p>The default is <span class="Emphasis">1</span>.</p><p>This system policy is referenced in the following processes, when:</p><ul><li><p>a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT)</p></li><li><p>a placeholder is created from Smart Start</p></li><li><p>daily maintenance runs, it only considers changed price translation factors if the feature is enabled</p></li></ul></td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyE-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyD-Column1-Body1">&#160;</td>
-                </tr>
-                <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyB-Column2-Body1">&#160;</td>
-                    <td class="TableStyle-standard-BodyA-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">Price Conversion Method</td>
+                    <td class="TableStyle-standard-BodyB-Column2-Body1">Module: Assortment</td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1">
+                         Determines which Price Conversion Method to use when deriving currency-specific AUT values from the given home AUT value. 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method.</td>
                 </tr>
             </tbody>
         </table>

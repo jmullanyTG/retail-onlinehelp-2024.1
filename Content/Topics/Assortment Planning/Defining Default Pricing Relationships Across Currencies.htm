@@ -53,20 +53,7 @@ Viewing Price Matrix conversions</h4>
             </img>
         </p>
         <h3>Choosing which price conversion method to use</h3>
-        <p>Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using system policy <span class="Emphasis">Price Conversion Method</span>. This system policy is referenced when:</p>
-        <ul>
-            <li>
-                <p>a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT)</p>
-            </li>
-            <li>
-                <p>a placeholder is created from Smart Start</p>
-            </li>
-            <li>
-                <p>daily maintenance runs, it only considers changed price translation factors if the feature is enabled</p>
-            </li>
-        </ul>
-        <h4>Price Translation and Price Matrix</h4>
-        <p class="BasicNote">System policy <span class="Emphasis">Price Conversion Method</span> set to <span class="Emphasis">0</span>. Both the Price Translation and Price Matrix conversion methods are applied and all the relevant columns display. Price Translation related fields that are non-actualized are editable. Price Matrix related fields are read-only.</p>
+        <p>Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using system policy <span class="Emphasis">Price Conversion Method</span>. </p>
         <h4>Price Translation</h4>
         <p class="BasicNote">System policy <span class="Emphasis">Price Conversion Method</span> set to <span class="Emphasis">1</span>. This view reads information from the <span class="Emphasis">Currency Exchange Rates</span>, <span class="Emphasis"> Price Translation Management</span>, and <span class="Emphasis">Price Translation Hierarchy Assignment</span> views located in <span class="Emphasis">System Utilities &gt; Views &gt; Currency</span>. The values can be overridden to set local ticket prices in whatever way is most meaningful.</p>
         <p>Default translation factors for all non-actualized periods for the product level of the selected placeholder (as defined in the <span class="Emphasis">Price Translation Management</span>, and <span class="Emphasis">Price Translation Hierarchy Assignment</span> views) can be restored by selecting <span class="Emphasis">Reset Default Factors</span> on the toolbar.</p>

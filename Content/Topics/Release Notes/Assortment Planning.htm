@@ -5,11 +5,11 @@
     <body>
         <h1>Assortment Planning</h1>
         <h2>Defining default pricing relationships across currencies</h2>
-        <p>Within Assortment Planning (AP), pricing decisions are important. Pricing might vary from one Cluster to another, and the complexities of various currencies and exchange rates also make pricing complex. ToolsGroup JustEnough has previously supported pricing strategies, without having to manage pricing individually, through the <span class="Emphasis">Price Point Matrix</span> screen (Price Matrix module). AP now provides better support for planning in multiple currencies.</p>
-        <p>ToolsGroup JustEnough v2024.1 now supports an alternate process, <span class="Emphasis">Price Matrix</span>, to manage pricing. Instead of defining translation rules the users use a matrix to define pricing relationships across currencies.</p>
+        <p>Within Assortment Planning (AP), pricing decisions are important. Pricing might vary from one Cluster to another, and the complexities of various currencies and exchange rates also make pricing complex. ToolsGroup JustEnough has previously supported pricing strategies, without having to manage pricing individually, through the <span class="Emphasis">Price Point Matrix</span> screen (Price Matrix module). </p>
+        <p>AP now provides better support for planning in multiple currencies through an alternate process, <span class="Emphasis">Price Matrix</span>, to manage pricing. Instead of defining translation rules the users use a matrix to define pricing relationships across currencies.</p>
         <h3>Home AUT and Blended AUT</h3>
         <p>AP now distinguishes between two different types of AUT (or Average Unit Ticket, for example, the ticket price intended to be printed on merchandise tags). </p>
-        <p>The first of these, <span class="Emphasis">Home AUT</span>, is meant to represent the AUT value for the country and currency of the defined Home Site as set in the <span class="Emphasis">Manage Assortment Plans</span> screen for AP.  This is the starting point for planning AUT, as this value is user-editable.  <span class="Emphasis">Home AUT</span> is only editable - and only has a value - in future periods. From this, <span class="Emphasis">Blended AUT</span> is derived.  </p>
+        <p>The first of these, <span class="Emphasis">Home AUT</span>, represents the AUT value for the country and currency of the defined Home Site as set in the <span class="Emphasis">Manage Assortment Plans</span> screen for AP.  This is the starting point for planning AUT, as this value is user-editable.  <span class="Emphasis">Home AUT</span> is only editable - and only has a value - in future periods. From this, <span class="Emphasis">Blended AUT</span> is derived.  </p>
         <p><span class="Emphasis">Blended AUT</span> is considered to be a true representation of the expected earnings for a given item.  <span class="Emphasis">Blended AUT</span> incorporates several components, each of which is enabled by system policy:</p>
         <ul>
             <li>
@@ -57,32 +57,32 @@ Assortment Rollup and Reconciliation.</p>
         </p>
         <p class="BasicNote">The new fields display on the far right (currently moved for screenshot purposes), and they follow the same coloring and editability rules as the other defaults. Both fields show a dropdown for default selection.</p>
         <p>
-The specific usage of the Price Matrix can also be viewed in the <span class="Emphasis">Multi-Currency Price View</span>.  Users can see how, for each period, the Home AUT value converts into each specific currency's value. </p>
+The specific usage of the Price Matrix can also be viewed in the <span class="Emphasis">Multi-Currency Price View</span>.  Users can see how, for each period, the <span class="Emphasis">Home AUT</span> value converts into each specific currency's value. </p>
         <p>
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Price View.png" class="LargeImages" />
         </p>
         <p class="BasicNote">To reflect the introduction into AP of the Price Matrix functionality, the existing <span class="Emphasis">Price Exceptions</span> view was relabeled <span class="Emphasis">Multi-Currency Price View</span>.</p>
         <p>The <span class="Emphasis">Multi-Currency Price View</span> also indicates whether any value was missing from the indicated Price Matrix value, for example, if a site in the cluster had currency GBP but this currency was not included in the Price Matrix.
-Missing Price Matrix values will also be noted in the Health Check fields in main planning view.
+Missing Price Matrix values will also be noted in the Health Check fields in the main planning view.
 </p>
         <p>After the AUT values are converted from <span class="Emphasis">Home AUT</span> values to currency-specific values using the Price Matrix, all AUT values are then converted back to Home currency using currency conversion rates, and a weighted average is used to calculate the cluster's combined <span class="Emphasis">Blended AUT</span> value.
 
 </p>
-        <p>Each period and cluster's <span class="Emphasis">Home AUT</span> values can be modified in the Sales Plan view, and <span class="Emphasis">Blended AUT</span> for each period and cluster can be viewed there as well.</p>
+        <p>Each period and cluster's <span class="Emphasis">Home AUT</span> values can be modified in the <span class="Emphasis">Sales Plan</span> view, and <span class="Emphasis">Blended AUT</span> for each period and cluster can be viewed there as well.</p>
         <p>
             <img src="../../Resources/Images/Assortment Planning/Multi-Currency Sales Plan View Edit.png" class="LargeImages" />
         </p>
-        <h3>Choosing which price conversion method to use</h3>
-        <p>Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using new system policy <span class="Emphasis">Price Conversion Method</span>. This system policy is referenced when:</p>
+        <h3 MadCap:conditions="General.DoNotPublish">Choosing which price conversion method to use</h3>
+        <p MadCap:conditions="General.DoNotPublish">Choosing whether to use Price Exception or Price Matrix as the price conversion method when deriving currency-specific AUT values from the given home AUT value is done using new system policy <span class="Emphasis">Price Conversion Method</span>. This system policy is referenced when:</p>
         <ul>
             <li>
-                <p>a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT)</p>
+                <p MadCap:conditions="General.DoNotPublish">a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT)</p>
             </li>
             <li>
-                <p>a placeholder is created from Smart Start</p>
+                <p MadCap:conditions="General.DoNotPublish">a placeholder is created from Smart Start</p>
             </li>
             <li>
-                <p>daily maintenance runs, it only considers changed price translation factors if the feature is enabled</p>
+                <p MadCap:conditions="General.DoNotPublish">daily maintenance runs, it only considers changed price translation factors if the feature is enabled</p>
             </li>
         </ul>
         <h3>Using VAT rate conversion when deriving currency-specific AUT values</h3>
