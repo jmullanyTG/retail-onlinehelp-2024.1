@@ -206,21 +206,32 @@
                 <p><span class="Emphasis">AUR ex VAT</span>: Average retail (selling) price excluding VAT per unit for the placeholder item </p>
                 <p>Calculation: AUR / (1 + VAT %)</p>
             </li>
-            <li> <p><span class="Emphasis">AUR</span>: The average unit retail price for the placeholder/collection. Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, AUR is not directly editable and is only changed as a result of changes to AUT, Phase In, Phase Out, and promotion applications.</p><p>Calculation: (Ttl Sls $ / Ttl Sls U)</p></li>
             <li>
-                <p><span class="Emphasis">AUT</span>: The average unit ticket price for the placeholder/collection. Displays the weighted average of AUT values for all periods, both actualized and future, beneath.</p>
-                <p>AUT is assumed to be value added tax (VAT) inclusive and is treated as such for all dependent calculations. Because of the potential for multiple currencies, VAT rates, and promotional participation to vary by site within a single cluster, changes to AUT require clicking <span class="Emphasis">Save</span> to properly calculate the effects on the rest of the plan for a given placeholder/collection. </p>
-                <p>Period level changes to AUT can be made directly in Sales Plan View. </p>
+                <p><span class="Emphasis">AUR</span>: The average unit retail price for the placeholder/collection. Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, AUR is not directly editable and is only changed as a result of changes to Home AUT, Phase In, Phase Out, and promotion applications.</p>
+                <p>Calculation: (Ttl Sls $ / Ttl Sls U)</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">Home AUT</span>: The average unit ticket price for the placeholder/collection in the Home Site currency. Displays the weighted average of AUT values for all future periods beneath. <span class="Emphasis">Home AUT</span> is assumed to be inclusive of the Home Site’s VAT and is treated as such for all dependent calculations. </p>
+                <p>Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, changes to <span class="Emphasis">Home AUT</span> require saving to properly calculate the effects on the rest of the plan for a given placeholder/collection.. </p>
+                <p>Period level changes to <span class="Emphasis">Home AUT</span> can be made directly in Sales Plan view. </p>
                 <ul>
-                    <li>Once a placeholder has begun to actualize (current date is greater than Phase In date), AUT is not directly editable.</li>
                     <li>
-                        <p> AUR (average unit retail), being an outcome of the calculation mentioned above, is not directly editable.</p>
+                        <p><span class="Emphasis">Blended AUT</span> (Blended Average Unit Ticket) and AUR (average unit retail), being an outcome of the calculation mentioned above, is not directly editable.</p>
                     </li>
                 </ul>
-                <p class="BasicNote">If <span class="Emphasis">Import Config</span> setting <span class="Emphasis"> AUT for planned periods</span> is set to 2 (AUT is only managed through imports), then AUT is read-only for Placeholders with a status of Assigned, Committed, Replen, and Allocate. For placeholders with a status of Open and Created, AUT&#160;is editable. </p>
-                <p>Regarding scenarios where <span class="Emphasis">Import Config</span> settings <span class="Emphasis">AUT for planned periods</span> and <span class="Emphasis">Receipt AUC for Planned Periods</span> are set to 3 (AUT is managed through both imports and the UI, with a "last in wins" principle), data is only imported if the Last Modified Date on the variant cost/price data is later that the date logged against the placeholder. </p>
-                <p class="Example">If an import sets AUT to 12, and then the user changes the value to 13, the next run will not reset the value back to 12. If price data is updated via imports to 14, then the next maintenance window will set AUT to 14.</p>
-                <p>Additionally, periods will only have an imported AUT or Receipt AUC value set if that value actually exists in price/cost data. It will not set all missing periods to zero.</p>
+                <p class="BasicNote">If <span class="Emphasis">Import Config</span> setting <span class="Emphasis"> AUT for planned periods</span> is set to 2 (AUT is only managed through imports), then Home AUT is read-only for Placeholders with a status of Assigned, Committed, Replen, and Allocate. For placeholders with a status of Open and Created, <span class="Emphasis">Home AUT</span>&#160;is editable. </p>
+                <p>Regarding scenarios where <span class="Emphasis">Import Config</span> settings <span class="Emphasis">AUT for planned periods</span> and <span class="Emphasis">Receipt AUC for Planned Periods</span> are set to 3 (<span class="Emphasis">Home AUT</span> is managed through both imports and the UI, with a "last in wins" principle), data is only imported if the Last Modified Date on the variant cost/price data is later that the date logged against the placeholder. </p>
+                <p class="Example">If an import sets Home AUT to 12, and then the user changes the value to 13, the next run will not reset the value back to 12. If price data is updated via imports to 14, then the next maintenance window will set <span class="Emphasis">Home AUT</span> to 14.</p>
+                <p>Additionally, periods will only have an imported <span class="Emphasis">Home AUT</span> or <span class="Emphasis">Receipt AUC</span> value set if that value actually exists in price/cost data. It will not set all missing periods to zero.</p>
+            </li>
+            <li>
+                <p><span class="Emphasis">Blended AUT</span>: The average unit ticket price for the placeholder/collection, accounting for all price conversions across different currencies and countries within the cluster. Displays the weighted average of <span class="Emphasis">Blended AUT</span> values for all periods, both actualized and future, beneath. <span class="Emphasis">Blended AUT</span> is derived from <span class="Emphasis">Home AUT</span> in future periods, but it comes from provided sales history for actualized periods. <span class="Emphasis">Blended AUT</span> is assumed to be inclusive of VATs for all sites within the cluster and is treated as such for all dependent calculations.</p>
+                <p><span class="Emphasis">Blended AUT</span> incorporates each of the following, all of which are individually controlled via system policy:</p>
+                <ul>
+                    <li>VAT rate differences between the Home Site and sites within each cluster</li>
+                    <li>Price Exception factors</li>
+                    <li>Price Matrix conversions</li>
+                </ul>
             </li>
             <li>
                 <p><span class="Emphasis">Available for Replen</span>: A read-only checkbox indicating whether replenishment forecast data is available for the placeholder or collection.</p>
@@ -448,7 +459,7 @@
             <li>
                 <p><span class="Emphasis">Receipt Status</span>: The calculation status of the receipt plan for the placeholder/collection (<span class="Emphasis">Clean</span> or <span class="Emphasis">Dirty</span>).</p>
                 <ul>
-                    <li>In the main planning and <span class="Emphasis">Cluster Sets</span> views, changes to Seasonality Curve, Collection % Contribution, Phase In, Mkdn Date, Phase Out, AUT, Ttl Sls $, Ttl Sls U, ROS $, ROS U, Min Pres, Ttl Buy $, Ttl Buy U, Additional Buy, or S/T will set this to Dirty.</li>
+                    <li>In the main planning and <span class="Emphasis">Cluster Sets</span> views, changes to Seasonality Curve, Collection % Contribution, Phase In, Mkdn Date, Phase Out, Home AUT, Ttl Sls $, Ttl Sls U, ROS $, ROS U, Min Pres, Ttl Buy $, Ttl Buy U, Additional Buy, or S/T will set this to Dirty.</li>
                     <li>In <span class="Emphasis">Sales Plan</span> view, changes to Selling Period, Sales, Sales Units, Shrink Units, Shrink Units % of Sales Units, Shrink Cost, Shrink Cost % of COGS, Inventory Adjustment Units and Inventory Adjustment Cost will set this to Dirty.</li>
                     <li>In <span class="Emphasis">Receipt Plan</span> view, changes to Periods of Supply, Periods Before Phase In, Min Stock to Sales, Shrink % of Sales, Minimum Presentation, Receipt Period, and Receipt Units will set this to Dirty.</li>
                 </ul>

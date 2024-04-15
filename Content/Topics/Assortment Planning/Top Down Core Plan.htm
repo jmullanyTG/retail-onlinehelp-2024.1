@@ -161,15 +161,18 @@
                         <p class="BasicNote">The AUR grand total is a total for all months or across the time parameters selected. The calculation is: Grand Total AUR = Grand Total Sales / Grand Total Sales Units</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">AUT</td>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Home AUT</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
-                        Weighted average (excludes zeros) unit ticket price for the period. 
-                        <p class="BasicNote">AUT is editable in the main view and follows the same coloring rules as the other editable fields (Sales and Sales Units). AUT in the <span class="Emphasis">Comparison</span> view is read-only.</p></td>
+                         Weighted average (excludes zeros) unit ticket price for the period in Home Site currency.
+                        <p class="BasicNote"><span class="Emphasis">Home AUT</span> is editable in the main view and follows the same coloring rules as the other editable fields (<span class="Emphasis">Sales</span> and <span class="Emphasis">Sales Units</span>). <span class="Emphasis">Home AUT</span> in the <span class="Emphasis">Comparison</span> view is read-only.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Blended AUT</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Weighted average (excludes zeros) unit ticket price for the period, blended for all currencies present in the cluster. <span class="Emphasis">Blended AUT</span> is derived from <span class="Emphasis">Home AUT</span>, and like <span class="Emphasis">AUR</span> is read-only.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">AUT Discount %</td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">
-                        Impacts how AUR is derived from AUT. The percent discount is taken first, and then the rest of the calculations proceed from there, namely applying VAT rates, price exceptions, and promotions.  This metric averages across time and is editable in future periods. 
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Impacts how AUR is derived from <span class="Emphasis">Blended AUT</span>. The percent discount is taken first, and then the rest of the calculations proceed from there, namely applying VAT rates, price exceptions, and promotions. This metric averages across time and is editable in future periods.
                         <p class="Important">It is important to note that <span class="Emphasis">AUT Discount %</span> is applied and then any planned promotions are also applied. <span class="Emphasis">AUT Discount %</span> is NOT inclusive of explicitly planned promotions.</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">

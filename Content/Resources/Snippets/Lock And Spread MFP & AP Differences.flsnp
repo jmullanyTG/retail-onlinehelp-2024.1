@@ -15,7 +15,7 @@
                 <p>Locks save forever in TDCP, no matter the selected parameters. &#160;In MFP, locks only persist for matching selection criteria in parameters.</p>
             </li>
             <li>
-                <p>In TDCP, sales metrics (Sales, Sales Units, AUT) and receipt metrics (Receipt Period, Receipt Units, Receipt AUC) can be locked separately. &#160;In MFP, there's only one lock, a sales lock.</p>
+                <p>In TDCP, sales metrics (Sales, Sales Units, Home AUT) and receipt metrics (Receipt Period, Receipt Units, Receipt AUC) can be locked separately. &#160;In MFP, there's only one lock, a sales lock.</p>
             </li>
         </ul>
     </body>

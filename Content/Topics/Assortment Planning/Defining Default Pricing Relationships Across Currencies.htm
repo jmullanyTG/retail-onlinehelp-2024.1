@@ -66,9 +66,9 @@ Viewing Price Matrix conversions</h4>
         <h4>Price matrix</h4>
         <p class="BasicNote">System policy <span class="Emphasis">Price Conversion Method</span> set to <span class="Emphasis">2</span>. The Price Matrix used is defined in the Price Matrix module.</p>
         <h3>Using VAT rate conversion when deriving currency-specific AUT values</h3>
-        <p>System policy <span class="Emphasis">Enable VAT Conversion In AUT Calculation</span> determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value. This system policy is referenced:</p>
+        <p>System policy <span class="Emphasis">Enable VAT Conversion In AUT Calculation</span> determines whether to use VAT rate conversion steps when deriving currency-specific AUT values (<span class="Emphasis">Blended AUT</span>) from the given <span class="Emphasis">Home AUT</span> value. This system policy is referenced:</p>
         <ul>
-            <li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT) </li>
+            <li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change <span class="Emphasis">Home AUT</span>) </li>
             <li>when a placeholder is created from a like style </li>
             <li>when a placeholder is created from Smart Start </li>
             <li>when the Home Site property is changed on an assortment plan </li>
@@ -76,7 +76,7 @@ Viewing Price Matrix conversions</h4>
             <li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li>
         </ul>
         <h3>Price matrixes with insufficient data for all site currencies</h3>
-        <p>If a Price Matrix is set for a placeholder, then the application attempts to use the Price Matrix data to convert AUT values. If any of the following components are missing, a Health Error, <span class="Emphasis">Missing Data in Price Matrix</span>, displays in the <span class="Emphasis">Health Error</span> field:</p>
+        <p>If a Price Matrix is set for a placeholder, then the application attempts to use the Price Matrix data to convert <span class="Emphasis">Home AUT</span> values. If any of the following components are missing, a Health Error, <span class="Emphasis">Missing Data in Price Matrix</span>, displays in the <span class="Emphasis">Health Error</span> field:</p>
         <ul>
             <li>
                 <p>an entry in the matrix for the home site's country / currency</p>
@@ -85,7 +85,7 @@ Viewing Price Matrix conversions</h4>
                 <p>an entry in the matrix for the selling sites' country / currencies</p>
             </li>
             <li>
-                <p>a row in the matrix for the starting Home AUT value</p>
+                <p>a row in the matrix for the starting <span class="Emphasis">Home AUT</span> value</p>
             </li>
             <li>
                 <p>currency conversion data for converting non-Home currency values back to the home currency</p>

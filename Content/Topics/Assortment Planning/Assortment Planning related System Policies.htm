@@ -152,8 +152,7 @@ Default value is 7.</td>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Enable VAT Conversion In AUT Calculation </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
-                         Determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value. 
-                        <p>The default is <span class="Emphasis">True</span>.</p><p>This system policy is referenced in the following processes:</p><ul><li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change AUT) </li><li>when a placeholder is created from a like style </li><li>when a placeholder is created from Smart Start </li><li>when the Home Site property is changed on an assortment plan </li><li>when daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li><li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li></ul></td>
+                         Determines whether to use VAT rate conversion steps when deriving currency-specific AUT values (<span class="Emphasis">Blended AUT</span>) from the given <span class="Emphasis">Home AUT</span> value. The default is <span class="Emphasis">True</span>.<p>This system policy is referenced in the following processes:</p><ul><li>when a placeholder has the AUT/AUR values recalculated from any numerical metric change (e.g. change a phase date, change total sales, change <span class="Emphasis">Home AUT</span>) </li><li>when a placeholder is created from a like style </li><li>when a placeholder is created from Smart Start </li><li>when the Home Site property is changed on an assortment plan </li><li>when daily maintenance runs, it only considers changed VAT rates if the feature is enabled </li><li>if a VAT rate is changed live in the UI, it only applies changes if VAT is enabled </li></ul></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Enforce Supplier matching before Variant Assignment</td>
@@ -254,7 +253,7 @@ Upper Limit for Unit-Based Metrics</span>.
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Price Conversion Method</td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">Determines which Price Conversion Method to use when deriving currency-specific AUT values from the given home AUT value. 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method.</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Determines which Price Conversion Method to use when deriving currency-specific AUT values (<span class="Emphasis">Blended AUT</span>) from the given <span class="Emphasis">Home AUT</span> value. 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method. Default value: 1.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Product Level Display</td>
@@ -333,8 +332,8 @@ Upper Limit for Unit-Based Metrics</span>.
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Upper Limit for Value-Based Metrics</td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
-                        Default value is 100,000,000. The upper limit for value-based metrics.  This is to prevent infinitely large numbers from entering sales plans.  The value will be used as an absolute value.  A value of 0 disables this feature. For information on setting a lower limit, see <span class="Emphasis">
-Lower Limit for Unit-Based Metrics</span>.                        <p class="BasicNote">Currently, this system policy will only be applied to AUT and AUR.  When a value greater than 100,000,000 or more negative than -100,000,000 is detected in future periods, it will be set to NULL.</p></td>
+                        Default value is 100,000,000. The upper limit for value-based metrics. This is to prevent infinitely large numbers from entering sales plans. The value will be used as an absolute value. A value of 0 disables this feature. For information on setting a lower limit, see <span class="Emphasis"> Lower Limit for Unit-Based Metrics</span>. 
+                        <p>Currently, this system policy will only be applied to <span class="Emphasis">Home AUT</span>, <span class="Emphasis">Blended AUT</span>, and AUR. When a value greater than 100,000,000 or more negative than -100,000,000 is detected in future periods, it will be set to NULL.                       </p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1">Use Size Curve By Site</td>

@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us">
     <head>
-        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
-        <title>
-        </title>
+        <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
     </head>
     <body>
         <h1>Image view</h1>
@@ -37,16 +35,14 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Parameters</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Parameters</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                         Displays or hides the parameters pane at the top of the view. The parameters that display after clicking the <span class="Emphasis">Parameters</span> button include:
                         <p><span class="Emphasis">Grid Config</span>: Sets the pivot fields for the Image view grid. Select which fields to use as rows and which to use as columns.</p><p><img src="../../Resources/Images/Assortment Planning/Grid Config.png" class="LargeImages" /></p><p>For more information on the available parameters, see <MadCap:xref href="View Parameters.htm">Placeholder and collection view parameters.</MadCap:xref></p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">
-                        <span class="Emphasis">Execute</span>
+                    <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Execute</span>
                     </td>
                     <td class="TableStyle-standard-BodyA-Column2-Body1">Refreshes the view based on the selected product, site hierarchy, cluster sets, and window of time.</td>
                 </tr>
@@ -65,34 +61,26 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Quick Text</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Quick Text</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">
                         <ul>
-                            <li>
-                                <span class="Emphasis">Show Code</span>: On by default. Toggles the display of the placeholder code at the bottom of each cell.</li>
-                            <li>
-                                <span class="Emphasis">Attributes</span>: Selects an Attribute Family defined in the Attribute Management module to display in the upper-right corner of each cell.</li>
-                            <li>AUC, Ticket Price, ROS $, ROS U, Ttl Sls $, Ttl Sls U, Ttl Buy $, Ttl Buy U: Selects the metric to display in the upper-right corner of each cell.</li>
-                            <li>
-                                <span class="Emphasis">Receipt Status</span>: Displays the Receipt Status, Clean or Dirty, in the upper-right corner of each cell as an indicator of if the placeholder requires recalculation of its receipt plan.</li>
-                            <li>
-                                <span class="Emphasis">Replen Status</span>: Displays the status (Clean or Dirty) in the upper-right corner of each cell. Indicates whether the placeholder has been updated with the most recent Replenishment forecast data. Valid for placeholders of Replen status only.</li>
-                            <li>
-                                <span class="Emphasis">Status</span>: Displays the placeholder status (Open, Created, Assigned, Committed, or Replen) in the upper-right corner of each cell.</li>
+                            <li><span class="Emphasis">Show Code</span>: On by default. Toggles the display of the placeholder code at the bottom of each cell.</li>
+                            <li><span class="Emphasis">Attributes</span>: Selects an Attribute Family defined in the Attribute Management module to display in the upper-right corner of each cell.</li>
+                            <li>AUC, Home AUT, Blended AUT, ROS $, ROS U, Ttl Sls $, Ttl Sls U, Ttl Buy $, Ttl Buy U: Selects the metric to display in the upper-right corner of each cell.</li>
+                            <li><span class="Emphasis">Receipt Status</span>: Displays the Receipt Status, Clean or Dirty, in the upper-right corner of each cell as an indicator of if the placeholder requires recalculation of its receipt plan.</li>
+                            <li><span class="Emphasis">Replen Status</span>: Displays the status (Clean or Dirty) in the upper-right corner of each cell. Indicates whether the placeholder has been updated with the most recent Replenishment forecast data. Valid for placeholders of Replen status only.</li>
+                            <li><span class="Emphasis">Status</span>: Displays the placeholder status (Open, Created, Assigned, Committed, or Replen) in the upper-right corner of each cell.</li>
                         </ul>
                     </td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Placeholder Tracking</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Placeholder Tracking</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">When enabled, the placeholder selected in the main planning view (and any open supporting views) automatically changes to the placeholder of the image selected in Image view. This makes it more convenient to edit placeholders while working in Image view because the placeholder values shown in the other views are always synchronized with the selected image. Click this option to toggle enabling or disabling placeholder tracking.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">
-                        <span class="Emphasis">Inactive</span>
+                    <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Inactive</span>
                     </td>
                     <td class="TableStyle-standard-BodyA-Column2-Body1">
                         Sets the desired visual behavior when temporarily making items inactive in Image view. By default, inactive images show as a diagonal slash:
@@ -128,15 +116,12 @@
         </p>
         <ul>
             <li>
-                <p>
-                    <span class="Emphasis">Classification</span>: Displays the classification of each image.</p>
+                <p><span class="Emphasis">Classification</span>: Displays the classification of each image.</p>
                 <p>The first image assigned to a placeholder is always the primary by default, but more images can be assigned with user defined classifications.</p>
             </li>
+            <li><span class="Emphasis">Primary?</span>: Whether an image is the primary image to display whenever images are shown for the placeholder.</li>
             <li>
-                <span class="Emphasis">Primary?</span>: Whether an image is the primary image to display whenever images are shown for the placeholder.</li>
-            <li>
-                <p>
-                    <span class="Emphasis">Multiples?</span>: Whether multiple images are allowed for the given classification.</p>
+                <p><span class="Emphasis">Multiples?</span>: Whether multiple images are allowed for the given classification.</p>
                 <p>The Primary and Multiples parameters for variant images can be set in Management &gt; Variant Manager &gt; Image Maintenance.</p>
             </li>
         </ul>
@@ -152,32 +137,27 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">New</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">New</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Adds a blank image space for the placeholder.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Delete</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Delete</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Deletes the selected images from the placeholder.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Carousel</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Carousel</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Allows the user to choose different view configurations for attached images.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Cancel</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Cancel</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Closes the <span class="Emphasis">Image Gallery</span> without committing any changes.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">
-                        <span class="Emphasis">Save</span>
+                    <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Save</span>
                     </td>
                     <td class="TableStyle-standard-BodyA-Column2-Body1">Saves changes made to the Image Repository.</td>
                 </tr>
@@ -200,38 +180,32 @@
             </thead>
             <tbody>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Add</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Add</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Launches Windows Explorer file browser allowing the user to navigate to images to add to the <span class="Emphasis">ToolsGroup JustEnough Image Repository</span>.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Delete</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Delete</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Deletes the selected images from the Image Repository.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">View</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">View</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Displays a larger version of the selected image.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Attributes</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Attributes</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Displays additional information about the selected image.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1">
-                        <span class="Emphasis">Filter</span>
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Filter</span>
                     </td>
                     <td class="TableStyle-standard-BodyD-Column2-Body1">Launches a filter picker letting users select or create a new filter to limit the images from the Repository that are being shown.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyB-Column1-Body1">
-                        <span class="Emphasis">Refresh</span>
+                    <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Refresh</span>
                     </td>
                     <td class="TableStyle-standard-BodyA-Column2-Body1">Refreshes the Repository view with any new images or information added since it was opened.</td>
                 </tr>

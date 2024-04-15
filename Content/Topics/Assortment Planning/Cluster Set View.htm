@@ -192,7 +192,7 @@
                 <p>Cancelled U recalculates Cancelled $ and Cancelled %</p>
             </li>
             <li>
-                <p>AUT recalculates Cancelled $</p>
+                <p>Blended AUT recalculates Cancelled $</p>
             </li>
         </ul>
         <p>Any amendment that affects Sales Units and/or Total Bookings recalculates Cancelled U and Cancelled %.</p>
@@ -219,7 +219,7 @@
             </li>
             <li>
                 <p><span class="Emphasis">AUR (Average Unit Retail)</span>: The average unit retail price for the cluster set/cluster.</p>
-                <p>Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, AUR is not directly editable and is only changed as a result of changes to AUT, Phase In, Phase Out, and promotion applications. Details for this calculation are available in a supplemental MS Excel model.</p>
+                <p>Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, AUR is not directly editable and is only changed as a result of changes to Home AUT, Phase In, Phase Out, and promotion applications. Details for this calculation are available in a supplemental MS Excel model.</p>
                 <ul>
                     <li><span class="Emphasis">Calculation</span>: (Ttl Sls $ / Ttl Sls U)</li>
                 </ul>
@@ -230,8 +230,17 @@
                     <li><span class="Emphasis">Calculation</span>: AUR / (1 + VAT %)</li>
                 </ul>
             </li>
-            <li><span class="Emphasis">AUT (Average Unit Ticket)</span>: The average unit ticket price for the cluster set/cluster. Displays the weighted average of AUT values for all periods, both actualized and future, beneath. AUT is assumed to be VAT inclusive and is treated as such for all dependent calculations. <p>Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, changes to AUT require saving to properly calculate the effects on the rest of the plan for a given placeholder/collection. Details for this calculation are available in a supplemental Excel model.</p><p>Period level changes to AUT can be made in the AUT right pane view.</p><ul><li>AUT is no longer directly editable once a placeholder has begun to actualize (current date is greater than Phase In date). </li><li><p>AUR (average unit retail) being an outcome of the calculation mentioned above is not directly editable.</p></li></ul><p class="BasicNote">If <span class="Emphasis">Import Config</span> setting <span class="Emphasis"> AUT for planned periods</span> is set to 2 (AUT is only managed through imports), then AUT is read-only for Placeholders with a status of Assigned, Committed, Replen, and Allocate. For placeholders with a status of Open and Created, AUT&#160;is editable. </p></li>
-            <li><span class="Emphasis">Calculation</span>: (Ttl Sls U / Ttl Orders U).</li>
+            <li><span class="Emphasis">Home AUT (Average Unit Ticket)</span>: The average unit ticket price for the cluster set/cluster in home currency. Displays the weighted average of Home AUT values for all future periods beneath. Home AUT is assumed to be inclusive of the Home Site’s VAT and is treated as such for all dependent calculations. <p>Because of the potential for multiple currencies, VAT (value added tax) rates, and promotional participation to vary by site within a single cluster, changes to Home AUT require saving to properly calculate the effects on the rest of the plan for a given placeholder/collection. Details for this calculation are available in a supplemental MS Excel model.</p><p>Period level changes to Home AUT can be made in Sales Plan view.</p><ul><li><p>Blended AUT (Blended Average Unit Ticket) and AUR (average unit retail) being an outcome of the calculation mentioned above is not directly editable.</p></li></ul><p class="BasicNote">If <span class="Emphasis">Import Config</span> setting <span class="Emphasis"> AUT for planned periods</span> is set to 2 (AUT is only managed through imports), then Home AUT is read-only for Placeholders with a status of Assigned, Committed, Replen, and Allocate. For placeholders with a status of Open and Created, Home AUT&#160;is editable. </p></li>
+            <li>
+                <p><span class="Emphasis">Blended AUT</span> (Blended Average Unit Ticket): The average unit ticket price for the cluster set/cluster, accounting for all price conversions across different currencies and countries within the cluster. Displays the weighted average of Blended AUT values for all periods, both actualized and future, beneath. Blended AUT is derived from Home AUT in future periods, but it comes from provided sales history for actualized periods. Blended AUT is assumed to be inclusive of VATs for all sites within the cluster and is treated as such for all dependent calculations.</p>
+                <p>Blended AUT incorporates each of the following, all of which are individually controlled via system policy:</p>
+                <ul>
+                    <li>VAT Rate differences between the Home Site and sites within each cluster</li>
+                    <li>Price Exception factors</li>
+                    <li>Price Matrix conversions</li>
+                    <li><span class="Emphasis">Calculation</span>: (Ttl Sls / Ttl Sls U).</li>
+                </ul>
+            </li>
             <li>
                 <p><span class="Emphasis">Curve Mode</span>: The mode of the selected Seasonality Curve. </p>
                 <ul>

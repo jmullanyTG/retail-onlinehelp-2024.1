@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us">
     <head>
         <link href="../../Resources/TableStyles/standard.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
@@ -201,10 +201,16 @@
                          <p> <span class="Emphasis">Calculation</span>: Sales / Sales Units</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">AUT</span> </td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">
-                         Weighted average (excludes zeros) unit ticket price for the period.
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Home AUT</span> </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">Weighted average (excludes zeros) unit ticket price for the period in Home Site currency.
                          <p> <span class="Emphasis">Calculation</span>: N/A</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Blended AUT</span>
+                    </td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">
+                        Weighted average (excludes zeros) unit ticket price for the period, blended from the currencies included in the cluster.  
+                        <p><span class="Emphasis">Calculation</span>: N/A</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Projected Sales Units (Comparison)</span> </td>
@@ -316,8 +322,8 @@
                     <td class="TableStyle-standard-BodyB-Column1-Body1"><span class="Emphasis">Total Original Retail</span>
                     </td>
                     <td class="TableStyle-standard-BodyA-Column2-Body1">
-                       The total revenue that would be earned for units on sale prior to any discount, markdown, or other price reduction. This is in contrast to the metric Sales, which is inclusive of discounts and price reductions.  
-                        <p><span class="Emphasis">Calculation</span>: AUT * Sales Units</p></td>
+                       The total revenue that would be earned for units on sale prior to any discount, markdown, or other price reduction. This is in contrast to the metric Sales, which is inclusive of discounts and price reductions.<![CDATA[ 
+                        ]]><p><span class="Emphasis">Calculation</span>: Blended AUT * Sales Units</p></td>
                 </tr>
             </tbody>
         </table>
@@ -335,7 +341,7 @@
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Lifecycle Index</span>
                     </td>
-                    <td class="TableStyle-standard-BodyD-Column2-Body1">The index specified by the chosen Lifecycle curve.</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">The index specified by the chosen life cycle curve.</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
                     <td class="TableStyle-standard-BodyE-Column1-Body1"><span class="Emphasis">Combined Index</span>
