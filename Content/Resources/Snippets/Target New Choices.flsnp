@@ -3,7 +3,7 @@
     <head>
     </head>
     <body>
-        <p>The <span class="Emphasis">Target New Choices</span> tab is comprised of a pivot grid displaying Placeholder level guidance for Sales and ROS within a scenario.</p>
+        <p>The <span class="Emphasis">Target New Choices</span> tab (editing and copying only) is comprised of a pivot grid displaying Placeholder level guidance for Sales and ROS within a scenario.</p>
         <p>
             <img src="../Images/Target Choice Count/Target Choice Count Target New Choices screen.PNG" class="LargeImages">
             </img>

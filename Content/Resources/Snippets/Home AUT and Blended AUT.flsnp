@@ -8,7 +8,7 @@
         <p><span class="Emphasis">Blended AUT</span> is considered to be a true representation of the expected earnings for a given item.  <span class="Emphasis">Blended AUT</span> incorporates several components, each of which is enabled by system policy:</p>
         <ul>
             <li>
-                <p>VAT Rate changes between the Home Site and sites within each cluster</p>
+                <p>VAT rate changes between the Home Site and sites within each cluster</p>
             </li>
             <li>
                 <p>Price Exception Factors</p>

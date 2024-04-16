@@ -403,7 +403,13 @@
             </TocEntry>
             <TocEntry
               Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Assortment Planning/AP Creating Target Scenarios.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Assortment Planning/AP New Target Scenarios.htm" />
+            <TocEntry
+              Title="[%=System.LinkedTitle%]"
+              Link="/Content/Topics/Assortment Planning/AP Copy Edit Target Scenarios.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
             <TocEntry
               Title="[%=System.LinkedTitle%]"
               Link="/Content/Topics/Assortment Planning/AP Configuring Target Segments.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
@@ -673,6 +679,9 @@
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Target Choice Count/TCC New Target Scenarios.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"></TocEntry>
+          <TocEntry
+            Title="[%=System.LinkedTitle%]"
+            Link="/Content/Topics/Target Choice Count/Target Scenario Field Descriptions.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
           <TocEntry
             Title="[%=System.LinkedTitle%]"
             Link="/Content/Topics/Target Choice Count/TCC Copy Edit Target Scenarios.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
