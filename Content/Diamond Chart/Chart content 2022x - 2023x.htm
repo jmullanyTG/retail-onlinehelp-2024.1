@@ -465,6 +465,7 @@
             <img src="../Resources/Images/Assortment Planning/Wholesale Metrics MPV.png" class="LargeImages">
             </img>
         </h3>
+        <p class="BasicNote">For TG JE v2024.1, the above metrics were extended to the Sales Plan, Receipt Plan, and Top Down Core Plan views.</p>
         <h4>Metric notes</h4>
         <p>For plans with:</p>
         <ul>
@@ -1052,6 +1053,9 @@ When the URL is changed for the document ID, the cache of the image is cleared a
         <p>Thus, it can be expected that historical EOP values will likely be higher when Variant mode is enabled for SOH actualization, because it is accounting for data that was previously omitted.</p>
         <h2 MadCap:conditions="General.DoNotPublish">NameServer</h2>
         <h2>Performance Improvements</h2>
+        <h3><a name="2024.1PI"></a>2024.1</h3>
+        <p><span class="Emphasis">MFP All Plan Types</span> - ROW level DATA_COMPRESSION is enforced across all indexes on tbl_FinancialPlan_Common_InventoryLevelID_Cache, which entails three separate Index REBUILD operations, which will extend the upgrade script duration where many hundreds of thousands of rows are present in the table.  If it is unused, there will be no impact.</p>
+        <p><span class="Emphasis">Workflow Manager</span> - Performance indexing on the Workflow State Narrative tables.</p>
         <h3><a name="2023.4PI"></a>2023.4</h3>
         <p><span class="Emphasis">Allocation</span> - Improved Engine Ordering indexing to reduce post process elapsed times in Allocations.</p>
         <p><span class="Emphasis">Allocation</span> - SQL Performance improvements have been made to Size Curve Contribution Performance.</p>
@@ -1132,6 +1136,10 @@ When the URL is changed for the document ID, the cache of the image is cleared a
         <p><span class="Emphasis">Price Manager</span> - A new system policy labeled <span class="Emphasis">New Site Pricing Displayed Variant Page Limit</span> limits the number of variants that can be returned to the <span class="Emphasis">New Site Pricing</span> tab in the Site Manager module. Once the variants display, a particular page can be selected using the dropdown menu in the new <span class="Emphasis">Page</span> field.</p>
         <p><span class="Emphasis">SQL API</span> - Internal buffering has been added inside the DataTable to JSON serializer to prevent excessive memory allocation.</p>
         <h2>Breaking Changes</h2>
+        <h3><a name="2024.1BC"></a>2024.1</h3>
+        <h4>Inventory </h4>
+        <p>The exceedingly old and replaced pair of tables, <span class="Emphasis">tbl_ArchiveInventory</span> and <span class="Emphasis">tbl_ArchiveInventoryStatus</span>, having been deprecated since JE 3.5.2.2, are explicitly excluded from any Purge activities.  In addition, the database Foreign Key linking the former to the core <span class="Emphasis">tbl_Inventory</span> table has been removed (DROPped) and will not be reinstated.  Any custom code still referencing these tables ought to be eliminated entirely.</p>
+        <p>Any custom or TG JE support developed Inventory Purge procedures must be removed immediately and never reinstated.  The new Inventory Purge supports purge of data from both TG JE core and any custom tables using InventoryID.  Using any other purge mechanism is unsupported and is undertaken at the user’s own risk.</p>
         <h3><a name="2023.4BC"></a>2023.4</h3>
         <h3>Assortment Planning and Target Choice Count</h3>
         <h3>Aggregation changes to TY Act New Choice Count applying values across clusters evenly</h3>
@@ -1637,6 +1645,92 @@ When the URL is changed for the document ID, the cache of the image is cleared a
         <p>These columns contain no useful data, but their removal has resulted in the parameter signature for procedure usp_Promotion_AddUpdatePromotion and related CUSP POST procedure calls.</p>
         <p>Any CUSP procedures in use need to be verified to make sure that the deprecated columns or related parameters are being referenced.</p>
         <h2>System Policies</h2>
+        <h3><a name="2024.1SYS"></a>2024.1</h3>
+        <p>The following existing system policy was renamed</p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0" MadCap:autosort="False">
+            <col class="TableStyle-standard-Column-Column1" style="width: 346px;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 346px;" MadCap:autosortPriority="0" MadCap:autosortDirection="ascending" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 873px;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">System Policy</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">System Policy Group</th>
+                    <th class="TableStyle-standard-HeadD-Column1-Header1">Updated Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">
+                         Assortment Engine DC-to-Store Lead Time  
+                        <p>is now</p><p>Assortment Engine DC-to-Cluster Lead Time</p></td>
+                    <td class="TableStyle-standard-BodyB-Column2-Body1">Engine: Commitments</td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1">Default Lead Time Days from the DC to the Cluster that will be used to calculate Next Order Date information.  This will be rounded to the nearest period.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The following system policies have been added. </p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0" MadCap:autosort="False">
+            <col class="TableStyle-standard-Column-Column1" style="width: 346px;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 346px;" MadCap:autosortPriority="0" MadCap:autosortDirection="ascending" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 873px;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">System Policy</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">System Policy Group</th>
+                    <th class="TableStyle-standard-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Algorithm To Match Static Curve to Placeholder</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Assortment</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        This policy determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned.  The two options are: False - this will keep the same existing static curve that is already copied and assigned to the like style, True - Re-copy the original dynamic curve as a new static curve. 
+                        <p>When creating a new item via hindsight view the newly created item will now utilize the default seasonality curve assigned to the placeholder’s product hierarchy level or the default value of the pruduct/cluster</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Assortment Engine Supplier-to-DC Lead Time</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Engine: Commitments</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">Default Lead Time Days from the Supplier to the DC that is used to determine eligible receipt dates.  This will be rounded to the nearest period.
+Default value is 7.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Attribute Display</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Assortment</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">Determines which fields to show in the attributes columns. 0 - Description, 1 - Code, 2 - Code and Description</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Config: Code/Description Display</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Target Choice&#160;Count</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                        This policy describes how to display properties that have a code and description option, like hierarchy levels or attributes.
+
+ 
+                        <p>The options are: </p><ul><li><p>
+
+Code
+
+</p></li><li><p>Description
+
+</p></li><li><p>Code (Description)
+ (e.g. COH001 (Auburn))</p></li><li><p>Description (Code)
+(e.g. Auburn (COH001))</p></li></ul><p>The default is <span class="Emphasis">Code</span>.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">Enable VAT Conversion In AUT Calculation</td>
+                    <td class="TableStyle-standard-BodyE-Column2-Body1">Module: Assortment</td>
+                    <td class="TableStyle-standard-BodyD-Column1-Body1">
+                         Determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value. 
+                        <p>The default is <span class="Emphasis">True</span>.</p></td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">Price Conversion Method</td>
+                    <td class="TableStyle-standard-BodyB-Column2-Body1">Module: Assortment</td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1">
+                         Determines which Price Conversion Method to use when deriving currency-specific AUT values from the given home AUT value. 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method.</td>
+                </tr>
+            </tbody>
+        </table>
         <h3><a name="2023.4SYS"></a>2023.4</h3>
         <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0" MadCap:autosort="False">
             <col class="TableStyle-standard-Column-Column1" style="width: 346px;" />
@@ -2372,6 +2466,110 @@ For example, a user inputs a desired service level of 90% in the <span class="Em
         <h3>Negative Safety Stock Days</h3>
         <p>TG JE does not handle negative Safety Stock Days or Service Levels. With STS functionality, it is possible to get negative Safety Stock Days with certain criteria, in these cases negative safety Stock Days are converted to 0 (zero).</p>
         <h2>Assortment Planning</h2>
+        <h3><a name="2024.1AP"></a>2024.1</h3>
+        <h3>Defining default pricing relationships across currencies</h3>
+        <p>Within Assortment Planning (AP), pricing decisions are important. Pricing might vary from one Cluster to another, and the complexities of various currencies and exchange rates also make pricing complex. ToolsGroup JustEnough has previously supported pricing strategies, without having to manage pricing individually, through the <span class="Emphasis">Price Point Matrix</span> screen (Price Matrix module). </p>
+        <p>AP now provides better support for planning in multiple currencies through an alternate process, <span class="Emphasis">Price Matrix</span>, to manage pricing. Instead of defining translation rules, users define pricing relationships across currencies by means of a matrix.</p>
+        <h4>Home AUT and Blended AUT</h4>
+        <p>AP now distinguishes between two different types of AUT (or Average Unit Ticket, for example, the ticket price intended to be printed on merchandise tags). </p>
+        <p>The first of these, <span class="Emphasis">Home AUT</span>, represents the AUT value for the country and currency of the defined Home Site as set in the <span class="Emphasis">Manage Assortment Plans</span> screen for AP.  This is the starting point for planning AUT, as this value is user-editable.  <span class="Emphasis">Home AUT</span> is only editable - and only has a value - in future periods. From this, <span class="Emphasis">Blended AUT</span> is derived.  </p>
+        <p><span class="Emphasis">Blended AUT</span> is considered to be a true representation of the expected earnings for a given item.  <span class="Emphasis">Blended AUT</span> incorporates several components, each of which is enabled by system policy:</p>
+        <ul>
+            <li>
+                <p>VAT Rate changes between the Home Site and sites within each cluster</p>
+            </li>
+            <li>
+                <p>Price Exception Factors</p>
+            </li>
+            <li>
+                <p>Price Matrix conversions</p>
+            </li>
+        </ul>
+        <p class="BasicNote">Only Price Exceptions OR Price Matrix conversion can be enabled at once (but both can be disabled altogether if desired).  VAT Rate changes cannot be enabled if Price Matrix conversions are enabled.</p>
+        <p><span class="Emphasis">Blended AUT</span> is derived in future periods from <span class="Emphasis">Home AUT</span>.  In past periods, as <span class="Emphasis">Home AUT</span> has no values, <span class="Emphasis">Blended AUT</span> is derived from provided sales history.</p>
+        <p>These two metrics are available in the following views: Collection, Placeholder, Cluster Sets, Multi-Currency Price View, Sales Plan, and Top Down Core Plan.
+
+Additionally, these metric have been added to the following read-only report views: 
+Assortment Rollup and Reconciliation.</p>
+        <h4>Price Matrix functionality
+</h4>
+        <p>If a user enables Price Matrix conversions via system policy <span class="Emphasis">Price Conversion Method</span>, and sets a Price Matrix on a given placeholder, then the configured Price Matrix is used to convert the provided <span class="Emphasis">Home AUT</span> value to <span class="Emphasis">Blended AUT</span>.
+</p>
+        <p>The following is a worked example to demonstrate the usage and value of this new functionality.</p>
+        <p>
+            <img src="../Resources/Images/Assortment Planning/Multi-Currency Price Point Matrix Example.png" class="LargeImages">
+            </img>
+        </p>
+        <p>In the example, the Price Matrix configuration indicates that USD $67.99 is equivalent to PLN zł270.  The matrix is meant to encapsulate both currency conversions and elegant rounding, or the standard price endings based on currency and locale, like ending prices in 99 cents in USD.</p>
+        <p>The Price Matrix should be specified as a hierarchy default so that newly created placeholders can automatically inherit this property.  </p>
+        <p>Users can set default parameters for the <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span> fields via two new corresponding fields added to the <span class="Emphasis">Assortment Plan Defaults</span> tab on the <span class="Emphasis">Manage Assortment Defaults</span> view. Setting default parameters saves having to manually set values each time. The defaults can still be changed later by users if needed.</p>
+        <p>
+            <img src="../Topics/Release Notes/Price Translation fields.png" class="LargeImages">
+            </img>
+        </p>
+        <p class="BasicNote">The new fields display on the far right (currently moved for screenshot purposes), and they follow the same coloring and editability rules as the other defaults. Both fields show a dropdown for default selection.</p>
+        <p>Then, when new placeholders are created with a given <span class="Emphasis">Home AUT</span>, a <span class="Emphasis">Blended AUT</span> value can automatically be created. Users can review Price Matrix conversions via the following two new fields added to the main planning view: <span class="Emphasis">Price Matrix</span> and <span class="Emphasis">Price Matrix Rounding</span>.</p>
+        <p>
+            <img src="../Resources/Images/Assortment Planning/Price Matrix MPV UI.png">
+            </img>
+        </p>
+        <p class="BasicNote">It is not necessary to set a Price Matrix Rounding rule.  If a Price Matrix is specified, but no Rounding rule is specified, then <span class="Emphasis">Nearest</span> is used.
+</p>
+        <p>
+The specific usage of the Price Matrix can also be viewed in the <span class="Emphasis">Multi-Currency Price View</span>.  Users can see how, for each period, the <span class="Emphasis">Home AUT</span> value converts into each specific currency's value. </p>
+        <p>
+            <img src="../Resources/Images/Assortment Planning/Multi-Currency Price View.png" class="LargeImages">
+            </img>
+        </p>
+        <p class="BasicNote">To reflect the introduction into AP of the Price Matrix functionality, the existing <span class="Emphasis">Price Exceptions</span> view was relabeled <span class="Emphasis">Multi-Currency Price View</span>.</p>
+        <p>The <span class="Emphasis">Multi-Currency Price View</span> also indicates whether any value was missing from the indicated Price Matrix value, for example, if a site in the cluster had currency GBP but this currency was not included in the Price Matrix.
+Missing Price Matrix values will also be noted in the Health Check fields in the main planning view.
+</p>
+        <p>If a Price Matrix is set for a placeholder, then the application attempts to use the Price Matrix data to convert AUT values. If any of the following components are missing, a new Health Error, <span class="Emphasis">Missing Data in Price Matrix</span>, displays in the <span class="Emphasis">Health Error</span> field:</p>
+        <ul>
+            <li>
+                <p>an entry in the matrix for the home site's country / currency</p>
+            </li>
+            <li>
+                <p>an entry in the matrix for the selling sites' country / currencies</p>
+            </li>
+            <li>
+                <p>a row in the matrix for the starting Home AUT value</p>
+            </li>
+            <li>
+                <p>currency conversion data for converting non-Home currency values back to the home currency</p>
+            </li>
+        </ul>
+        <p>After the AUT values are converted from <span class="Emphasis">Home AUT</span> values to currency-specific values using the Price Matrix, all AUT values are then converted back to Home currency using currency conversion rates, and a weighted average is used to calculate the cluster's combined <span class="Emphasis">Blended AUT</span> value.
+
+</p>
+        <p>Each period and cluster's <span class="Emphasis">Home AUT</span> values can be modified in the <span class="Emphasis">Sales Plan</span> view, and <span class="Emphasis">Blended AUT</span> for each period and cluster can be viewed there as well.</p>
+        <p>
+            <img src="../Resources/Images/Assortment Planning/Multi-Currency Sales Plan View Edit.png" class="LargeImages">
+            </img>
+        </p>
+        <h3>Purging old or inactive curves in assortment planning and allocations </h3>
+        <p>Functionality has been added to the existing job <span class="Emphasis">(Weekly) Maintenance: All Modules</span> to garbage collect inactive and deleted curves used both in assortment planning and allocations.</p>
+        <p>The garbage collection process does the following:</p>
+        <ul>
+            <li>
+                <p>deletes references in curves table</p>
+            </li>
+            <li>
+                <p>deletes references from profile table</p>
+            </li>
+            <li>
+                <p>removes curve link tags</p>
+            </li>
+            <li>
+                <p>removes curves from allocation strategies and marks those strategies as missing configuration</p>
+            </li>
+            <li>
+                <p>removes curves from the assortment hierarchy, placeholders, rate of sale and both inventory and level forecast configuration</p>
+            </li>
+        </ul>
+        <h3>Including the Attribute Lookup Description in the Manage Locations view</h3>
+        <p>The <span class="Emphasis">Locations &gt; Manage Locations</span> view has been updated to include the Attribute Lookup description which may be much more meaningful to users than just the Lookup Code of a Site attribute. What displays is governed by new system policy <span class="Emphasis">Attribute Display</span> (Module: Assortment). See the <cite>System Policies</cite> section for more information.</p>
         <h3><a name="2023.4AP"></a>2023.4</h3>
         <h3>Wholesale planning</h3>
         <p>New functionality relating to wholesale planning was introduced for TG&#160;JE v2023.4. For a complete description, see <MadCap:xref href="#2023.WSPL">Wholesale Planning</MadCap:xref>.</p>
@@ -3398,6 +3596,25 @@ YYYY-MM-DD (Product Hierarchy) Description
 
 This User Policy is checked when the screen is opened.</p>
         <h2>Merchandise Financial Planning</h2>
+        <h3><a name="2024.1MFP"></a>2024.1</h3>
+        <h3>Modified AUT discount % calculation</h3>
+        <p>For TG JE v2024.1, the <span class="Emphasis">AUT discount %</span> calculation has been modified. </p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 49%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 49%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Previous calculation</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">New calculation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1" style="vertical-align: middle;padding-left: 6px;padding-right: 6px;padding-top: 6px;padding-bottom: 6px;text-align: center;">AUR/AUT</td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1" style="vertical-align: middle;padding-left: 6px;padding-right: 6px;padding-top: 6px;padding-bottom: 6px;text-align: center;">(1-(AUR/AUT))</td>
+                </tr>
+            </tbody>
+        </table>
         <h3><a name="2023.4MFP"></a>2023.4</h3>
         <h3>Wholesale planning</h3>
         <p>New functionality relating to wholesale planning was introduced for TG&#160;JE v2023.4. For a complete description, see <MadCap:xref href="#2023.WSPL">Wholesale Planning</MadCap:xref>.</p>
@@ -4736,6 +4953,33 @@ This User Policy is checked when the screen is opened.</p>
         <h2 MadCap:conditions="General.DoNotPublish">Adaptive Allocations</h2>
         <h2 MadCap:conditions="General.DoNotPublish">Allocation Rules</h2>
         <h2>Allocations</h2>
+        <h3><a name="2024.1AL"></a>2024.1</h3>
+        <h3>Reviewing Size Model exceptions</h3>
+        <p>If a size curve’s item master filter is empty or items in the filter have no history during recalculation, users are notified via a new column labeled <span class="Emphasis">Exception Status</span>. If an Exception is present, the field is formatted red. Within the field, users click <span class="Emphasis">View</span> to see the details of the issue.</p>
+        <p>
+            <img src="../Resources/Images/Allocations/Size Mode Exceptions.png" class="LargeImages" />
+        </p>
+        <p>There are two new Exception messages:</p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 80%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Exception</th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyE-Column1-Body1">No Valid Items in Size Model Filters</td>
+                    <td class="TableStyle-standard-BodyD-Column2-Body1">There are no items matching the criteria specified in the item filter. Please ensure that the item filter is not empty or consider adjusting the filter criteria.</td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td class="TableStyle-standard-BodyB-Column1-Body1">No Qualified Sales</td>
+                    <td class="TableStyle-standard-BodyA-Column2-Body1">No historical sales were found within the specified timeframe. Please ensure that the items specified in the filter have valid sales records between the dates set by the start date, end date, and Last X Days parameters.</td>
+                </tr>
+            </tbody>
+        </table>
         <h3><a name="2023.3AL"></a>2023.3</h3>
         <h3>Reduced allocation cache calculation runs
 
@@ -4909,6 +5153,272 @@ For more information, refer to the <cite>System Policies</cite> section.			</p>
         <p>The use of the R Engine within the Compute Node Manager has been deprecated with the call to get the URL reverting back to the previously existing system policy. The reason is that R Engine as it is used today does not go through the Compute Node Manager. Instead, the R Engine goes through a separate dispatch broker call. The system policy, labeled <span class="Emphasis">The RScript Service URL</span> (Module: Allocation), was previously hidden but is now visible.</p>
         <p class="BasicNote">For more information regarding the system policy, see <cite>System Policies</cite>.</p>
         <h2>Forecasting</h2>
+        <h3><a name="2024.1FOC"></a>2024.1</h3>
+        <h3>Forecasting cost and retail ticket price </h3>
+        <p>Planners can now use two new series, <span class="Emphasis">Forecast Cost</span> and <span class="Emphasis">Forecast Retail</span>, to forecast the cost and retail ticket price of selected inventory. The result is insight into the profitability of future sales originally priced in different currencies. The cost and retail of the inventory is calculated using the default cost and retail price of the inventory. Pricing displays in the planner's system or home currency. Currency conversion  is automatic and is defined by existing system policy <span class="Emphasis">Currency ID</span> (Engine: Replenish). </p>
+        <p class="BasicNote">If system policy <span class="Emphasis">Currency ID</span> is set to <span class="Emphasis">1</span>, then currency conversion does not take place.</p>
+        <p>
+            <img src="../Resources/Images/Demand Forecasting/Currency Metrics.PNG" class="LargeImages" />
+        </p>
+        <p>The two series appear as color coded lines in the graph with the data being from the currently selected inventory in the Forecast view.</p>
+        <p>Currency values are greater than unit values; where 1 unit can correspond to a high currency value (e.g. 1 unit = $100) If both unit and currency forecast data series are selected, the unit values on the graph appear stacked across the bottom of the graph. This is because the y-axis is extended to display the currency values. A best practice is to select either units or currency forecast series when viewing values in the graph. This will apply the appropriate scale to the y-axis for proper viewing. </p>
+        <h4>Series Name: Forecast Cost</h4>
+        <p>Color: Blue</p>
+        <p>Calculation: Forecasted units * cost of the unit in the system currency</p>
+        <p>Example: 
+
+Inventory ID 1 - Effective Forecast (note this takes into account profiles, level breakdown, manual forecast, etc.)</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/standard.css');margin-left: 0;margin-right: auto;width: 100%;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 20%;" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 20%;" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Bucket ID</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Effective Forecast Qty </th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">Default Cost</th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">Currency Conversion</th>
+                    <th class="TableStyle-standard-HeadD-Column1-Header1">Expected Results</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>5</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p>CA$40</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>10</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column1-Body1">
+                        <p>CA$40</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>3</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column2-Body1">
+                        <p>15</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column2-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyA-Column1-Body1">
+                        <p>CA$60</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Level ID = 1 and contains Inventory ID 1, 2, 3</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/standard.css');margin-left: 0;margin-right: auto;width: 100%;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 16.6%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 16.6%;" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 16.6%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 16.6%;" />
+            <col class="TableStyle-standard-Column-Column1" style="width: 16.6%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 16.6%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">
+                        <p>Inventory ID </p>
+                    </th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">
+                        <p>Bucket ID </p>
+                    </th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">
+                        <p>Effective Forecast Qty </p>
+                    </th>
+                    <th class="TableStyle-standard-HeadE-Column2-Header1">
+                        <p>Default Cost</p>
+                    </th>
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">
+                        <p>Currency Conversion</p>
+                    </th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">
+                        <p>Expected Values</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>5</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$40</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>10</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$40</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>3</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>15</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>$4.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$60</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>50</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column2-Body1">
+                        <p>CA$5.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$250</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column2-Body1">
+                        <p>3</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>100</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column2-Body1">
+                        <p>CA$5.00</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyA-Column2-Body1">
+                        <p>CA$500</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Expected Level Results for Level ID 1 </p>
+        <table style="mc-table-style: url('../Resources/TableStyles/standard.css');margin-left: 0;margin-right: auto;width: 50%;" class="TableStyle-standard" cellspacing="0">
+            <col class="TableStyle-standard-Column-Column1" style="width: 50%;" />
+            <col class="TableStyle-standard-Column-Column2" style="width: 50%;" />
+            <thead>
+                <tr class="TableStyle-standard-Head-Header1">
+                    <th class="TableStyle-standard-HeadE-Column1-Header1">
+                        <p>Bucket ID </p>
+                    </th>
+                    <th class="TableStyle-standard-HeadD-Column2-Header1">
+                        <p>Expected Results</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>1</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$290</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyE-Column1-Body1">
+                        <p>2</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyD-Column2-Body1">
+                        <p>CA$40</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-standard-Body-Body1">
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyB-Column1-Body1">
+                        <p>3</p>
+                    </td>
+                    <td rowspan="1" colspan="1" class="TableStyle-standard-BodyA-Column2-Body1">
+                        <p>CA$560</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Series Name: Forecast Retail 
+
+</h4>
+        <p>Color: Green
+</p>
+        <p>Calculation: Forecasted units * retail of the unit in the system currency
+
+</p>
         <h3><a name="2022.3FOC"></a>2022.3</h3>
         <h3><a name="Using"></a>Using machine learning to improve forecasting</h3>
         <p>ToolsGroup JustEnough v2022.3 introduces a new Forecasting Method labeled Gradient Boosting which is based on machine learning. The machine learning algorithm uses Gradient Boosted Decision Trees to analyze all relevant historical data (known as features) relating to demand patterns (e.g. seasonality, brands), business decisions (e.g. Promotions, changes in display and space), and external factors (e.g. holidays, footfall, weather). The historical data is then translated into an extremely accurate prediction or forecast.</p>
@@ -5285,6 +5795,9 @@ For more information, refer to the <cite>System Policies</cite> section.			</p>
         <h4>Confirming Promotions have been created </h4>
         <p>The usability of the <span class="Emphasis">Manage Plans</span> window on the <span class="Emphasis">Planner</span> tab has been enhanced with the addition of a <span class="Emphasis">Refresh</span> button. Previously, the <span class="Emphasis">Manage Plans</span> window needed to be closed and then reopened to refresh the grids. Now, clicking <span class="Emphasis">Refresh</span> automatically refreshes the grid making it easier for users to confirm if Promotions have been created and have a Queue Status of <span class="Emphasis">Completed</span>.</p>
         <h2>Target Choice Count</h2>
+        <h3><a name="2024.1TCC"></a>2024.1</h3>
+        <h3>Configure displayed Segment Split Type information</h3>
+        <p>A new system policy, <span class="Emphasis">Config: Code/Description Display</span>, can be configured to display Segment Split Type information most relevant to the specific application (either hierarchy level or attribute). For more information, refer to the <i>System Policies</i> section.</p>
         <h3><a name="2023.4TCC"></a>2023.4</h3>
         <h3>Wholesale planning</h3>
         <p>New functionality relating to wholesale planning was introduced for TG&#160;JE v2023.4. For a complete description, see <MadCap:xref href="#2023.WSPL">Wholesale Planning</MadCap:xref>.</p>
@@ -5820,6 +6333,19 @@ For more information regarding the system policy, see <cite>System Policies</cit
         <h2 MadCap:conditions="General.DoNotPublish">Media</h2>
         <h2 MadCap:conditions="General.DoNotPublish">Timeframes</h2>
         <h2>Site Clustering</h2>
+        <h3><a name="2024.1SC"></a>2024.1</h3>
+        <h3>Selective creation of site (store)-level MFP plans</h3>
+        <p>When creating plans in MFP, users can decide which levels of the location hierarchy should be included in the plan. In general, the recommendation is to not plan at the lowest level (aka Store or Site) as that level of granularity is generally not needed. Also, if the plan is established at the site-level, all MFP data must be stored at that level. This results in large amounts of data to be saved and reduced performance within MFP.</p>
+        <p>However, MFP plans can be created at the site-level, if the user desires. With data requirements and performance speed in mind, focused store plans should only be created for specific (limited) sites.</p>
+        <h3>Using sites (store)-level MFP plans to create site clusters</h3>
+        <p>If a focused site-level store plan has been created, those site-level planned attributes can be used within Site Clustering, specifically Sales Units or Sales Revenue. This allows the machine-learning algorithms within Site Clustering to reference site-level planned data to create clusters. Creating site clusters based on site-level planned data supports clustering based on <i>planned</i> MFP-site performance, rather than <i>historical</i> site performance.</p>
+        <p> Select new Attribute Type <span class="Emphasis">Financial Plan Attribute</span>, via either the <span class="Emphasis">Add Attribute</span> and <span class="Emphasis">Edit Attribute</span> dialogs, to specify a site-level MFP plan as a sales attribute and a time range to be used in conjunction to cluster sites with. </p>
+        <p>
+            <img src="../Topics/Release Notes/Financial Plan Attribute Example.PNG" class="LargeImages">
+            </img>
+        </p>
+        <p>The hybrid MFP plans listed are those plans that are in status <span class="Emphasis">Initialized</span>, <span class="Emphasis">In Progress</span>, or <span class="Emphasis">Authorized</span>. </p>
+        <p class="BasicNote">The hybrid MFP plans must have the exactly the same product hierarchy levels down to the selected clustering level. These plans can have lower levels of the product hierarchy as well but can’t be at a higher level than the required clustering. Time range selections need to be within the time range of the financial plan.</p>
         <h3><a name="2023.4SC"></a>2023.4</h3>
         <p>New functionality relating to wholesale planning was introduced for TG&#160;JE v2023.4. For a complete description, see <MadCap:xref href="#2023.WSPL">Wholesale Planning</MadCap:xref>.</p>
         <h3><a name="2022.4SC"></a>2022.4</h3>
@@ -5883,7 +6409,12 @@ A new option labeled <span class="Emphasis">Contains</span> has been added to th
         </p>
         <h2 MadCap:conditions="General.DoNotPublish">Workflow Manager</h2>
         <h2 MadCap:conditions="General.DoNotPublish">Configuration Migration</h2>
-        <h2 MadCap:conditions="General.DoNotPublish">User</h2>
+        <h2>User</h2>
+        <h3><a name="2024.1USR"></a>2024.1</h3>
+        <p>As password management is now outside of the TG&#160;JE system being managed by Auth0, the fields on the <span class="Emphasis">User Information</span> screen allowing users to change the login password have been removed and replaced with the following wording <span class="Emphasis">User password managed outside of system</span>. </p>
+        <p>
+            <img src="../Resources/Images/Users/User Information screen.png" class="LargeImages" />
+        </p>
         <h2 MadCap:conditions="General.DoNotPublish">System Utilities</h2>
     </body>
 </html>
