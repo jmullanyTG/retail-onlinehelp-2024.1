@@ -795,6 +795,53 @@ EXEC dbo.usp_INIT_Promotion_All</MadCap:codeSnippetBody>
                 <p>(WS) (Weekly) Generate Sales History from Customer Orders</p>
             </li>
         </ol>
+        <h2>2024.1</h2>
+        <h3>Update Script (2024.1.0.0_JEUpdate)</h3>
+        <h3>Views, Widget &amp; Collections</h3>
+        <p>Allocation</p>
+        <ol>
+            <li>
+                <p>Size Model Exceptions: The view will be a popup that will show the exceptions found for a given Size Curve Option.</p>
+                <p> <img src="../../Resources/Images/Allocations/Size Mode Exceptions.png" class="LargeImages" /></p>
+            </li>
+        </ol>
+        <h3>New/Changed System Policies </h3>
+        <p>Engine: Commitments</p>
+        <ol>
+            <li>
+                <p>Assortment Engine Supplier-to-DC Lead Time: Default Lead Time Days from the Supplier to the DC that is used to determine eligible receipt dates.  This will be rounded to the nearest period.</p>
+            </li>
+        </ol>
+        <p>Engine: Replenish</p>
+        <ol>
+            <li>
+                <p>Use New Beta Replenishment Engine: Set this to true to use the 2024 released replenishment engine.</p>
+            </li>
+        </ol>
+        <p>Module: Assortment</p>
+        <ol>
+            <li>
+                <p>Algorithm To Match Static Curve to Placeholder: This policy determines what mechanism is used to copy a placeholder from like style where the style has a static curve assigned.  The two options are: False - this will keep the same existing static curve that is already copied and assigned to the like style, True - Re-copy the original dynamic curve as a new static curve.</p>
+            </li>
+            <li>
+                <p>Attribute Display: Determines which fie</p>
+            </li>
+            <li>
+                <p>lds to show in the attributes columns. 0 - Description, 1 - Code, 2 - Code and Description</p>
+            </li>
+            <li>
+                <p>Price Conversion Method: Determines which Price Conversion Method to use when deriving currency-specific AUT values from the given home AUT value. 1 - Will use the original Price Exception method only, 2 - Will use the Price Matrix method only, 3 - Will use neither method.</p>
+            </li>
+            <li>
+                <p>Enable VAT Conversion In AUT Calculation: Determines whether to use VAT rate conversion steps when deriving currency-specific AUT values from the given home AUT value.</p>
+            </li>
+        </ol>
+        <p>Module: Target Choice Count</p>
+        <ol>
+            <li>
+                <p>Config: Code/Description Display: This policy describes how to display properties that have a code and description option, like hierarchy levels or attributes.</p>
+            </li>
+        </ol>
         <h2>Services Architecture &amp; Additional Configuration</h2>
         <p class="BasicNote">Each release containing new architecture contains a version-specific configuration guide. The following is the most recent.</p>
         <p>

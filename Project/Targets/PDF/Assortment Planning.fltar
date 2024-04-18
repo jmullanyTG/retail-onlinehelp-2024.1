@@ -2,7 +2,7 @@
 <CatapultTarget
   Version="2"
   Comment="For Printed Manuals"
-  Type="MsWord"
+  Type="PDF"
   Destinations=""
   MasterToc="/Project/TOCs/Assortment Planning.fltoc"
   PatchHeadingLevels="true"

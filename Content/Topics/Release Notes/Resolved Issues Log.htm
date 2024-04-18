@@ -466,7 +466,12 @@ There are two conditions this issue will not address. First, the data appears to
                     <td class="TableStyle-standard-BodyD-Column2-Body1">&#160;</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">&#160;</td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
+                        <p>Customer report certain items were causing errors during calculations.</p>
+                        <p><span class="Emphasis">Resolution</span>
+                        </p>
+                        <p>After investigation, it was found that during PO wait calculation, it was noticed when we had a null priority it would remove entries and that would produce an infinite loop. Changed logic to only ignore if we have a current priority specified and seems to allow the process to continue. This change should only affect items and strategies using PO Wait.</p>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -494,7 +499,7 @@ There are two conditions this issue will not address. First, the data appears to
                         <p>2023.4.1.0</p></td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">During MSI testing, right click a MSI file itself and make sure that it has the Toolsgroup certificate. </td>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4">During MSI testing, right click a MSI file itself and make sure that it has the ToolsGroup certificate. </td>
                 </tr>
             </tbody>
         </table>
@@ -549,8 +554,7 @@ There are two conditions this issue will not address. First, the data appears to
                     <td class="TableStyle-standard-BodyD-Column2-Body1">2023.4.2.0</td>
                 </tr>
                 <tr class="TableStyle-standard-Body-Body1">
-                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior
-</span>
+                    <td class="TableStyle-standard-BodyA-Column1-Body1" colspan="4"><span class="Emphasis">Reported Behavior</span>
                         <p>The field Comparison Active ROS U in the cleansed data view, which is used as a reference is not populating.
 
 </p>
