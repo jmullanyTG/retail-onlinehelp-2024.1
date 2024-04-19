@@ -17,11 +17,11 @@ items.</p>
             </li>
             <li>
                 <p><span class="Emphasis">Exception Status</span>  - Required configuration elements are missing.</p>
-                <p>If a size curve’s item master filter is empty or items in the filter have no history during recalculation, users are notified via the <span class="Emphasis">Exception Status</span> column. If an Exception is present, the field is formatted red. Within the field, click <span class="Emphasis">View</span> to see the details of the issue.</p>
+                <p>If a size curve’s item master filter is empty, the items in the filter have no history during recalculation, or all history has been filtered out due to sales model criteria, users are notified via an Exception message. If an Exception is present, the field is formatted red. Within the field, click <span class="Emphasis">View</span> to see the details of the issue.</p>
                 <p>
                     <img src="../../Resources/Images/Allocations/Size Mode Exceptions.png" class="LargeImages" />
                 </p>
-                <p>There are two possible Exception messages:</p>
+                <p>There are three possible Exception messages:</p>
                 <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../../Resources/TableStyles/standard.css');" class="TableStyle-standard" cellspacing="0">
                     <col class="TableStyle-standard-Column-Column1" style="width: 20%;" />
                     <col class="TableStyle-standard-Column-Column2" style="width: 80%;" />
@@ -37,8 +37,12 @@ items.</p>
                             <td class="TableStyle-standard-BodyD-Column2-Body1">There are no items matching the criteria specified in the item filter. Please ensure that the item filter is not empty or consider adjusting the filter criteria.</td>
                         </tr>
                         <tr class="TableStyle-standard-Body-Body1">
-                            <td class="TableStyle-standard-BodyB-Column1-Body1">No Qualified Sales</td>
-                            <td class="TableStyle-standard-BodyA-Column2-Body1">No historical sales were found within the specified timeframe. Please ensure that the items specified in the filter have valid sales records between the dates set by the start date, end date, and Last X Days parameters.</td>
+                            <td class="TableStyle-standard-BodyE-Column1-Body1">No Qualified Sales</td>
+                            <td class="TableStyle-standard-BodyD-Column2-Body1">No historical sales were found within the specified timeframe. Please ensure that the items specified in the filter have valid sales records between the dates set by the start date, end date, and Last X Days parameters.</td>
+                        </tr>
+                        <tr class="TableStyle-standard-Body-Body1">
+                            <td class="TableStyle-standard-BodyB-Column1-Body1">No Qualified Sales Due to Thresholds</td>
+                            <td class="TableStyle-standard-BodyA-Column2-Body1">No qualified sales that fit the sales model criteria. No sales history within the specified time frame and item filter fit the Percent Covered and Weeks Covered criteria.</td>
                         </tr>
                     </tbody>
                 </table>
