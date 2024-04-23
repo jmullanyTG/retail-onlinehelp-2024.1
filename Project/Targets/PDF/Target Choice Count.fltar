@@ -22,7 +22,7 @@
     DisableMasterPageUsage="true"
     OutputFormat="docx" />
   <Variables> <Variable
-      Name="Variables/BookVersion">2024.2 - 2024.4</Variable> <Variable
+      Name="Variables/BookVersion">2024.1</Variable> <Variable
       Name="Variables/BookSubTitle">User Guide</Variable><Variable
       Name="Variables/BookTitle">Target Choice Count</Variable></Variables>
   <Destinations>

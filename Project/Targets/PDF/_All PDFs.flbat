@@ -23,13 +23,14 @@
       Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-04-04T10:07:25.5827339-04:00" />
+      LastBuilt="2024-04-09T12:29:02.6577808-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="Demand Mgmt non-Help requests/Upgrade Playbook (Template)"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-18T13:08:22.3151737-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="Diamond Chart 2019x - 2021x"
@@ -42,7 +43,7 @@
       Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-03-12T13:11:58.9483308-04:00" />
+      LastBuilt="2024-04-19T12:19:33.2743681-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Adaptive Allocations"
@@ -66,7 +67,8 @@
       Name="PDF/Allocations"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-22T10:16:01.5299876-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Allocations Rules Manager"
@@ -76,10 +78,10 @@
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Assortment Planning"
-      Type="Word"
+      Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-04-08T11:10:26.3124784-04:00" />
+      LastBuilt="2024-04-22T10:27:53.9754172-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Attribute Management"
@@ -142,13 +144,15 @@
       Name="PDF/Demand Forecasting"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-22T10:16:46.7905103-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Demand Transfer"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-16T14:59:31.0763141-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Events"
@@ -172,7 +176,8 @@
       Name="PDF/Forecast Definition"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-22T10:17:00.1539966-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Glossary"
@@ -208,7 +213,8 @@
       Name="PDF/Languages"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-12T11:20:30.6666555-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Media Manager"
@@ -221,7 +227,7 @@
       Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-04-04T12:18:35.6245586-04:00" />
+      LastBuilt="2024-04-22T10:19:31.1044506-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Module Groups &amp; Sub Categories"
@@ -239,7 +245,8 @@
       Name="PDF/Order Manager"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-16T10:41:27.5371522-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Ordering Constraints"
@@ -251,7 +258,8 @@
       Name="PDF/Policy"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-17T15:09:46.6432166-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Price Manager"
@@ -294,7 +302,8 @@
       Name="PDF/Site Clustering"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-22T10:18:21.6498668-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Site Manager"
@@ -331,9 +340,9 @@
       Icon="System.Drawing.Bitmap"
       Name="PDF/Target Choice Count"
       Type="PDF"
-      Build="false"
-      Publish="false"
-      LastBuilt="2024-02-06T15:22:58.7052881-05:00" />
+      Build="true"
+      Publish="true"
+      LastBuilt="2024-04-22T10:18:59.4237675-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Time Frames"
@@ -376,7 +385,8 @@
       Name="PDF/Wholesale Planning"
       Type="PDF"
       Build="false"
-      Publish="false" />
+      Publish="false"
+      LastBuilt="2024-04-22T10:19:14.5324094-04:00" />
     <Target
       Icon="System.Drawing.Bitmap"
       Name="PDF/Workflow Manager"
@@ -395,6 +405,6 @@
       Type="PDF"
       Build="false"
       Publish="false"
-      LastBuilt="2024-04-03T12:32:05.3396492-04:00" />
+      LastBuilt="2024-04-19T12:03:45.7717058-04:00" />
   </Targets>
 </CatapultBatchTarget>
